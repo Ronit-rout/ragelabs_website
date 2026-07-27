@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Work | Rage Labs Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#730c13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 backdrop-blur-md dark:bg-background-dark/80 px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 48 48">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight dark:text-white">Rage Labs</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-white" href="#">Home</a>
+<a class="text-sm font-bold text-primary dark:text-primary" href="#">Work</a>
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-white" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors dark:text-gray-300 dark:hover:text-white" href="#">Services</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
+                        Let's Talk
+                    </button>
+<div class="w-10 h-10 rounded-full border border-primary/20 bg-cover bg-center" data-alt="User profile avatar circle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADKWr-7wIIZeJJWCkZnuIPffKpK1vzaQ69mwC_yiRkLsM4TLHztHcKNC9mCAP4SOIJujpoCTtqtooNsmdMF2-8Q5bhm3XPEx3YcAVZxxND9XZqLyTYwInNu6WGoGk-hqD1Ue3RmAyZpbmkHTlrW6Q7BsNlqHyOn5V469YohYhYElZxkL57ER08YyW51A7joWEzOM1IL36E3atDOgAKz64ZUr7i-VZa0-HplnwfC_aNhKQTQ7L0gG8lVr5kPcyGwOvHnqPqCAfphw')"></div>
+</div>
+</div>
+</header>
+<!-- Hero / Title Section -->
+<main class="flex-grow">
+<section class="px-6 lg:px-20 py-16 lg:py-24 max-w-7xl mx-auto">
+<div class="max-w-3xl">
+<h1 class="text-5xl lg:text-7xl font-black tracking-tighter text-primary mb-6">Our Work</h1>
+<p class="text-xl text-[#974e53] dark:text-gray-400 font-normal leading-relaxed">
+                        Building the future of software with precision, passion, and the latest technology stacks. 
+                        Explore our portfolio of engineering excellence and digital transformation.
+                    </p>
+</div>
+<!-- Category Filter -->
+<div class="mt-12 flex flex-wrap gap-4 border-b border-primary/10 pb-6">
+<button class="px-6 py-2 rounded-full bg-primary text-white text-sm font-bold">All Projects</button>
+<button class="px-6 py-2 rounded-full border border-primary/20 text-[#1b0e0f] dark:text-gray-300 hover:bg-primary/5 text-sm font-medium transition-all">AI &amp; Data</button>
+<button class="px-6 py-2 rounded-full border border-primary/20 text-[#1b0e0f] dark:text-gray-300 hover:bg-primary/5 text-sm font-medium transition-all">Fintech</button>
+<button class="px-6 py-2 rounded-full border border-primary/20 text-[#1b0e0f] dark:text-gray-300 hover:bg-primary/5 text-sm font-medium transition-all">Cybersecurity</button>
+</div>
+<!-- Project Grid -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="Neural networking abstract data visualization" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpDBwKnsTRdGFyP0IEwUF47-wWDjg560trN_Ryh-m7k-_BHE7wwEle2S3p-JYcM_Miu5hm3XhyjvUsivnnSlT6nUh3Jx6MaJWciXqYJdTkq3M9MaP-6zB5g3zacZFwz99HqmIXiw-tUzqgw5M2Lk85SM8InTp_ZJGv20uWhfiKlAEMnEu1Cune0J-O2H2d2mVLrFjOqGmLpxqKbf21PPlVsN63lx-ETGwlkOI7uYWh_TSkJugmySkOJssZnYVnZWBuHlPpIWdDRg')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">Neural Nexus</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">AI-driven data visualization platform providing real-time insights for large-scale enterprise data sets.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Python</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">React</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">TensorFlow</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="Financial data charts and terminal screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKCutX1iFSM9K92vJ7-6c2DNjCgzloPeIYQp6571n7zaESHLsw2QZkPwLEkw28cwzLv6q90yWb5e0kvp2f8DUsYJsIatXaGd-aIZw74nFZbBeP-7mDUa-xQUaH0LdQ5fJ9CeVVG58VrJFh3v-iwumR-z9xST5ZsLbh7PERUAUJ1_mVVpzyaAJZsF7UF0hjyaZiqTENJn0ChG0LALh84iyP5SQdH6XWjGpBVtG7HxFRnXMMpNueB5M8JzG5gTYYtQHgcVWR_EpQPw')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">Velocity Pay</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">High-throughput fintech API designed for global transaction scaling with micro-second latency.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Node.js</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">AWS</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Go</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="Cybersecurity dashboard with shield icons" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8bouT8WcPuRbw9Zodd8bzTPbLm-8Uh-e13RJSB6s_ZuF3gPSXlt7-2aYns1pFlqCf9b9_XK0NHiY595485kJUyyWLi5wWkxvtyKSnbNxGWYx7-pz9RHmyVZFLbH3_25GWzd4UjEU7nnDCiqJHrjSppK-kfjmWNb3sIvM1CKjyku1zZnu-5FDYSqlj6y2F8WAJCZkCjdEOcKS3u2bwreqDU1mj-lxgFFRTxaEWHArGjCuxSlm2dH4siQiH5uY2idmdU1GtYz5oYw')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">SecureVault</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">Enterprise-grade cybersecurity dashboard featuring threat detection and encrypted asset management.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Rust</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Next.js</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Web3</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="Blockchain digital ledger visual representation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaJ6y370oi611UrSO1OiJur02o1FgEE0j-wf62Eb12y6wGpVjI3OQHVemTsvhv0g7IdoFgPZaQuyaeNIZwG4TDa8E9m27UCPy9L-Zfg3xu4Q--i5k1vkwlU8VI_WB6Fchxh2AvI0jDNR9RhYEZcIPsR69T2UbGW6xxB-7jGvWAEXkcpijBMr6eVpx1SLNxLIevVr_7Znho8YMBDD4JdT3xAiCXaWRYW5CTpON3B93vmxmcRcq0RM_av2kjylIqXWuEqEIquR5DRQ')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">Quantum Ledger</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">Blockchain transparency tool for supply chain management using distributed ledger technology.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Solidity</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Web3.js</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Ethereum</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="Satellite imagery of Earth networking nodes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDT2PesCJ1frL8HZ6Wlv3rYQRasKs64vV5ejfgxql_0B8UNHzWpYj0YLVzQfrQS_ld_B0t2pkuudqYfKxtR9FdXSfpRgc891hBpkZxvKHX0YEbZRnI5ERzCDuSNuspA_8u96SH4qCaMTtUMqvRv9xBsQVmGGnDg75cFnXFddEJDk9mByrjvQE6D2yNmu-PO5bMjnL_oPRY2j2EL8sxw38i8g0SpON9_IJe4bMwf72DI4taXAuHSFjA6yFy5oQmt4gplS2kGJFUFJg')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">EcoStream</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">Real-time environmental monitoring utilizing IoT sensors and satellite data streams for climate research.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">IoT</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Python</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">GCP</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="project-card group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-video mb-4">
+<div class="project-image w-full h-full bg-cover bg-center transition-transform duration-500" data-alt="UI design system components on screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAV6Ex99ogre0dorlCjsaBEtIg4SNeJSRh4FwbvWYtcfseMA3T-TmYgDc7BkebpWQxfPBzqXALbcU-NSvw0Rz2YL4zqW2MUj8kEjTz6LAY7-emFQnFdaHuY-2XnEO4T_prC8ZjKyD0uQw2Mc5srNswuAy8tOWabOd58XDTpmCvr4HQ_3YfmBkNOHgoLGjE4Bx3o4Si3-dfuHrfvryIgABEAPV95ADKMRxL0wDybVLS7ak1nU8B5PamimOjNrWVbh2tiERXANiDa6g')"></div>
+<div class="project-overlay absolute inset-0 bg-primary/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+<span class="text-white font-bold flex items-center gap-2">
+                                    View Case Study <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-primary transition-colors">Vertex UI</h3>
+<p class="text-[#974e53] dark:text-gray-400 text-sm mb-4 line-clamp-2">A comprehensive design system built for high-performance SaaS applications and complex dashboards.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Figma</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Tailwind</span>
+<span class="px-3 py-1 rounded bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">Storybook</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="bg-primary py-20 px-6 lg:px-20 text-center">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">Ready to build the next big thing?</h2>
+<p class="text-white/80 text-lg mb-10 max-w-xl mx-auto">Our team is ready to turn your complex challenges into elegant software solutions. Let's start a conversation today.</p>
+<button class="bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all inline-flex items-center gap-2">
+                        Let's Talk <span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-primary/10 bg-white dark:bg-background-dark px-6 lg:px-20 py-12">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="text-primary">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 48 48">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<span class="text-lg font-bold tracking-tight dark:text-white">Rage Labs</span>
+</div>
+<p class="text-[#974e53] dark:text-gray-400 max-w-sm mb-6">Building performant, scalable, and secure software for the world's most innovative companies.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/5 text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-6 dark:text-white">Company</h4>
+<ul class="space-y-4 text-sm text-[#974e53] dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Work</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 dark:text-white">Services</h4>
+<ul class="space-y-4 text-sm text-[#974e53] dark:text-gray-400">
+<li><a class="hover:text-primary transition-colors" href="#">AI &amp; Data</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fintech</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cybersecurity</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">UI/UX Design</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#974e53] dark:text-gray-500">
+<p>© 2024 Rage Labs Software Engineering. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

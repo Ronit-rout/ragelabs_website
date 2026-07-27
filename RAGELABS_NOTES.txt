@@ -1,0 +1,109 @@
+================================================================================
+  RAGE LABS — PROJECT NOTES & FEATURE TRACKER
+  Last Updated: 2026-03-27
+  Access this file from any computer at: /stitch_home_page/RAGELABS_NOTES.txt
+================================================================================
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CREDENTIALS & CONFIG (KEEP PRIVATE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Gmail (SMTP):
+    Account      : support@laundryrage.com
+    App Name     : Rage_labs_email
+    App Password : lpev lpfb mytw qijz
+
+  Dashboard:
+    URL          : http://localhost:8080/dashboard.html
+    Password     : RLA20TWO6
+    Allowed Emails:
+      - ronitrishir@gmail.com
+      - ronitrishi05@gmail.com
+      - seemanchalmohanty@gmail.com
+      - ayogeshkumar22@gmail.com
+      - sahooswarup60@gmail.com
+      - nayakkalpana501@gmail.com
+
+  Database:
+    Host     : localhost:3306
+    DB Name  : ragelabsdb
+    User     : root
+    Password : Ronit@123
+
+  Backend API Endpoints:
+    POST  /api/pitch                      — Submit a startup pitch
+    POST  /api/apply                      — Submit a job application
+    GET   /api/admin/pitches              — List all pitches (requires X-Admin-Secret)
+    GET   /api/admin/applications         — List all applications (requires X-Admin-Secret)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  HOW TO RUN LOCALLY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Start MySQL (make sure ragelabsdb exists)
+  2. cd backend
+  3. mvn spring-boot:run
+  4. Open index.html in browser OR go to http://localhost:8080
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FEATURES COMPLETED (DEPLOYMENT READY)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [x] 1. EMAIL SYSTEM
+          - Gmail SMTP integration verified.
+          - App password updated and configured.
+          - Multi-recipient notifications active.
+
+  [x] 2. PITCH / SUBMISSION — AUTH GATE
+          - Pitch form (pitch.html) gated via Auth Modal.
+          - Redirect logic (?redirect=pitch) implemented for Sign In/Up.
+          - Nav Bar dynamic Avatar showing user initial.
+
+  [x] 3. CAREER PAGE & CONTACT FLOW
+          - Fixed submit buttons across all forms.
+          - End-to-end flow: Form -> API -> DB -> Email -> Success Page.
+          - Auth checks added before submission for Contact & Apply.
+
+  [x] 4. DASHBOARD — PREMIUM OVERHAUL
+          - Security: Password RLA20TWO6 + Email Whitlelist.
+          - Export: "Export Snapshot (CSV)" feature active.
+          - Theme: Integrated Dark Mode support.
+          - Aesthetics: High-end "Stitch" design system UI.
+
+  [x] 5. SERVICES & ABOUT PAGE EDITS
+          - UI refined for "Venture" sections.
+          - Corrected names and titles for the team.
+
+  [x] 6. SUBMISSION CONFIRMATION
+          - Premium thankyou.html created with dynamic success messages.
+          - Automatic redirect after form submission.
+
+  [x] 7. BETTER FEEDBACK
+          - Replaced native alerts with "showToast" animated notifications.
+          - Branded for Success/Error feedback.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DESIGN SYSTEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Primary Color    : #730c13 (dark red)
+  Accent Yellow    : #f6bc18 (gold)
+  Background Light : #f8f6f6
+  Background Dark  : #0f0506 (premium dark)
+  Font (Display)   : Space Grotesk
+  Font (Title/Logo): Big Shoulders Display
+  Icons            : Material Symbols Outlined
+  CSS Framework    : Tailwind CSS (CDN)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  NEXT STEPS / FUTURE BACKLOG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [ ] Application Status Tracker — let applicants see pending/accepted/rejected
+  [ ] Role-based admin permissions (view-only vs full control)
+  [ ] Real-time Analytics Dashboard with charts
+  [ ] Multi-file attachment support for pitch decks
+
+================================================================================
+  END OF PROJECT STATUS
+================================================================================

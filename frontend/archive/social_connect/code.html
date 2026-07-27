@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social Directory | Rage Labs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#730c13",
+                        "accent-yellow": "#FFD700",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(115, 12, 19, 0.1), 0 10px 10px -5px rgba(115, 12, 19, 0.04);
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white min-h-screen">
+<!-- Main Container -->
+<div class="max-w-2xl mx-auto px-6 py-16 flex flex-col items-center">
+<!-- Header / Profile Section -->
+<div class="flex flex-col items-center mb-12 text-center">
+<div class="relative mb-6">
+<div class="size-24 rounded-full bg-primary flex items-center justify-center text-white shadow-xl border-4 border-white dark:border-background-dark overflow-hidden">
+<svg class="w-12 h-12" fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-accent-yellow size-6 rounded-full border-2 border-white dark:border-background-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary font-bold">bolt</span>
+</div>
+</div>
+<h1 class="text-4xl font-bold tracking-tight mb-2">Rage Labs</h1>
+<p class="text-primary dark:text-primary/80 font-medium mb-4">@rage_labs</p>
+<p class="text-gray-600 dark:text-gray-400 max-w-sm leading-relaxed">
+                Building the future of high-performance tech ecosystem. Connect with us across the digital frontier.
+            </p>
+</div>
+<!-- Social Directory Cards -->
+<div class="w-full space-y-4">
+<!-- Instagram -->
+<a class="card-hover block w-full bg-white dark:bg-background-dark/50 border border-gray-100 dark:border-primary/20 rounded-xl p-5 group" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-none mb-1">Instagram</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">@rage_labs</p>
+</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-black transition-colors">
+                        Follow
+                    </button>
+</div>
+</a>
+<!-- Twitter / X -->
+<a class="card-hover block w-full bg-white dark:bg-background-dark/50 border border-gray-100 dark:border-primary/20 rounded-xl p-5 group" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl">chat</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-none mb-1">Twitter / X</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Join the conversation</p>
+</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-black transition-colors">
+                        Follow
+                    </button>
+</div>
+</a>
+<!-- LinkedIn -->
+<a class="card-hover block w-full bg-white dark:bg-background-dark/50 border border-gray-100 dark:border-primary/20 rounded-xl p-5 group" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl">work</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-none mb-1">LinkedIn</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Rage Labs Corporate</p>
+</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-black transition-colors">
+                        Connect
+                    </button>
+</div>
+</a>
+<!-- GitHub -->
+<a class="card-hover block w-full bg-white dark:bg-background-dark/50 border border-gray-100 dark:border-primary/20 rounded-xl p-5 group border-t-4 border-t-accent-yellow" href="#">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl">code</span>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-none mb-1">GitHub</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Open Source &amp; Projects</p>
+</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-black transition-colors flex items-center gap-1">
+                        Visit <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</button>
+</div>
+</a>
+</div>
+<!-- Featured Section Image -->
+<div class="mt-12 w-full">
+<div class="w-full h-48 bg-center bg-no-repeat bg-cover rounded-xl shadow-lg relative overflow-hidden group" data-alt="Abstract futuristic technical circuit pattern with red glow" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbduGEeJ5Xtk8f6nyFJKUDZsRiPNmRABv34anq3lcdkyIHGhQ58OQhxuZgYDcRTWQSRbd5-7wbOEHa-lMFwuySUx6fVqlPFH7yEkRR2gaXg_ZDxBRrEFE2DWfoORENrSMtqfCGNF824EnGlL161YHBuqOWEheCdJEcTAn8KhrUqm2zgY1tgStWQpWThzvLDzRdmi1nF4auNw4HusXW_3o-oBNoOA91lHW0a1oBlAwi0bfVOka3qNcIt_cZWbkNHH-fQ8ZoyY_jXg");'>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<div class="text-white">
+<h4 class="font-bold text-xl">The Laboratory</h4>
+<p class="text-sm opacity-90">Explore our latest engineering deep-dives.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-16 text-center space-y-4">
+<div class="flex justify-center gap-4 text-primary">
+<span class="material-symbols-outlined">shield</span>
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<p class="text-gray-400 text-xs font-medium tracking-widest uppercase">© 2024 Rage Labs — Built for the Future</p>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-accent-yellow/20 rounded-full">
+<div class="size-2 bg-accent-yellow rounded-full animate-pulse"></div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Systems Nominal</span>
+</div>
+</footer>
+</div>
+</body></html>

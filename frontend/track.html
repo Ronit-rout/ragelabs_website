@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Track Your Progress | Rage Labs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#730c13",
+                        "accent-yellow": "#FFD700",
+                        "accent-blue": "#0047AB",
+                        "background-dark": "#0f0506",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .status-dot { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .status-active .status-dot { background-color: #FFD700; box-shadow: 0 0 20px #FFD700; border-color: white; }
+        .status-done .status-dot { background-color: #10b981; border-color: white; }
+    </style>
+</head>
+<body class="bg-[#fcfcfc] dark:bg-background-dark text-slate-900 dark:text-gray-100 min-h-screen flex flex-col">
+
+    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                <span class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="services.html">Services</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
+                <a class="text-sm font-bold hover:text-primary transition-colors" href="careers.html">Careers</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center p-6 relative">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(at 0% 0%, #0047AB 0, transparent 50%), radial-gradient(at 100% 100%, #730c13 0, transparent 50%);"></div>
+
+        <div class="max-w-2xl w-full space-y-12 relative z-10 text-center">
+            <div class="space-y-4">
+                <h1 class="text-5xl md:text-7xl font-black font-title uppercase tracking-tighter text-primary">Track Progress</h1>
+                <p class="text-lg text-gray-500 max-w-lg mx-auto">Enter your tracking ID and email to view the current status of your transmission.</p>
+            </div>
+
+            <div class="glass-card bg-white dark:bg-zinc-950/50 p-8 rounded-[2rem] shadow-2xl space-y-6">
+                <form id="track-form" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Transmission ID</label>
+                            <input type="text" id="track-id" required class="w-full bg-primary/5 border-primary/10 rounded-xl px-4 py-4 focus:ring-primary focus:border-primary placeholder:text-gray-400 dark:text-white" placeholder="RL-APP-XXXX">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Registered Email</label>
+                            <input type="email" id="track-email" required class="w-full bg-primary/5 border-primary/10 rounded-xl px-4 py-4 focus:ring-primary focus:border-primary placeholder:text-gray-400 dark:text-white" placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <button type="submit" id="track-btn" class="w-full bg-primary text-white font-black py-5 rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2 group">
+                        <span>Retrieve Intel</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">satellite_alt</span>
+                    </button>
+                </form>
+
+                <!-- Status View (Hidden initially) -->
+                <div id="status-view" class="hidden pt-8 border-t border-primary/5 animate-fade-up">
+                    <div class="flex flex-col items-center space-y-12">
+                        <div class="text-center">
+                            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">Current Protocol Status</p>
+                            <h2 id="current-status-title" class="text-4xl font-black font-title uppercase tracking-tighter">Under Review</h2>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="flex items-center w-full max-w-md relative">
+                            <div class="absolute top-[27px] left-0 right-0 h-[2px] bg-primary/10 -z-10"></div>
+                            
+                            <!-- Step 1 -->
+                            <div id="step-1" class="flex-1 flex flex-col items-center gap-3 status-done">
+                                <div class="status-dot w-14 h-14 rounded-full border-4 border-background-dark flex items-center justify-center text-white bg-primary">
+                                    <span class="material-symbols-outlined text-xl">upload_file</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Submitted</span>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div id="step-2" class="flex-1 flex flex-col items-center gap-3 status-active">
+                                <div class="status-dot w-14 h-14 rounded-full border-4 border-background-dark bg-gray-200 dark:bg-zinc-800 flex items-center justify-center text-gray-400">
+                                    <span class="material-symbols-outlined text-xl">biotech</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Reviewing</span>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div id="step-3" class="flex-1 flex flex-col items-center gap-3">
+                                <div class="status-dot w-14 h-14 rounded-full border-4 border-background-dark bg-gray-200 dark:bg-zinc-800 flex items-center justify-center text-gray-400">
+                                    <span class="material-symbols-outlined text-xl" id="final-icon">verified</span>
+                                </div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-gray-400" id="final-label">Decision</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-primary/5 rounded-2xl text-xs font-medium text-gray-500 max-w-sm">
+                            <p id="status-message">Your transmission has been logged. Our lab operatives are currently analyzing the technical specifications. You will receive an encrypted email once a decision is finalized.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-primary/10 mt-auto">
+        <div class="mx-auto max-w-7xl px-6 text-center">
+            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">© 2024 Rage Labs Software Engineering Collective</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('track-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('track-btn');
+            const id = document.getElementById('track-id').value;
+            const email = document.getElementById('track-email').value;
+            
+            btn.innerHTML = '<span>Decrypting...</span>';
+            btn.disabled = true;
+
+            // Simulate API Call
+            setTimeout(() => {
+                const statusView = document.getElementById('status-view');
+                statusView.classList.remove('hidden');
+                btn.innerHTML = '<span>Retrieve Intel</span>';
+                btn.disabled = false;
+
+                // Simple logic for simulation
+                // In production: fetch(`http://localhost:8080/api/status/${id}?email=${email}`)
+                const mockStatus = id.includes('ACC') ? 'ACCEPTED' : (id.includes('REJ') ? 'REJECTED' : 'PENDING');
+                updateTimeline(mockStatus);
+                
+                statusView.scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        });
+
+        function updateTimeline(status) {
+            const title = document.getElementById('current-status-title');
+            const message = document.getElementById('status-message');
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+            const finalIcon = document.getElementById('final-icon');
+            const finalLabel = document.getElementById('final-label');
+
+            if (status === 'ACCEPTED') {
+                title.textContent = 'Mission Approved';
+                title.className = 'text-4xl font-black font-title uppercase tracking-tighter text-green-500';
+                message.textContent = 'Congratulations. Your transmission was successful. Check your email for onboarding coordinates.';
+                step2.className = 'flex-1 flex flex-col items-center gap-3 status-done';
+                step3.className = 'flex-1 flex flex-col items-center gap-3 status-done';
+                finalIcon.textContent = 'check_circle';
+                finalLabel.textContent = 'Accepted';
+            } else if (status === 'REJECTED') {
+                title.textContent = 'Mission Aborted';
+                title.className = 'text-4xl font-black font-title uppercase tracking-tighter text-red-500';
+                message.textContent = 'We regret to inform you that your transmission does not align with our current lab protocols. We appreciate the intel.';
+                step2.className = 'flex-1 flex flex-col items-center gap-3 status-done';
+                step3.className = 'flex-1 flex flex-col items-center gap-3 status-done';
+                finalIcon.textContent = 'cancel';
+                finalLabel.textContent = 'Rejected';
+            } else {
+                title.textContent = 'Under Review';
+                title.className = 'text-4xl font-black font-title uppercase tracking-tighter';
+                message.textContent = 'Your transmission is in the active queue. Lab operatives are weighing the technical feasibility and ROI.';
+                step2.className = 'flex-1 flex flex-col items-center gap-3 status-active';
+                step3.className = 'flex-1 flex flex-col items-center gap-3';
+                finalIcon.textContent = 'verified';
+                finalLabel.textContent = 'Decision';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Command Center | Rage Labs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#730c13",
+                        "accent-yellow": "#FFD700",
+                        "accent-blue": "#0047AB",
+                        "background-dark": "#0f0506",
+                        "zinc-850": "#18181b",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .tab-active {
+            border-bottom: 2px solid #730c13;
+            color: #730c13;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #730c13; border-radius: 10px; }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fade-in 0.4s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-background-dark text-slate-900 dark:text-gray-100 min-h-screen">
+    
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-background-dark/95 backdrop-blur-xl transition-all duration-500">
+        <div class="max-w-md w-full glass-card rounded-[2rem] p-10 text-center shadow-2xl">
+            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span class="material-symbols-outlined text-4xl text-primary">security</span>
+            </div>
+            <h2 class="text-3xl font-black font-title uppercase tracking-tighter mb-2">Command Center Access</h2>
+            <p class="text-gray-400 mb-8 text-sm">Authorised operatives only. Your IP and credentials will be logged.</p>
+            
+            <form id="dashboard-auth-form" class="space-y-4">
+                <div class="text-left space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Operative Email</label>
+                    <input type="email" id="auth-email" required class="w-full bg-white/5 border-white/10 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary text-white" placeholder="name@ragelabs.com">
+                </div>
+                <div class="text-left space-y-1">
+                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">Security Clearance</label>
+                    <input type="password" id="auth-password" required class="w-full bg-white/5 border-white/10 rounded-xl px-4 py-3 focus:ring-primary focus:border-primary text-white" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-primary text-white font-black py-4 rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-primary/20 mt-4">Initiate Session</button>
+            </form>
+            <p id="auth-error" class="text-red-500 text-xs font-bold mt-4 h-4"></p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard-content" class="hidden flex flex-col min-h-screen">
+        <!-- Sidebar/Header -->
+        <header class="sticky top-0 z-40 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+            <div class="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4">
+                <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                        <span class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+                    </div>
+                    <div class="h-8 w-[1px] bg-primary/10 hidden md:block"></div>
+                    <div class="hidden md:flex gap-4">
+                        <button onclick="switchTab('pitches')" id="tab-pitches" class="px-4 py-2 font-black uppercase text-xs tracking-widest transition-all tab-active">Venture Pitches</button>
+                        <button onclick="switchTab('apps')" id="tab-apps" class="px-4 py-2 font-black uppercase text-xs tracking-widest transition-all text-gray-400 hover:text-primary">Job Applications</button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-zinc-850 hover:bg-gray-200 dark:hover:bg-zinc-800 transition-colors">
+                        <span id="dark-mode-icon" class="material-symbols-outlined text-gray-600 dark:text-gray-300">dark_mode</span>
+                    </button>
+                    <button onclick="exportCSV()" class="hidden md:flex items-center gap-2 bg-accent-blue text-white font-bold py-2 px-4 rounded-lg text-sm hover:scale-105 transition-all">
+                        <span class="material-symbols-outlined text-sm">download</span>
+                        Export Data
+                    </button>
+                    <div class="h-8 w-[1px] bg-primary/10"></div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-right hidden sm:block leading-none">
+                            <p id="admin-name" class="font-black text-xs uppercase tracking-tighter truncate max-w-[120px]">Admin</p>
+                            <span class="text-[9px] font-bold text-primary tracking-widest">CLEARANCE LVL 5</span>
+                        </div>
+                        <div onclick="logout()" class="w-10 h-10 rounded-full bg-primary text-white font-black flex items-center justify-center cursor-pointer hover:bg-red-700 transition-colors">
+                            <span class="material-symbols-outlined">logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 max-w-[1600px] w-full mx-auto p-6 space-y-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-[2rem] border-primary/5">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-primary/60 mb-1">Total Pitches</p>
+                    <h4 id="stat-pitches" class="text-4xl font-black font-title">--</h4>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem] border-primary/5">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-blue/60 mb-1">Total Candidates</p>
+                    <h4 id="stat-apps" class="text-4xl font-black font-title">--</h4>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem] border-primary/5">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-green-500/60 mb-1">Success Rate</p>
+                    <h4 id="stat-rate" class="text-4xl font-black font-title">8.4%</h4>
+                </div>
+                <div class="glass-card p-6 rounded-[2rem] border-primary/5">
+                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-accent-yellow/60 mb-1">Lab Uptime</p>
+                    <h4 class="text-4xl font-black font-title">99.9%</h4>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="glass-card rounded-[2rem] overflow-hidden border-primary/5 shadow-2xl animate-fade">
+                <div class="px-8 py-6 border-b border-primary/5 flex justify-between items-center bg-white/5 backdrop-blur-3xl">
+                    <div>
+                        <h3 id="table-title" class="text-2xl font-black font-title tracking-tight uppercase">Incoming Venture Pitches</h3>
+                        <p id="table-subtitle" class="text-xs text-gray-500 font-bold uppercase tracking-widest">Real-time data feed from Rage Labs API</p>
+                    </div>
+                    <div class="relative">
+                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">search</span>
+                        <input type="text" id="table-search" oninput="filterTable()" placeholder="Filter operatives..." class="bg-primary/5 border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-primary w-64 placeholder:text-gray-500">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-primary/5">
+                                <th class="px-8 py-5">Full Name / Project</th>
+                                <th class="px-4 py-5">Intel / Contact</th>
+                                <th class="px-4 py-5">Role / Focus</th>
+                                <th class="px-4 py-5 text-center">Status</th>
+                                <th class="px-8 py-5 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboard-table-body" class="divide-y divide-primary/5">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="loading-spinner" class="py-20 flex flex-col items-center justify-center gap-4">
+                    <div class="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+                    <p class="text-xs font-black uppercase tracking-widest text-gray-500">Decrypting API Assets...</p>
+                </div>
+
+                <div id="no-data" class="hidden py-20 flex flex-col items-center justify-center text-center">
+                    <span class="material-symbols-outlined text-6xl text-primary/20 mb-4">dataset</span>
+                    <h4 class="text-xl font-black uppercase">No Intel Found</h4>
+                    <p class="text-sm text-gray-500">Clean database slate. No transmissions in the pipeline.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="fixed bottom-10 right-10 z-[100] flex flex-col gap-3"></div>
+
+    <script>
+        const WHITELIST = [
+            'ronitrishir@gmail.com', 'ronitrishi05@gmail.com', 'seemanchalmohanty@gmail.com',
+            'ayogeshkumar22@gmail.com', 'sahooswarup60@gmail.com', 'nayakkalpana501@gmail.com'
+        ];
+        const PASS = 'RLA20TWO6';
+
+        let currentTab = 'pitches';
+        let allData = { pitches: [], apps: [] };
+        let filteredData = [];
+
+        // ─── AUTH LOGIC ────────────────────────────────────────────────────────
+        document.getElementById('dashboard-auth-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('auth-email').value;
+            const pass = document.getElementById('auth-password').value;
+            const errorEl = document.getElementById('auth-error');
+
+            if (WHITELIST.includes(email) && pass === PASS) {
+                document.getElementById('auth-screen').classList.add('opacity-0', 'pointer-events-none');
+                document.getElementById('dashboard-content').classList.remove('hidden');
+                document.getElementById('admin-name').textContent = email.split('@')[0];
+                fetchData();
+            } else {
+                errorEl.textContent = 'ACCESS DENIED: Credentials do not match lab protocols.';
+                setTimeout(() => errorEl.textContent = '', 3000);
+            }
+        });
+
+        function logout() {
+            window.location.reload();
+        }
+
+        // ─── DATA FETCHING ──────────────────────────────────────────────────────
+        async function fetchData() {
+            showLoading(true);
+            try {
+                const [pRes, aRes] = await Promise.all([
+                    fetch('http://localhost:8080/api/pitches'),
+                    fetch('http://localhost:8080/api/apply')
+                ]);
+
+                allData.pitches = await pRes.json();
+                allData.apps = await aRes.json();
+                
+                updateStats();
+                renderTable();
+            } catch (err) {
+                console.error(err);
+                showToast('Failed to connect to Command Center API', 'error');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('stat-pitches').textContent = allData.pitches.length;
+            document.getElementById('stat-apps').textContent = allData.apps.length;
+        }
+
+        function showLoading(active) {
+            document.getElementById('loading-spinner').classList.toggle('hidden', !active);
+            document.getElementById('dashboard-table-body').innerHTML = active ? '' : document.getElementById('dashboard-table-body').innerHTML;
+        }
+
+        // ─── RENDERING ──────────────────────────────────────────────────────────
+        function switchTab(tab) {
+            currentTab = tab;
+            document.getElementById('tab-pitches').className = tab === 'pitches' ? 'px-4 py-2 font-black uppercase text-xs tracking-widest transition-all tab-active' : 'px-4 py-2 font-black uppercase text-xs tracking-widest transition-all text-gray-400 hover:text-primary';
+            document.getElementById('tab-apps').className = tab === 'apps' ? 'px-4 py-2 font-black uppercase text-xs tracking-widest transition-all tab-active' : 'px-4 py-2 font-black uppercase text-xs tracking-widest transition-all text-gray-400 hover:text-primary';
+            
+            document.getElementById('table-title').textContent = tab === 'pitches' ? 'Incoming Venture Pitches' : 'Active Operative Candidates';
+            renderTable();
+        }
+
+        function renderTable(filterQuery = '') {
+            const body = document.getElementById('dashboard-table-body');
+            const data = currentTab === 'pitches' ? allData.pitches : allData.apps;
+            
+            filteredData = data.filter(item => {
+                const name = (item.founderName || item.fullName || '').toLowerCase();
+                const secondary = (item.projectName || item.preferredRole || '').toLowerCase();
+                return name.includes(filterQuery.toLowerCase()) || secondary.includes(filterQuery.toLowerCase());
+            });
+
+            if (filteredData.length === 0) {
+                document.getElementById('no-data').classList.remove('hidden');
+                body.innerHTML = '';
+                return;
+            }
+
+            document.getElementById('no-data').classList.add('hidden');
+            body.innerHTML = filteredData.map(item => `
+                <tr class="hover:bg-primary/[0.02] dark:hover:bg-white/[0.02] transition-colors group">
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center font-black text-primary uppercase">
+                                ${(item.founderName || item.fullName || '?').charAt(0)}
+                            </div>
+                            <div>
+                                <p class="font-black uppercase tracking-tighter text-sm">${item.founderName || item.fullName}</p>
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">${item.projectName || 'CAREER APPLICATION'}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-4 py-6">
+                        <p class="text-xs font-bold leading-relaxed">${item.email}</p>
+                        <div class="flex gap-2 mt-1">
+                            ${item.linkedin ? `<a href="${item.linkedin}" target="_blank" class="text-[10px] font-black text-accent-blue hover:underline">LINKEDIN</a>` : ''}
+                            ${item.twitter ? `<a href="${item.twitter}" target="_blank" class="text-[10px] font-black text-primary hover:underline">X / TWITTER</a>` : ''}
+                        </div>
+                    </td>
+                    <td class="px-4 py-6">
+                        <p class="text-xs font-black uppercase tracking-widest text-gray-600 dark:text-gray-400">${item.primaryRole || item.preferredRole || 'N/A'}</p>
+                        <p class="text-[10px] font-bold text-primary/60">${item.weeklyHours ? item.weeklyHours + ' HRS/WK' : (item.experience ? item.experience + ' EXP' : '')}</p>
+                    </td>
+                    <td class="px-4 py-6 text-center">
+                        <span class="inline-flex px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${getStatusStyle(item.status)}">
+                            ${item.status || 'PENDING'}
+                        </span>
+                    </td>
+                    <td class="px-8 py-6 text-right">
+                        <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button onclick="updateStatus('${item.id}', 'APPROVED')" class="p-2 rounded-lg bg-green-500/10 text-green-600 hover:bg-green-500 hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-[18px]">check</span>
+                            </button>
+                            <button onclick="updateStatus('${item.id}', 'REJECTED')" class="p-2 rounded-lg bg-red-500/10 text-red-600 hover:bg-red-500 hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-[18px]">block</span>
+                            </button>
+                            <button onclick="viewDetails('${item.id}')" class="p-2 rounded-lg bg-gray-500/10 text-gray-600 hover:bg-gray-500 hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-[18px]">visibility</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function getStatusStyle(status) {
+            switch((status || 'PENDING').toUpperCase()) {
+                case 'APPROVED': return 'bg-green-500/10 text-green-500';
+                case 'REJECTED': return 'bg-red-500/10 text-red-500';
+                default: return 'bg-accent-yellow/10 text-accent-yellow';
+            }
+        }
+
+        // ─── ACTIONS ────────────────────────────────────────────────────────────
+        async function updateStatus(id, newStatus) {
+            const apiPart = currentTab === 'pitches' ? 'pitches' : 'apply';
+            try {
+                // In a real app we'd need a PATCH/PUT endpoint.
+                // For now we'll simulate it locally if backend doesn't have it,
+                // but we already added 'status' to models.
+                // Assuming POST /api/{part}/{id}/status?status=APPROVED
+                const res = await fetch(`http://localhost:8080/api/${apiPart}/${id}/status?status=${newStatus}`, { method: 'POST' });
+                if (res.ok) {
+                    showToast(`Entry ${newStatus} successfully`, 'success');
+                    fetchData();
+                } else {
+                    // Fallback for demo if endpoint not ready
+                    const list = currentTab === 'pitches' ? allData.pitches : allData.apps;
+                    const item = list.find(x => x.id == id);
+                    if (item) item.status = newStatus;
+                    renderTable();
+                    showToast(`Simulated update: ${newStatus}`, 'success');
+                }
+            } catch (err) {
+                showToast('API Communication Error', 'error');
+            }
+        }
+
+        function filterTable() {
+            const query = document.getElementById('table-search').value;
+            renderTable(query);
+        }
+
+        function exportCSV() {
+            const data = currentTab === 'pitches' ? allData.pitches : allData.apps;
+            if (data.length === 0) return;
+            
+            const headers = Object.keys(data[0]).join(',');
+            const rows = data.map(obj => Object.values(obj).map(val => `"${val}"`).join(',')).join('\\n');
+            const csvContent = "data:text/csv;charset=utf-8," + headers + "\\n" + rows;
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `ragelabs_${currentTab}_export.csv`);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('dark-mode-icon');
+            icon.textContent = document.documentElement.classList.contains('dark') ? 'light_mode' : 'dark_mode';
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `glass-card flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl border-l-4 ${type === 'success' ? 'border-l-green-500' : 'border-l-red-500'} animate-fade-left transition-all duration-300`;
+            toast.innerHTML = `<span class="material-symbols-outlined ${type === 'success' ? 'text-green-500' : 'text-red-500'}">${type === 'success' ? 'check_circle' : 'error'}</span><span class="text-sm font-bold">${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.classList.add('opacity-0', 'translate-x-10'); setTimeout(() => toast.remove(), 300); }, 5000);
+        }
+
+        // Initialize with system preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) toggleDarkMode();
+    </script>
+</body>
+</html>

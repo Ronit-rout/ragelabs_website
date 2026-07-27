@@ -1,0 +1,35 @@
+# Java/Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+.DS_Store
+
+# Local Config & Notes (Sensitive)
+# RAGELABS_NOTES.txt (Uncomment if you want to keep notes private)
+# RUN_REQUIREMENTS.txt
+
+# Database
+*.sql (except migrations)
+mysql-data/
+
+# OS files
+Thumbs.db
+desktop.ini

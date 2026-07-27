@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Services | Rage Labs - Software Mastery & Venture Partnership</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#720c13",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#0f0506",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                        "sans": ["Inter", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'glow': 'glow 4s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.4', filter: 'blur(30px)' },
+                            '100%': { opacity: '0.8', filter: 'blur(50px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(115, 12, 19, 0.1);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 5, 6, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .venture-gradient {
+            background: radial-gradient(circle at top right, #1a0a0c, #0f0506);
+        }
+
+        .step-card:hover .step-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .glow-red {
+            box-shadow: 0 0 40px rgba(114, 12, 19, 0.2);
+        }
+
+        .glow-yellow {
+            box-shadow: 0 0 40px rgba(246, 188, 24, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white transition-colors duration-300">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                <h1 class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
+                    labs</h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-primary transition-all relative group"
+                    href="services.html">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-full h-[2px] bg-accent-blue"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group"
+                    href="portfolio.html">
+                    Portfolio
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group"
+                    href="careers.html">
+                    Careers
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group"
+                    href="about.html">
+                    About
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+            <div id="auth-nav" class="flex items-center gap-3">
+                <!-- Auth buttons/Avatar injected by JS -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Services Hero -->
+        <section class="relative overflow-hidden pt-24 pb-32 lg:pt-40 lg:pb-48">
+            <div class="tech-grid absolute inset-0 -z-10"></div>
+            <div
+                class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px] animate-glow">
+            </div>
+            <div class="absolute top-1/2 -right-32 h-[400px] w-[400px] rounded-full bg-accent-yellow/10 blur-[100px] animate-glow"
+                style="animation-delay: 2s"></div>
+
+            <div class="mx-auto max-w-7xl px-6 lg:px-10 text-center">
+                <div class="flex flex-col items-center gap-8">
+                    <div
+                        class="inline-flex items-center gap-3 rounded-full bg-white/50 dark:bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-sm border border-primary/10 animate-fade-up">
+                        <span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+                        Engineering Mastery
+                    </div>
+                    <h1 class="text-6xl font-black leading-[1.0] tracking-tight sm:text-7xl lg:text-8xl font-display animate-fade-up"
+                        style="animation-delay: 0.1s">
+                        Everything You Need to <br />
+                        <span class="relative inline-block mt-2">
+                            <span class="relative z-10 text-primary">Build & Scale</span>
+                            <span
+                                class="absolute bottom-4 left-0 h-6 w-full bg-accent-yellow/30 -z-10 -rotate-1"></span>
+                        </span>.
+                    </h1>
+                    <p class="max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-400 font-medium animate-fade-up"
+                        style="animation-delay: 0.2s">
+                        We don't just write code; we architect solutions. From high-performance SaaS platforms to
+                        exclusive equity-based venture partnerships, we handle the tech so you can handle the vision.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-6 mt-6 animate-fade-up" style="animation-delay: 0.3s">
+                        <a href="#saas-services"
+                            class="group flex h-16 min-w-[220px] items-center justify-center rounded-2xl bg-primary px-10 text-lg font-bold text-white shadow-2xl shadow-primary/40 hover:bg-[#5a090f] hover:-translate-y-1 transition-all duration-300">
+                            Explore Services
+                            <span
+                                class="material-symbols-outlined ml-2 group-hover:translate-y-1 transition-transform">expand_more</span>
+                        </a>
+                        <a href="#venture-program"
+                            class="flex h-16 min-w-[220px] items-center justify-center rounded-2xl border-2 border-primary/20 bg-white/40 dark:bg-white/5 backdrop-blur-xl px-10 text-lg font-bold text-primary dark:text-white hover:bg-white hover:border-primary/40 dark:hover:bg-white/10 transition-all duration-300">
+                            Pitch Your Idea
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Floating Element -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+                <span class="material-symbols-outlined text-4xl">arrow_downward</span>
+            </div>
+        </section>
+
+        <!-- Core SaaS Services Section -->
+        <section id="saas-services" class="relative py-32 bg-[#f8f6f6] dark:bg-background-dark/30">
+            <div class="mx-auto max-w-7xl px-6 lg:px-10">
+                <div class="mb-20 flex flex-col gap-6 text-center items-center">
+                    <h2 class="text-5xl font-black tracking-tighter sm:text-6xl font-display">
+                        Core <span class="text-primary italic">Capabilities</span>
+                    </h2>
+                    <div class="h-1.5 w-24 bg-primary rounded-full"></div>
+                    <p class="max-w-2xl text-lg text-gray-500 dark:text-gray-400 font-medium">
+                        End-to-end engineering excellence tailored for growth-oriented startups and visionary
+                        enterprises.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Web Dev -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-[#a1111b] text-white shadow-2xl rotate-3 group-hover:rotate-0 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">language</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">Website Engineering</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                High-conversion landing pages, complex corporate ecosystems, and scalable e-commerce
+                                solutions built with cutting-edge tech.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- App Dev -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent-blue/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-blue to-[#1d4ed8] text-white shadow-2xl -rotate-3 group-hover:rotate-0 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">phone_iphone</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">App Architecture</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                Performance-first mobile and desktop applications. Native feel, cross-platform
+                                efficiency, and pixel-perfect UI.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hosting -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent-yellow/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-yellow to-orange-500 text-white shadow-2xl rotate-1 group-hover:rotate-0 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">dns</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">Managed Cloud</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                Bulletproof hosting on premium infrastructure. 99.9% uptime, global CDN, automated
+                                security, and 24/7 monitoring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Maintenance -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-primary via-[#4b080c] to-black text-white shadow-2xl transition-transform">
+                            <span class="material-symbols-outlined text-4xl">published_with_changes</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">Ops & Maintenance</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                Continuous delivery and regular maintenance. We fix bugs before they happen and keep
+                                your system at peak performance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Marketing -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent-blue/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-blue via-blue-900 to-black text-white shadow-2xl transition-transform">
+                            <span class="material-symbols-outlined text-4xl">auto_graph</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">Growth Engineering</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                Not just regular marketing. We use SEO automation, data analytics, and performance
+                                marketing to scale your acquisition.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SaaS Dev -->
+                    <div
+                        class="group glass-card relative flex flex-col gap-8 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent-yellow/10">
+                        <div
+                            class="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-yellow via-orange-600 to-black text-white shadow-2xl transition-transform">
+                            <span class="material-symbols-outlined text-4xl">cloud_done</span>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold font-display">SaaS Foundry</h3>
+                            <p class="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">
+                                Multi-tenant SaaS architecture design and development. Built for massive scale,
+                                subscription security, and speed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Banner -->
+        <section class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+            <div
+                class="relative overflow-hidden rounded-[3rem] bg-gradient-to-r from-primary via-[#4b080c] to-accent-blue p-12 text-white shadow-3xl">
+                <div class="tech-grid absolute inset-0 opacity-15"></div>
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+                    <div class="text-center lg:text-left space-y-4">
+                        <h2 class="text-4xl font-black font-display leading-[1.1]">Transparent Pricing. <br />No Black
+                            Boxes.</h2>
+                        <p class="text-lg opacity-80 max-w-xl">We offer flexible engagement models from fixed-price MVPs
+                            to monthly dedicated engineering squads.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="contact.html"
+                            class="h-16 px-10 flex items-center justify-center rounded-2xl bg-white text-primary font-bold hover:bg-accent-yellow hover:scale-105 transition-all text-lg shadow-xl">Get
+                            a Custom Quote</a>
+                        <a href="portfolio.html"
+                            class="h-16 px-10 flex items-center justify-center rounded-2xl border border-white/30 backdrop-blur-md font-bold hover:bg-white/10 transition-all text-lg">View
+                            Case Studies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Venture Partnership Program Section -->
+        <section id="venture-program" class="relative py-40 venture-gradient text-white overflow-hidden">
+            <div class="tech-grid absolute inset-0 opacity-20"></div>
+            <!-- Glow FX -->
+            <div
+                class="absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[150px] animate-pulse">
+            </div>
+            <div class="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-accent-blue/10 blur-[120px]"></div>
+
+            <div class="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div class="space-y-10 animate-fade-up">
+                        <div
+                            class="inline-flex items-center gap-3 rounded-full bg-primary/20 px-5 py-2.5 text-[11px] font-black uppercase tracking-[0.25em] text-accent-yellow border border-accent-yellow/30">
+                            Partners, Not Just Providers
+                        </div>
+                        <h2 class="text-6xl font-black tracking-tight leading-[1.0] font-display">
+                            Have a Big Idea? <br />
+                            <span class="text-accent-yellow">Let's Co-Found It.</span>
+                        </h2>
+                        <p class="text-xl text-gray-400 leading-relaxed max-w-xl">
+                            If you have a world-changing idea but lack the technical power to build it, we'll become
+                            your technical co-founder. We invest our engineering, hosting, and marketing mastery for
+                            equity.
+                        </p>
+
+                        <div class="bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-2xl">
+                            <h3 class="text-2xl font-bold font-display mb-6 flex items-center gap-3">
+                                <span class="material-symbols-outlined text-accent-yellow">verified</span>
+                                The Synergy Model
+                            </h3>
+                            <ul class="space-y-6">
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="h-6 w-6 rounded-full bg-accent-yellow flex items-center justify-center shrink-0 mt-1">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-sm font-black">check</span>
+                                    </div>
+                                    <p class="text-gray-300"><strong class="text-white">Zero Dev Cost:</strong> We build
+                                        the entire platform at no upfront development cost to you.</p>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="h-6 w-6 rounded-full bg-accent-yellow flex items-center justify-center shrink-0 mt-1">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-sm font-black">check</span>
+                                    </div>
+                                    <p class="text-gray-300"><strong class="text-white">Growth Operations:</strong>
+                                        Ongoing marketing, SEO, and product management included.</p>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div
+                                        class="h-6 w-6 rounded-full bg-accent-yellow flex items-center justify-center shrink-0 mt-1">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-sm font-black">check</span>
+                                    </div>
+                                    <p class="text-gray-300"><strong class="text-white">Pure Equity:</strong> We trade
+                                        our expertise for a seat at the table. Success is mutual.</p>
+                                </li>
+                            </ul>
+                            <div
+                                class="mt-10 p-5 bg-primary/10 border border-primary/20 rounded-2xl text-sm italic group transition-all text-white/60">
+                                * Founders only cover the raw cost of server hosting. Everything else is on us.
+                            </div>
+                        </div>
+
+                        <a href="pitch.html"
+                            class="inline-flex h-20 items-center justify-center rounded-[2rem] bg-accent-yellow px-12 text-xl font-black text-primary shadow-[0_20px_40px_-10px_rgba(246,188,24,0.4)] hover:bg-white hover:-translate-y-2 transition-all duration-300">
+                            Submit My Pitch →
+                        </a>
+                    </div>
+
+                    <div class="relative">
+                        <!-- Step Progress Container -->
+                        <div
+                            class="flex flex-col gap-14 relative before:absolute before:left-[27px] before:top-4 before:bottom-4 before:w-[2px] before:bg-gradient-to-b before:from-primary before:via-accent-yellow before:to-accent-blue before:opacity-30">
+
+                            <!-- Step 1 -->
+                            <div class="flex gap-10 relative group transition-all hover:scale-[1.02]">
+                                <div
+                                    class="h-14 w-14 shrink-0 rounded-full bg-primary shadow-xl shadow-primary/30 flex items-center justify-center font-black text-2xl border-4 border-background-dark z-10">
+                                    1</div>
+                                <div class="glass-card flex-1 p-8 rounded-[2rem] border-white/5">
+                                    <h4 class="text-2xl font-bold font-display text-accent-yellow mb-2">The Pitch</h4>
+                                    <p class="text-gray-400 font-medium leading-relaxed">Submit your vision. No deck
+                                        needed. We're looking for disruptive ideas and hungry founders.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="flex gap-10 relative group transition-all hover:scale-[1.02]">
+                                <div
+                                    class="h-14 w-14 shrink-0 rounded-full bg-accent-blue shadow-xl shadow-accent-blue/30 flex items-center justify-center font-black text-2xl border-4 border-background-dark z-10">
+                                    2</div>
+                                <div class="glass-card flex-1 p-8 rounded-[2rem] border-white/5">
+                                    <h4 class="text-2xl font-bold font-display text-white mb-2">Vetting Call</h4>
+                                    <p class="text-gray-400 font-medium leading-relaxed">Deep-dive discovery. We talk
+                                        roadmap, monetization, and technical feasibility.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="flex gap-10 relative group transition-all hover:scale-[1.02]">
+                                <div
+                                    class="h-14 w-14 shrink-0 rounded-full bg-accent-yellow text-primary shadow-xl shadow-accent-yellow/30 flex items-center justify-center font-black text-2xl border-4 border-background-dark z-10">
+                                    3</div>
+                                <div class="glass-card flex-1 p-8 rounded-[2rem] border-white/5">
+                                    <h4 class="text-2xl font-bold font-display text-white mb-2">Build Phase</h4>
+                                    <p class="text-gray-400 font-medium leading-relaxed">Our squad enters the lab. We
+                                        architect and launch your MVP in record time.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="flex gap-10 relative group transition-all hover:scale-[1.02]">
+                                <div
+                                    class="h-14 w-14 shrink-0 rounded-full bg-white text-primary shadow-xl shadow-white/30 flex items-center justify-center font-black text-2xl border-4 border-background-dark z-10">
+                                    4</div>
+                                <div class="glass-card flex-1 p-8 rounded-[2rem] border-white/5">
+                                    <h4 class="text-2xl font-bold font-display text-white mb-2">Infinite Scale</h4>
+                                    <p class="text-gray-400 font-medium leading-relaxed">We manage the tech and growth
+                                        stacks while you focus on leading your new company.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Final CTA -->
+        <section class="relative py-32 lg:py-48 px-6">
+            <div class="mx-auto max-w-5xl">
+                <div
+                    class="relative overflow-hidden rounded-[4rem] bg-background-dark p-12 lg:p-24 text-center text-white shadow-[0_0_100px_rgba(114,12,19,0.3)] border border-primary/20 transition-transform hover:scale-[1.01] duration-500">
+                    <div class="tech-grid absolute inset-0 opacity-10"></div>
+                    <div class="relative z-10 space-y-12">
+                        <h2 class="text-5xl lg:text-7xl font-black font-display leading-[1.0] tracking-tighter">
+                            Ready to make <br />
+                            <span class="text-primary italic">history?</span>
+                        </h2>
+                        <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                            Whether you need a full engineering squad or a strategic technical partner, our lab is open.
+                            Let's create something extraordinary.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-6">
+                            <a href="contact.html"
+                                class="h-20 px-12 flex items-center justify-center rounded-[2rem] bg-primary text-xl font-black text-white hover:bg-[#8e0e17] hover:scale-105 transition-all shadow-2xl shadow-primary/40">Work
+                                with Us</a>
+                            <a href="pitch.html"
+                                class="h-20 px-12 flex items-center justify-center rounded-[2rem] bg-accent-yellow text-xl font-black text-primary hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-accent-yellow/20">Partnership
+                                Program</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-20">
+        <div class="mx-auto max-w-7xl px-6 lg:px-10">
+            <div class="grid grid-cols-1 gap-16 lg:grid-cols-4">
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                        <h2 class="text-2xl font-bold tracking-tight text-primary dark:text-white font-display">
+                            <span
+                                class="text-2xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
+                                labs</span>
+                        </h2>
+                    </div>
+                    <p class="max-w-md text-lg text-gray-500 font-medium">
+                        A high-end engineering collective dedicated to crafting digital products that push the
+                        boundaries of technology.
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
+                    <ul class="space-y-5">
+                        <li><a class="text-lg font-bold hover:text-primary transition-colors text-primary"
+                                href="services.html">Services</a></li>
+                        <li><a class="text-lg font-bold hover:text-primary transition-colors"
+                                href="portfolio.html">Portfolio</a></li>
+                        <li><a class="text-lg font-bold hover:text-primary transition-colors"
+                                href="careers.html">Careers</a></li>
+                        <li><a class="text-lg font-bold hover:text-primary transition-colors"
+                                href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-8">
+                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Connect</h3>
+                    <ul class="space-y-5">
+                        <li class="flex items-center gap-4 text-lg font-bold">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            support@laundryrage.com
+                        </li>
+                        <li class="flex items-center gap-4 text-lg font-bold">
+                            <span class="material-symbols-outlined text-primary">phone</span>
+                            +91 9937032631
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="mt-24 pt-10 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
+                    <span
+                        class="font-black italic tracking-tighter text-[#f6bc18] lowercase font-title text-xl">rage
+                        labs</span>
+                </div>
+                <p class="text-gray-400 font-medium">© 2024 Rage Labs Engineering Collective.</p>
+                <div class="flex gap-10 text-gray-400 font-bold text-sm">
+                    <a href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank"
+                        class="hover:text-primary transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/company/ragelabs-company" target="_blank"
+                        class="hover:text-primary transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-primary transition-colors">Github</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // ─── AUTH & AVATAR ──────────────────────────────────────────────────────
+        function initAuth() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const authNav = document.getElementById('auth-nav');
+            
+            if (!user) {
+                authNav.innerHTML = `
+                    <a href="login.html?redirect=services" class="hidden sm:flex h-10 items-center justify-center rounded-lg px-5 text-sm font-bold border border-primary/20 hover:bg-primary/5 transition-all">Sign In</a>
+                    <a href="signup.html?redirect=services" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
+                `;
+            } else {
+                const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
+                
+                authNav.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="group relative">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white font-black flex items-center justify-center cursor-pointer shadow-lg shadow-primary/20 transition-transform active:scale-90">
+                                ${initial}
+                            </div>
+                            <!-- Simple Dropdown -->
+                            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-xl shadow-2xl border border-primary/10 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
+                                <div class="px-4 py-2 border-b border-primary/5 mb-1">
+                                    <p class="text-xs font-black text-gray-400 uppercase tracking-tighter text-left">Connected as</p>
+                                    <p class="text-sm font-bold truncate text-left">${user.fullName || user.email}</p>
+                                </div>
+                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                                    Log Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.reload();
+        }
+
+        window.addEventListener('load', initAuth);
+    </script>
+</body>
+
+</html>

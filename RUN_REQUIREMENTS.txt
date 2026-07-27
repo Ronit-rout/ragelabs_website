@@ -1,0 +1,64 @@
+================================================================================
+  RAGE LABS — SYSTEM REQUIREMENTS & SETUP GUIDE
+================================================================================
+
+To run this project locally, you need to install and configure the following
+software components.
+
+1.  JAVA DEVELOPMENT KIT (JDK)
+    --------------------------
+    *   Requirement: JDK 21 or higher (LTS recommended).
+    *   Download: https://www.oracle.com/java/technologies/downloads/
+    *   Verification: Run `java -version` in your terminal.
+
+2.  APACHE MAVEN
+    ------------
+    *   Requirement: Maven 3.8+
+    *   Download: https://maven.apache.org/download.cgi
+    *   Setup: Extract the files and add the `bin` folder to your System PATH.
+    *   Verification: Run `mvn -version` in your terminal.
+
+3.  MYSQL SERVER
+    ------------
+    *   Requirement: MySQL 8.0 or higher.
+    *   Download: https://dev.mysql.com/downloads/installer/
+    *   Setup:
+        - During installation, set the root password to: Ronit@123
+          (Or update it later in /backend/src/main/resources/application.properties)
+        - Start the MySQL service.
+        - Create the database: `CREATE DATABASE ragelabsdb;`
+
+4.  FRONTEND / BROWSER
+    ------------------
+    *   Requirement: Any modern browser (Chrome, Firefox, Edge).
+    *   Note: The frontend uses Tailwind CSS via CDN, so an active internet 
+        connection is required for the styles to load correctly.
+
+================================================================================
+  STEP-BY-STEP RUN INSTRUCTIONS
+================================================================================
+
+Step 1: Start MySQL
+  - Ensure the MySQL service is running on port 3306.
+  - Ensure 'ragelabsdb' exists.
+
+Step 2: Run the Backend
+  - Open a terminal/command prompt.
+  - Navigate to the backend folder: `cd d:\LabsRage\new_design\stitch_home_page\backend`
+  - Run the application: `mvn spring-boot:run`
+  - Wait for the log: "Started BackendApplication in X seconds".
+
+Step 3: Launch the Frontend
+  - Open `frontend/index.html` in your browser.
+  - The frontend will now be able to communicate with the API at http://localhost:8080.
+
+================================================================================
+  CREDENTIALS (REFERENCE)
+================================================================================
+
+  - MySQL User: root
+  - MySQL Pass: Ronit@123
+  - Admin Dashboard Pass: RLA20TWO6
+  - SMTP Email: support@laundryrage.com
+
+================================================================================

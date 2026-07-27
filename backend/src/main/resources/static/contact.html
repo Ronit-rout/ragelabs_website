@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us | Rage Labs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#730c13",
+                        "accent-yellow": "#FFD700",
+                        "depth-blue": "#f0f4f8",
+                        "background-light": "#fcf8f8",
+                        "background-dark": "#211112",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(115, 12, 19, 0.1);
+        }
+
+        .floating-label-group {
+            position: relative;
+        }
+
+        .floating-label-group input:focus~label,
+        .floating-label-group input:not(:placeholder-shown)~label,
+        .floating-label-group textarea:focus~label,
+        .floating-label-group textarea:not(:placeholder-shown)~label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: 0.75rem;
+            background-color: #fcf8f8;
+            padding: 0 0.5rem;
+            color: #730c13;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] antialiased">
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-light/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                <h2 class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
+                    labs</h2>
+            </a>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="portfolio.html">Projects</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="services.html">Services</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="about.html">About</a>
+            <div id="auth-nav" class="flex items-center gap-3">
+                <!-- Auth buttons/Avatar injected by JS -->
+            </div>
+            </nav>
+            <button class="md:hidden text-primary">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-12 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="max-w-3xl">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-yellow/20 text-primary border border-accent-yellow/30 text-xs font-bold uppercase tracking-wider mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Contact our team
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-black leading-none tracking-tighter mb-8">
+                        Let's Build the <span class="text-primary italic">Future</span> Together
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed">
+                        Have a vision? We have the expertise to bring it to life. Reach out to our team of innovators
+                        and let's start something extraordinary.
+                    </p>
+                </div>
+            </div>
+            <!-- Background Decorative Element -->
+            <div class="absolute top-0 right-0 -z-10 w-1/3 h-full bg-depth-blue rounded-bl-[200px] hidden lg:block">
+            </div>
+        </section>
+        <!-- Contact Grid Section -->
+        <section class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Contact Details & Info -->
+                <div class="space-y-12">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <!-- Phone Card -->
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-primary/5 shadow-xl shadow-primary/5 hover:border-primary/20 transition-all group">
+                            <div
+                                class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Phone</h3>
+                            <p class="text-xl font-bold text-primary">+91 9937032631</p>
+                        </div>
+                        <!-- Email Card -->
+                        <div
+                            class="p-8 rounded-2xl bg-white border border-primary/5 shadow-xl shadow-primary/5 hover:border-primary/20 transition-all group">
+                            <div
+                                class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Email</h3>
+                            <p class="text-xl font-bold text-primary">support@laundryrage.com</p>
+                        </div>
+                    </div>
+                    <!-- Location Section -->
+                    <div class="rounded-3xl overflow-hidden relative border border-primary/10 shadow-2xl h-[400px]">
+                        <div class="absolute inset-0 bg-depth-blue bg-cover bg-center"
+                            data-alt="Stylized modern architectural map of a tech hub" data-location="Bhubaneswar"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxZmBa9toT8d6Rn0cKxtqiLJJyFUK3TRZM1YK2hyGm-nVN7AUMvj17Ub8ZP5TOo8yO-7UUoiyIfS48Sgmfu4boSSBvXL7_1jja6BxcYgN3NzQbvxQSL-xki7JRyB-uKxjrmCiHYrzF9i8Do37Pd1DbEeTcPptXVhrlbhOi1HA05X0_Cd-N5xCsqU-SsePv9-Xw6X6ijeZJ4LG9ykC8HRzyYfKVMfzMm2r6sDgWQaJPHeRcL3lp9unxLb5I5y_Bn9RjZUOpJMulGg');">
+                            <!-- Overlay for Map Styling -->
+                            <div class="absolute inset-0 bg-primary/5 mix-blend-multiply"></div>
+                            <!-- Pulse Marker -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <span class="relative flex h-8 w-8">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-40"></span>
+                                    <span
+                                        class="relative inline-flex rounded-full h-8 w-8 bg-primary border-4 border-white shadow-xl flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-white text-xs">location_on</span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Follow Us</span>
+                        <div class="h-px w-12 bg-gray-200"></div>
+                        <div class="flex gap-4">
+                            <a class="size-10 rounded-full border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                                href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank">
+                                <svg class="h-5 w-5 fill-current" viewbox="0 0 256 256"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a class="size-10 rounded-full border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                                href="https://www.linkedin.com/company/ragelabs-company" target="_blank">
+                                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div
+                    class="bg-white p-10 md:p-14 rounded-[40px] shadow-2xl shadow-primary/5 border border-primary/5 relative">
+                    <div class="absolute top-10 right-10">
+                        <span
+                            class="material-symbols-outlined text-accent-yellow text-4xl opacity-50">auto_awesome</span>
+                    </div>
+                    <div class="mb-10">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-2">Send us a message</h2>
+                        <p class="text-gray-500">Expect a response within 24 hours.</p>
+                    </div>
+                    <form action="#" class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="floating-label-group">
+                                <input
+                                    class="block w-full px-4 py-4 text-gray-900 bg-transparent border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-primary transition-colors peer"
+                                    id="name" placeholder=" " required="" type="text" />
+                                <label
+                                    class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all duration-200 peer-focus:text-primary"
+                                    for="name">Full Name</label>
+                            </div>
+                            <div class="floating-label-group">
+                                <input
+                                    class="block w-full px-4 py-4 text-gray-900 bg-transparent border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-primary transition-colors peer"
+                                    id="email" placeholder=" " required="" type="email" />
+                                <label
+                                    class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all duration-200 peer-focus:text-primary"
+                                    for="email">Professional Email</label>
+                            </div>
+                        </div>
+                        <div class="floating-label-group">
+                            <input
+                                class="block w-full px-4 py-4 text-gray-900 bg-transparent border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-primary transition-colors peer"
+                                id="subject" placeholder=" " required="" type="text" />
+                            <label
+                                class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all duration-200 peer-focus:text-primary"
+                                for="subject">Subject</label>
+                        </div>
+                        <div class="floating-label-group">
+                            <textarea
+                                class="block w-full px-4 py-4 text-gray-900 bg-transparent border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-primary transition-colors peer resize-none"
+                                id="message" placeholder=" " required="" rows="4"></textarea>
+                            <label
+                                class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all duration-200 peer-focus:text-primary"
+                                for="message">Tell us about your project</label>
+                        </div>
+                        <div class="pt-4">
+                            <button
+                                class="w-full bg-primary text-white py-5 rounded-2xl font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/30 group"
+                                type="submit">
+                                Send Message
+                                <span
+                                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-6 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-500 text-lg max-w-2xl mx-auto">Quick answers to common questions about our software
+                    development process and partnership models.</p>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <details
+                    class="group border border-primary/10 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:border-primary/30 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="text-lg font-bold text-gray-900 group-open:text-primary transition-colors">What
+                            industries do you specialize in?</span>
+                        <span
+                            class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        We specialize in delivering high-impact solutions for Fintech, Healthcare, E-commerce, and
+                        Logistics. However, our team's deep expertise in AI and Cloud infrastructure allows us to tackle
+                        complex challenges across any data-driven industry.
+                    </div>
+                </details>
+                <!-- FAQ Item 2 -->
+                <details
+                    class="group border border-primary/10 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:border-primary/30 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="text-lg font-bold text-gray-900 group-open:text-primary transition-colors">How long
+                            does a typical project take?</span>
+                        <span
+                            class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Timeline varies based on complexity. An MVP (Minimum Viable Product) typically takes 8-12 weeks,
+                        while more complex enterprise-grade platforms can range from 4 to 9 months. We provide detailed
+                        milestones during our discovery phase.
+                    </div>
+                </details>
+                <!-- FAQ Item 3 -->
+                <details
+                    class="group border border-primary/10 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:border-primary/30 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="text-lg font-bold text-gray-900 group-open:text-primary transition-colors">Do you
+                            offer ongoing post-launch support?</span>
+                        <span
+                            class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Absolutely. We offer flexible maintenance and support packages that include security patches,
+                        performance monitoring, and iterative feature updates to ensure your product scales seamlessly
+                        with your business.
+                    </div>
+                </details>
+                <!-- FAQ Item 4 -->
+                <details
+                    class="group border border-primary/10 rounded-2xl bg-white overflow-hidden transition-all duration-300 hover:border-primary/30 shadow-sm">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <span class="text-lg font-bold text-gray-900 group-open:text-primary transition-colors">How do
+                            you handle project communication?</span>
+                        <span
+                            class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+                        Transparency is our priority. We use Slack for daily communication, Jira for task tracking, and
+                        schedule weekly sync-up meetings via video call to review progress and gather feedback on the
+                        latest sprints.
+                    </div>
+                </details>
+            </div>
+        </section>
+        <!-- Accent Section -->
+        <section class="max-w-7xl mx-auto px-6 py-24">
+            <div class="bg-primary rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-accent-yellow rounded-full blur-[100px] opacity-20 -mr-32 -mt-32">
+                </div>
+                <div
+                    class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
+                    <div class="max-w-xl">
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Ready to start a
+                            revolution?</h2>
+                        <p class="text-white/70 text-lg">Our consulting team is available for global projects and
+                            strategic partnerships.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button
+                            class="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-accent-yellow transition-colors">Book
+                            a Call</button>
+                        <a href="services.html"
+                            class="border border-white/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors inline-block text-center">View
+                            Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3 opacity-50 grayscale">
+                <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
+                <h2 class="text-2xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
+                    labs</h2>
+            </div>
+            <p class="text-gray-400 text-sm font-medium">© 2024 Rage Labs. Engineering the future with passion.</p>
+            <div class="flex gap-8">
+                <a class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-primary transition-colors"
+                    href="#">Privacy</a>
+                <a class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-primary transition-colors"
+                    href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // ─── AUTH & AVATAR ──────────────────────────────────────────────────────
+        function initAuth() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const authNav = document.getElementById('auth-nav');
+            
+            if (!user) {
+                authNav.innerHTML = `
+                    <a href="login.html?redirect=contact" class="hidden sm:flex h-10 items-center justify-center rounded-lg px-5 text-sm font-bold border border-primary/20 hover:bg-primary/5 transition-all">Sign In</a>
+                    <a href="signup.html?redirect=contact" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
+                `;
+            } else {
+                const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
+                
+                authNav.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="group relative">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white font-black flex items-center justify-center cursor-pointer shadow-lg shadow-primary/20 transition-transform active:scale-90">
+                                ${initial}
+                            </div>
+                            <!-- Simple Dropdown -->
+                            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-xl shadow-2xl border border-primary/10 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
+                                <div class="px-4 py-2 border-b border-primary/5 mb-1 text-left">
+                                    <p class="text-xs font-black text-gray-400 uppercase tracking-tighter">Connected as</p>
+                                    <p class="text-sm font-bold truncate">${user.fullName || user.email}</p>
+                                </div>
+                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                                    Log Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.reload();
+        }
+
+        window.addEventListener('load', initAuth);
+
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (!user) {
+                alert('Please sign in to send a request. Redirecting you to the sign-in page...');
+                window.location.href = 'login.html?redirect=contact';
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const contactData = {
+                name: name,
+                email: email,
+                subject: subject,
+                message: message
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(contactData)
+                });
+
+                if (response.ok) {
+                    window.location.href = 'thankyou.html?type=contact';
+                    e.target.reset();
+                } else {
+                    const error = await response.text();
+                    alert('Failed to send message: ' + error);
+                }
+            } catch (err) {
+                console.error('Error:', err);
+                alert('An error occurred. Please make sure the backend is running.');
+            }
+        });
+    </script>
+</body>
+
+</html>

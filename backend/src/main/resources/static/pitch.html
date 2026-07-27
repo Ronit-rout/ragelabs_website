@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Share Your Pitch | Rage Labs – Venture Partnership</title>
+    <meta name="description" content="Submit your startup pitch to Rage Labs. We co-found great ideas with equity-based partnerships." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#720c13",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#0f0506",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                        "sans": ["Inter", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem",
+                        "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'glow': 'glow 4s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.4', filter: 'blur(30px)' },
+                            '100%': { opacity: '0.8', filter: 'blur(50px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.06;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(115, 12, 19, 0.1);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 5, 6, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: transparent;
+            border: 2px solid rgba(114, 12, 19, 0.12);
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .field-input:focus {
+            border-color: #720c13;
+            box-shadow: 0 0 0 3px rgba(114, 12, 19, 0.08);
+        }
+
+        .field-input::placeholder { color: #aaa; }
+
+        .section-card {
+            background: #fff;
+            border: 1px solid rgba(114,12,19,0.08);
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 4px 24px -4px rgba(114,12,19,0.06);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .section-card:hover {
+            border-color: rgba(114,12,19,0.2);
+            box-shadow: 0 8px 40px -8px rgba(114,12,19,0.12);
+        }
+
+        .dark .section-card {
+            background: rgba(25, 10, 12, 0.8);
+            border-color: rgba(255,255,255,0.06);
+        }
+
+        .dark .field-input {
+            color: #fff;
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .dark .field-input:focus {
+            border-color: #f6bc18;
+            box-shadow: 0 0 0 3px rgba(246,188,24,0.1);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(114,12,19,0.07);
+            color: #720c13;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 99px;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #720c13 0%, #f6bc18 100%);
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 12px rgba(246,188,24,0.35);
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+            padding: 18px 28px; border-radius: 16px;
+            font-weight: 700; font-size: 15px;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s, transform 0.4s;
+            transform: translateY(16px);
+            max-width: 360px;
+        }
+        #toast.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        #toast.success { background: #0f7b55; color: #fff; }
+        #toast.error { background: #720c13; color: #fff; }
+
+        .checkbox-label {
+            display: flex; align-items: center; gap: 10px;
+            cursor: pointer; font-size: 15px; font-weight: 500;
+            padding: 10px 14px; border-radius: 10px;
+            border: 2px solid rgba(114,12,19,0.1);
+            transition: all 0.2s;
+        }
+        .checkbox-label:hover { border-color: rgba(114,12,19,0.3); background: rgba(114,12,19,0.03); }
+        .checkbox-label input:checked ~ span { color: #720c13; font-weight: 700; }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white transition-colors duration-300">
+
+    <!-- Toast Notification -->
+    <div id="toast" role="alert"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                <span class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="services.html">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="portfolio.html">
+                    Portfolio
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="careers.html">
+                    Careers
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="about.html">
+                    About
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+            <div id="auth-nav" class="flex items-center gap-3">
+                <!-- Auth buttons/Avatar injected by JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Auth Gate Modal -->
+    <div id="auth-gate" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-background-dark/90 backdrop-blur-xl">
+        <div class="max-w-md w-full glass-card rounded-[2rem] p-10 text-center animate-fade-up">
+            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span class="material-symbols-outlined text-4xl text-primary">lock</span>
+            </div>
+            <h2 class="text-3xl font-black font-display mb-4">Authentication Required</h2>
+            <p class="text-gray-400 mb-10 leading-relaxed">To submit a venture pitch, you need to be part of the Rage Labs collective. Please sign in or create an account to continue.</p>
+            <div class="flex flex-col gap-4">
+                <a href="login.html?redirect=pitch" class="w-full bg-primary text-white font-black py-4 rounded-xl hover:scale-[1.02] active:scale-95 transition-all">Sign In</a>
+                <a href="signup.html?redirect=pitch" class="w-full border-2 border-primary/20 font-black py-4 rounded-xl hover:bg-primary/5 transition-all text-primary">Join the Collective</a>
+            </div>
+            <a href="index.html" class="inline-block mt-8 text-sm font-bold text-gray-500 hover:text-primary transition-colors">Return to Home</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+            <div class="tech-grid absolute inset-0 -z-10"></div>
+            <div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px] animate-glow pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-32 h-[350px] w-[350px] rounded-full bg-accent-yellow/10 blur-[100px] animate-glow pointer-events-none" style="animation-delay:2s"></div>
+
+            <div class="mx-auto max-w-4xl px-6 lg:px-10 text-center">
+                <div class="inline-flex items-center gap-3 rounded-full bg-white/50 dark:bg-white/5 px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-sm border border-primary/10 mb-8 animate-fade-up">
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+                    Venture Partnership Program
+                </div>
+                <h1 class="text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl font-display animate-fade-up mb-6" style="animation-delay:0.1s">
+                    Share Your <span class="text-primary italic">Pitch</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-xl leading-relaxed text-gray-600 dark:text-gray-400 font-medium animate-fade-up" style="animation-delay:0.2s">
+                    Tell us about your idea. We co-found the world's most ambitious startups — investing our engineering, hosting, and growth expertise for equity.
+                </p>
+            </div>
+        </section>
+
+        <!-- Progress Bar -->
+        <div class="mx-auto max-w-4xl px-6 lg:px-10 mb-10">
+            <div class="glass-card rounded-2xl p-6">
+                <div class="flex justify-between items-end mb-3">
+                    <div>
+                        <span class="text-xs font-black uppercase tracking-widest text-primary/60">Pitch Completion</span>
+                        <h3 class="text-lg font-bold mt-0.5">Application Status</h3>
+                    </div>
+                    <span id="progress-label" class="text-primary font-black text-xl">0%</span>
+                </div>
+                <div class="w-full bg-primary/10 h-3 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="progress-bar-fill" style="width:0%"></div>
+                </div>
+                <p class="text-xs text-gray-400 mt-2 font-medium">Fill in more fields to increase your completion score</p>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <form id="pitch-form" class="mx-auto max-w-4xl px-6 lg:px-10 pb-24 space-y-8" novalidate>
+
+            <!-- Section 1: Founder Info -->
+            <div class="section-card">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined text-[14px]">person</span>
+                    Section 1
+                </div>
+                <h2 class="text-2xl font-black font-display mb-2">Founder Information <span class="text-gray-400 font-normal text-lg">— The "Who"</span></h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 text-sm">We invest in people, not just ideas. Help us understand who you are.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="founderName">Full Name *</label>
+                            <input class="field-input" id="founderName" name="founderName" type="text" placeholder="e.g. Priya Sharma" required />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="email">Email Address *</label>
+                            <input class="field-input" id="email" name="email" type="email" placeholder="e.g. priya@example.com" required />
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="linkedin">LinkedIn Profile URL</label>
+                        <input class="field-input" id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/yourname" />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="twitter">Twitter / X Profile URL</label>
+                        <input class="field-input" id="twitter" name="twitter" type="url" placeholder="https://x.com/yourhandle" />
+                    </div>
+                    <div class="md:col-span-2 space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="pastProjects">Past Projects</label>
+                        <textarea class="field-input resize-none" id="pastProjects" name="pastProjects" rows="3"
+                            placeholder="Have you started or managed a project before? If so, what happened?"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="primaryRole">Your Primary Skill *</label>
+                        <select class="field-input" id="primaryRole" name="primaryRole" required>
+                            <option value="">Select your primary role</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Design">Design</option>
+                            <option value="Industry Expert">Industry Expert</option>
+                            <option value="Business Development">Business Development</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Operations">Operations</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="weeklyHours">Weekly Hours Commitment *</label>
+                        <input class="field-input" id="weeklyHours" name="weeklyHours" type="number" min="1" max="100"
+                            placeholder="e.g. 20 hours/week" required />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Project Core -->
+            <div class="section-card">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined text-[14px]">rocket_launch</span>
+                    Section 2
+                </div>
+                <h2 class="text-2xl font-black font-display mb-2">Project Core <span class="text-gray-400 font-normal text-lg">— The "What"</span></h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 text-sm">Define the problem and your solution. Be specific — vague ideas don't get funded.</p>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="projectName">Project Name (Working Title) *</label>
+                        <input class="field-input" id="projectName" name="projectName" type="text" placeholder="e.g. LaundryRage, HealthTrackr..." required />
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="problem">The Problem *</label>
+                        <textarea class="field-input resize-none" id="problem" name="problem" rows="4" required
+                            placeholder="What specific problem are you solving, and for whom? Be as precise as possible."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="solution">The Solution *</label>
+                        <textarea class="field-input resize-none" id="solution" name="solution" rows="4" required
+                            placeholder="How does your idea solve this problem in a way that's better than what exists?"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="targetAudience">Target Audience *</label>
+                        <textarea class="field-input resize-none" id="targetAudience" name="targetAudience" rows="3" required
+                            placeholder="Who is your 'Ideal Customer'? Be specific — age, profession, pain point, geography..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Technical & Scope -->
+            <div class="section-card">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined text-[14px]">build</span>
+                    Section 3
+                </div>
+                <h2 class="text-2xl font-black font-display mb-2">Technical & Scope <span class="text-gray-400 font-normal text-lg">— The "How"</span></h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 text-sm">Help us scope the engineering effort needed to build your MVP.</p>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-3">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Top 3 MVP Features</label>
+                        <p class="text-xs text-gray-400">List the 3 features the app MUST have to launch.</p>
+                        <input class="field-input" id="mvpFeature1" name="mvpFeature1" type="text" placeholder="Feature 1 — e.g. User authentication & profiles" />
+                        <input class="field-input" id="mvpFeature2" name="mvpFeature2" type="text" placeholder="Feature 2 — e.g. Real-time order tracking dashboard" />
+                        <input class="field-input" id="mvpFeature3" name="mvpFeature3" type="text" placeholder="Feature 3 — e.g. Payment gateway integration" />
+                    </div>
+
+                    <div class="space-y-3">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Platform Preference</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="platform" value="Web App" class="h-4 w-4 rounded accent-primary" />
+                                <span>🌐 Web App</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="platform" value="iOS App" class="h-4 w-4 rounded accent-primary" />
+                                <span>🍎 iOS App</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="platform" value="Android App" class="h-4 w-4 rounded accent-primary" />
+                                <span>🤖 Android App</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="integrations">External Integrations</label>
+                        <input class="field-input" id="integrations" name="integrations" type="text"
+                            placeholder="Does the project need other tools? e.g. Stripe, OpenAI, Google Maps, Twilio..." />
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Existing Assets</label>
+                        <p class="text-xs text-gray-400 mb-2">Do you have any wireframes, designs, or branding already?</p>
+                        <div class="border-2 border-dashed border-primary/20 rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer group bg-primary/5">
+                            <span class="material-symbols-outlined text-4xl text-primary/40 group-hover:text-primary transition-colors mb-2">cloud_upload</span>
+                            <p class="text-sm font-medium">Drag and drop files here or <span class="text-primary underline">browse</span></p>
+                            <p class="text-xs text-gray-400 mt-1">PDF, PNG, Figma, ZIP — max 10MB</p>
+                            <input id="assets-upload" class="hidden" type="file" multiple accept=".pdf,.png,.jpg,.zip,.fig" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Market & Validation -->
+            <div class="section-card">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                    Section 4
+                </div>
+                <h2 class="text-2xl font-black font-display mb-2">Market & Validation <span class="text-gray-400 font-normal text-lg">— The "Proof"</span></h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 text-sm">Show us you've done your homework. Real traction beats theory every time.</p>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="userValidation">User Validation</label>
+                        <textarea class="field-input resize-none" id="userValidation" name="userValidation" rows="3"
+                            placeholder="Have you talked to potential users? What did they say? Any surveys, interviews, or early signups?"></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="acquisitionStrategy">Acquisition Strategy *</label>
+                        <textarea class="field-input resize-none" id="acquisitionStrategy" name="acquisitionStrategy" rows="3" required
+                            placeholder="How do you plan to get your first 50 paying users? What channels? What's the strategy?"></textarea>
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300">Top 3 Competitors</label>
+                        <input class="field-input" id="competitor1" name="competitor1" type="text" placeholder="Competitor 1 — e.g. Uber Eats (and why you're different)" />
+                        <input class="field-input" id="competitor2" name="competitor2" type="text" placeholder="Competitor 2" />
+                        <input class="field-input" id="competitor3" name="competitor3" type="text" placeholder="Competitor 3" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="flex flex-col items-center gap-5 py-8">
+                <button id="submit-btn" type="submit"
+                    class="group relative w-full md:w-auto min-w-[340px] bg-accent-yellow text-primary px-12 py-7 rounded-[2rem] font-black text-xl shadow-[0_20px_40px_-10px_rgba(246,188,24,0.4)] hover:bg-white hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-4 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    <span id="submit-text">Submit My Pitch</span>
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </button>
+                <p class="text-xs text-gray-400 uppercase tracking-widest font-medium text-center max-w-sm">By submitting, you confirm this information is accurate and agree to our partnership evaluation process.</p>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-10">
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                        <span class="text-2xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+                    </div>
+                    <p class="max-w-md text-gray-500 font-medium">A high-end engineering collective dedicated to crafting digital products that push the boundaries of technology.</p>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
+                    <ul class="space-y-4">
+                        <li><a class="font-bold hover:text-primary transition-colors" href="services.html">Services</a></li>
+                        <li><a class="font-bold hover:text-primary transition-colors" href="portfolio.html">Portfolio</a></li>
+                        <li><a class="font-bold hover:text-primary transition-colors" href="careers.html">Careers</a></li>
+                        <li><a class="font-bold hover:text-primary transition-colors" href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Connect</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 font-bold">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            support@laundryrage.com
+                        </li>
+                        <li class="flex items-center gap-3 font-bold">
+                            <span class="material-symbols-outlined text-primary">phone</span>
+                            +91 9937032631
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-400 font-medium text-sm">© 2024 Rage Labs Engineering Collective.</p>
+                <div class="flex gap-8 text-gray-400 font-bold text-sm">
+                    <a href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank" class="hover:text-primary transition-colors">Instagram</a>
+                    <a href="https://www.linkedin.com/company/ragelabs-company" target="_blank" class="hover:text-primary transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── AUTH & AVATAR ──────────────────────────────────────────────────────
+        function initAuth() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const authNav = document.getElementById('auth-nav');
+            const authGate = document.getElementById('auth-gate');
+            
+            if (!user) {
+                authGate.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                authNav.innerHTML = `
+                    <a href="login.html?redirect=pitch" class="hidden sm:flex h-10 items-center justify-center rounded-lg px-5 text-sm font-bold border border-primary/20 hover:bg-primary/5 transition-all">Sign In</a>
+                    <a href="signup.html?redirect=pitch" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
+                `;
+            } else {
+                authGate.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                
+                // Prefill some fields if available
+                if (user.fullName) document.getElementById('founderName').value = user.fullName;
+                if (user.email) document.getElementById('email').value = user.email;
+
+                const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
+                
+                authNav.innerHTML = `
+                    <div class="flex items-center gap-4">
+                        <div class="group relative">
+                            <div class="w-10 h-10 rounded-full bg-primary text-white font-black flex items-center justify-center cursor-pointer shadow-lg shadow-primary/20 transition-transform active:scale-90">
+                                ${initial}
+                            </div>
+                            <!-- Simple Dropdown -->
+                            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-xl shadow-2xl border border-primary/10 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
+                                <div class="px-4 py-2 border-b border-primary/5 mb-1">
+                                    <p class="text-xs font-black text-gray-400 uppercase tracking-tighter">Connected as</p>
+                                    <p class="text-sm font-bold truncate">${user.fullName || user.email}</p>
+                                </div>
+                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[18px]">logout</span>
+                                    Log Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.reload();
+        }
+
+        window.addEventListener('load', initAuth);
+
+        // ─── Dynamic Progress Bar ───────────────────────────────────────────────
+        const form = document.getElementById('pitch-form');
+        const progressBar = document.getElementById('progress-bar');
+        const progressLabel = document.getElementById('progress-label');
+
+        function updateProgress() {
+            const inputs = form.querySelectorAll('input:not([type=file]):not([type=checkbox]):not([type=submit]), textarea, select');
+            const checkboxes = form.querySelectorAll('input[type=checkbox]');
+
+            let filled = 0;
+            let total = inputs.length + 1; // +1 for checkbox group
+
+            inputs.forEach(el => {
+                if (el.value && el.value.trim() !== '') filled++;
+            });
+
+            // count platform checkbox group as one item
+            const anyChecked = Array.from(checkboxes).some(c => c.checked);
+            if (anyChecked) filled++;
+
+            const pct = Math.round((filled / total) * 100);
+            progressBar.style.width = pct + '%';
+            progressLabel.textContent = pct + '%';
+        }
+
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+
+        // ─── Toast ──────────────────────────────────────────────────────────────
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = (type === 'success' ? '✅ ' : '❌ ') + msg;
+            toast.className = 'show ' + type;
+            setTimeout(() => { toast.className = ''; }, 5000);
+        }
+
+        // ─── Platform Checkbox Collection ───────────────────────────────────────
+        function getSelectedPlatforms() {
+            const checked = form.querySelectorAll('input[name="platform"]:checked');
+            return Array.from(checked).map(c => c.value).join(', ') || 'Not specified';
+        }
+
+        // ─── Form Submit ────────────────────────────────────────────────────────
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('submit-text');
+            btn.disabled = true;
+            btnText.textContent = 'Submitting...';
+
+            const pitchData = {
+                founderName: document.getElementById('founderName').value,
+                email: document.getElementById('email').value,
+                linkedin: document.getElementById('linkedin').value,
+                twitter: document.getElementById('twitter').value,
+                pastProjects: document.getElementById('pastProjects').value,
+                primaryRole: document.getElementById('primaryRole').value,
+                weeklyHours: document.getElementById('weeklyHours').value,
+                projectName: document.getElementById('projectName').value,
+                problem: document.getElementById('problem').value,
+                solution: document.getElementById('solution').value,
+                targetAudience: document.getElementById('targetAudience').value,
+                mvpFeature1: document.getElementById('mvpFeature1').value,
+                mvpFeature2: document.getElementById('mvpFeature2').value,
+                mvpFeature3: document.getElementById('mvpFeature3').value,
+                platform: getSelectedPlatforms(),
+                integrations: document.getElementById('integrations').value,
+                userValidation: document.getElementById('userValidation').value,
+                acquisitionStrategy: document.getElementById('acquisitionStrategy').value,
+                competitor1: document.getElementById('competitor1').value,
+                competitor2: document.getElementById('competitor2').value,
+                competitor3: document.getElementById('competitor3').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:8080/api/pitch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(pitchData)
+                });
+
+                if (response.ok) {
+                    // Set 100% progress on success
+                    progressBar.style.width = '100%';
+                    progressLabel.textContent = '100%';
+
+                    showToast('Pitch submitted! We\'ll review and reach out within 3–5 business days.', 'success');
+                    form.reset();
+                    updateProgress();
+                    setTimeout(() => { window.location.href = 'thankyou.html?type=pitch'; }, 2000);
+                } else {
+                    const err = await response.text();
+                    showToast('Submission failed: ' + err, 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Could not connect to the server. Please make sure the backend is running.', 'error');
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = 'Submit My Pitch';
+            }
+        });
+
+        // File upload click
+        document.querySelector('.border-dashed').addEventListener('click', () => {
+            document.getElementById('assets-upload').click();
+        });
+
+        document.getElementById('assets-upload').addEventListener('change', (e) => {
+            const files = e.target.files;
+            if (files.length > 0) {
+                const names = Array.from(files).map(f => f.name).join(', ');
+                document.querySelector('.border-dashed p:first-of-type').textContent = '📎 ' + names;
+            }
+        });
+    </script>
+</body>
+
+</html>
