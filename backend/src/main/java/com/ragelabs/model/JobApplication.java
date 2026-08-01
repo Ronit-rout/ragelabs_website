@@ -1,5 +1,6 @@
 package com.ragelabs.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,15 +15,58 @@ public class JobApplication {
     private String fullName;
     private String email;
     private String phone;
+
+    @Column(columnDefinition = "TEXT")
     private String address;
+
+    @Column(columnDefinition = "TEXT")
     private String skills;
+
     private String experience;
     private String preferredRole;
+
+    @Column(columnDefinition = "TEXT")
     private String careerGoals;
+
     private String referralSource;
+
+    @Column(columnDefinition = "TEXT")
     private String motivation;
+
+    private String resumeFileName;
+
+    @Column(columnDefinition = "TEXT")
+    private String linkedin;
+
+    @Column(columnDefinition = "TEXT")
+    private String portfolio;
+
     private String status = "pending";
     private LocalDateTime appliedAt = LocalDateTime.now();
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
+
+    public String getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(String portfolio) {
+        this.portfolio = portfolio;
+    }
+
+    public String getResumeFileName() {
+        return resumeFileName;
+    }
+
+    public void setResumeFileName(String resumeFileName) {
+        this.resumeFileName = resumeFileName;
+    }
 
     public String getStatus() {
         return status;

@@ -10,90 +10,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
+        <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
                         "primary": "#720c13",
-                        "primary-dim": "#ffb3ae",
-                        "accent-yellow": "#f8be1b",
+                        "accent-yellow": "#f6bc18",
                         "accent-blue": "#2563eb",
-                        "bg-base": "#1c1011",
-                        "bg-low": "#251819",
-                        "bg-card": "#2a1c1d",
-                        "bg-high": "#352628",
-                        "bg-highest": "#403132",
-                        "bg-lowest": "#170b0c",
-                        "text-main": "#f6ddde",
-                        "text-muted": "#debfbd",
-                        "outline-col": "#574140",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#0f0506",
                     },
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
                         "title": ["Big Shoulders Display", "sans-serif"],
+                        "sans": ["Inter", "system-ui", "sans-serif"]
                     },
-                }
-            }
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
         }
     </script>
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Space Grotesk', sans-serif; background: #1c1011; color: #f6ddde; }
-
-        /* ── Scrollbar ── */
-        ::-webkit-scrollbar { width: 4px; height: 4px; }
-        ::-webkit-scrollbar-track { background: #251819; }
-        ::-webkit-scrollbar-thumb { background: #720c13; border-radius: 99px; }
-
-        /* ── Glass ── */
-        .glass { background: rgba(64, 49, 50, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.05); }
-        .glass-dark { background: rgba(23, 11, 12, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); }
-
-        /* ── Grid Dot ── */
-        .dot-grid { background-image: radial-gradient(circle, #720c13 0.5px, transparent 0.5px); background-size: 32px 32px; opacity: 0.06; }
-
-        /* ── Tab ── */
-        .tab-btn { padding: 10px 20px; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.15em; color: #a68a88; border-bottom: 2px solid transparent; transition: all 0.15s; }
-        .tab-btn:hover { color: #f6ddde; }
-        .tab-btn.active { color: #f6ddde; border-bottom-color: #720c13; }
-
-        /* ── Status Badge ── */
-        .badge-pending { background: rgba(248,190,27,0.12); color: #f8be1b; border: 1px solid rgba(248,190,27,0.2); }
-        .badge-approved { background: rgba(34,197,94,0.12); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
-        .badge-rejected { background: rgba(114,12,19,0.18); color: #ffb3ae; border: 1px solid rgba(114,12,19,0.25); }
-
-        /* ── Table Row Hover ── */
-        .data-row:hover { background: rgba(114,12,19,0.06); box-shadow: inset 0 0 0 1px rgba(114,12,19,0.1); }
-        .data-row:hover .row-actions { opacity: 1; }
-        .row-actions { opacity: 0; transition: opacity 0.15s; }
-
-        /* ── Stat Card Glow ── */
-        .stat-red { box-shadow: 0 8px 32px rgba(114,12,19,0.25); }
-        .stat-blue { box-shadow: 0 8px 32px rgba(37,99,235,0.2); }
-        .stat-green { box-shadow: 0 8px 32px rgba(34,197,94,0.15); }
-        .stat-yellow { box-shadow: 0 8px 32px rgba(248,190,27,0.15); }
-
-        /* ── Animations ── */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in { animation: fadeIn 0.25s ease-out forwards; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .spinner { animation: spin 0.8s linear infinite; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        .slide-up { animation: slideUp 0.2s ease-out; }
-
-        /* ── Modal Overlay ── */
-        .modal-overlay { backdrop-filter: blur(8px); background: rgba(23,11,12,0.85); }
-
-        /* ── Glow Button ── */
-        .btn-primary { background: #720c13; color: #ff7671; font-weight: 900; transition: all 0.15s; }
-        .btn-primary:hover { background: #8a0f18; box-shadow: 0 0 15px rgba(114,12,19,0.5); }
-
-        /* ── Section Fields ── */
-        .detail-section { border-left: 2px solid rgba(114,12,19,0.4); padding-left: 16px; }
-        .detail-label { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: #a68a88; margin-bottom: 4px; }
-        .detail-value { font-size: 14px; color: #f6ddde; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
+        }
+        .reveal-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+        .glow-card { position: relative; overflow: hidden; }
+        .glow-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
+        }
+        .glow-card:hover::before { opacity: 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #a68a88;
+            background: transparent;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .tab-btn:hover {
+            color: #f6ddde;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .tab-btn.active {
+            color: #ffffff;
+            background: rgba(114, 12, 19, 0.6);
+            border-color: rgba(246, 188, 24, 0.3);
+            box-shadow: 0 4px 12px rgba(114, 12, 19, 0.3);
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -110,7 +114,7 @@
                 <span class="material-symbols-outlined text-4xl" style="color: #ffb3ae;">security</span>
             </div>
             <h2 class="text-3xl font-black font-title uppercase tracking-tighter mb-1" style="color: #f6ddde;">Command Center</h2>
-            <p class="text-xs font-bold uppercase tracking-widest mb-8" style="color: #a68a88;">Authorised Ops Only · IP Logged</p>
+            <p class="text-xs font-bold uppercase tracking-widest mb-8" style="color: #a68a88;">Rage Labs Intelligence Protocol</p>
 
             <form id="auth-form" class="space-y-4 text-left">
                 <div>
@@ -118,7 +122,7 @@
                     <input id="auth-email" type="email" required
                         class="w-full px-4 py-3 rounded-lg text-sm font-medium focus:outline-none transition-all"
                         style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #f6ddde;"
-                        placeholder="name@ragelabs.com">
+                        placeholder="name@ragelabs.in">
                 </div>
                 <div>
                     <label class="detail-label block mb-1">Security Clearance</label>
@@ -145,23 +149,27 @@
                 <div class="flex items-center gap-6">
                     <a href="index.html" class="flex items-center gap-2 shrink-0">
                         <img src="images/logo.png" alt="Rage Labs" class="h-9 w-9 object-contain">
-                        <span class="text-2xl font-black italic tracking-tighter lowercase font-title" style="color: #f8be1b;">rage labs</span>
+                        <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
                     </a>
                     <div class="w-px h-7 hidden md:block" style="background: rgba(255,255,255,0.07);"></div>
-                    <div class="hidden md:flex items-end gap-1">
-                        <button id="tab-pitches" class="tab-btn active" onclick="switchTab('pitches')">Venture Pitches</button>
-                        <button id="tab-apps" class="tab-btn" onclick="switchTab('apps')">Job Applications</button>
+                    <div class="hidden md:flex items-center gap-1">
+                        <button id="tab-pitches" class="tab-btn active" onclick="switchTab('pitches')">🚀 Venture Pitches</button>
+                        <button id="tab-apps" class="tab-btn" onclick="switchTab('apps')">💼 Job Applications</button>
+                        <button id="tab-contacts" class="tab-btn" onclick="switchTab('contacts')">✉️ Contact Messages</button>
                     </div>
                 </div>
 
                 <!-- Right Controls -->
                 <div class="flex items-center gap-3">
-                    <button onclick="exportCSV()" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-white hover:opacity-90 transition-all" style="background: #2563eb;">
-                        <span class="material-symbols-outlined text-sm">download</span> Export
+                    <button onclick="exportCSV()" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-white hover:opacity-90 transition-all shadow-md" style="background: #2563eb;">
+                        <span class="material-symbols-outlined text-sm">csv</span> Export CSV
+                    </button>
+                    <button onclick="exportAllJSON()" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-black hover:opacity-90 transition-all shadow-md" style="background: #f6bc18;">
+                        <span class="material-symbols-outlined text-sm">download</span> Full Database JSON
                     </button>
                     <div class="w-px h-7" style="background: rgba(255,255,255,0.07);"></div>
                     <p id="admin-name" class="text-xs font-black uppercase tracking-wider hidden sm:block" style="color: #debfbd;"></p>
-                    <div id="logout-btn" onclick="logout()" class="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110" style="background: rgba(114,12,19,0.3); border: 1px solid rgba(114,12,19,0.4);">
+                    <div id="logout-btn" onclick="logout()" class="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110" style="background: rgba(114,12,19,0.3); border: 1px solid rgba(114,12,19,0.4);" title="Sign Out">
                         <span class="material-symbols-outlined text-[18px]" style="color: #ffb3ae;">logout</span>
                     </div>
                 </div>
@@ -172,7 +180,7 @@
         <main class="flex-1 max-w-[1600px] w-full mx-auto p-6 space-y-6">
 
             <!-- ── Stats Row ── -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-4 gap-4">
                 <div class="glass rounded-xl p-6 stat-red">
                     <p class="detail-label mb-2">Total Pitches</p>
                     <h4 id="stat-pitches" class="text-4xl font-black tracking-tight" style="color: #ffb3ae; letter-spacing: -0.04em;">--</h4>
@@ -184,9 +192,9 @@
                     <p class="text-xs mt-1" style="color: #a68a88;">Job applications</p>
                 </div>
                 <div class="glass rounded-xl p-6 stat-green">
-                    <p class="detail-label mb-2">Success Rate</p>
-                    <h4 class="text-4xl font-black tracking-tight" style="color: #4ade80; letter-spacing: -0.04em;">8.4%</h4>
-                    <p class="text-xs mt-1" style="color: #a68a88;">Approval ratio</p>
+                    <p class="detail-label mb-2">Contact Enquiries</p>
+                    <h4 id="stat-contacts" class="text-4xl font-black tracking-tight" style="color: #4ade80; letter-spacing: -0.04em;">--</h4>
+                    <p class="text-xs mt-1" style="color: #a68a88;">General messages</p>
                 </div>
                 <div class="glass rounded-xl p-6 stat-yellow">
                     <p class="detail-label mb-2">Lab Uptime</p>
@@ -203,11 +211,13 @@
                         <h3 id="table-title" class="text-lg font-black uppercase tracking-widest" style="color: #f6ddde;">Incoming Venture Pitches</h3>
                         <p class="text-xs mt-0.5" style="color: #a68a88;">Real-time data feed · Rage Labs API</p>
                     </div>
-                    <div class="relative">
-                        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm" style="color: #574140;">search</span>
-                        <input id="table-search" type="text" oninput="filterTable()" placeholder="Search records..."
-                            class="pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none w-64 transition-all"
-                            style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: #f6ddde;">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm" style="color: #574140;">search</span>
+                            <input id="table-search" type="text" oninput="filterTable()" placeholder="Search records..."
+                                class="pl-9 pr-4 py-2.5 rounded-lg text-sm focus:outline-none w-64 transition-all"
+                                style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: #f6ddde;">
+                        </div>
                     </div>
                 </div>
 
@@ -216,10 +226,10 @@
                     <table class="w-full">
                         <thead>
                             <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <th class="detail-label px-6 py-4 text-left">Name / Project</th>
-                                <th class="detail-label px-4 py-4 text-left">Contact</th>
-                                <th class="detail-label px-4 py-4 text-left">Role / Focus</th>
-                                <th class="detail-label px-4 py-4 text-center">Status</th>
+                                <th id="th-col1" class="detail-label px-6 py-4 text-left">Name / Project</th>
+                                <th id="th-col2" class="detail-label px-4 py-4 text-left">Contact Information</th>
+                                <th id="th-col3" class="detail-label px-4 py-4 text-left">Role / Focus</th>
+                                <th id="th-col4" class="detail-label px-4 py-4 text-center">Status</th>
                                 <th class="detail-label px-6 py-4 text-right">Actions</th>
                             </tr>
                         </thead>
@@ -239,7 +249,7 @@
                 <div id="empty-state" class="hidden py-20 flex flex-col items-center text-center">
                     <span class="material-symbols-outlined text-5xl mb-4" style="color: rgba(114,12,19,0.3);">dataset</span>
                     <h4 class="font-black uppercase tracking-wider" style="color: #debfbd;">No Intel Found</h4>
-                    <p class="text-sm mt-1" style="color: #a68a88;">Clean slate — no transmissions in the pipeline.</p>
+                    <p class="text-sm mt-1" style="color: #a68a88;">Clean slate — no transmissions in this section.</p>
                 </div>
             </div>
         </main>
@@ -249,7 +259,7 @@
     <div id="detail-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 modal-overlay">
         <div id="modal-panel" class="glass-dark rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl slide-up" style="box-shadow: 0 24px 64px rgba(15,5,6,0.9);">
             <!-- Modal Header -->
-            <div class="sticky top-0 px-8 py-6 flex items-center justify-between" style="background: rgba(37,24,25,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div class="sticky top-0 px-8 py-6 flex items-center justify-between z-10" style="background: rgba(37,24,25,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06);">
                 <div>
                     <h3 id="modal-title" class="text-xl font-black uppercase tracking-widest" style="color: #f6ddde;"></h3>
                     <p id="modal-subtitle" class="text-xs mt-0.5 font-bold" style="color: #a68a88;"></p>
@@ -266,15 +276,20 @@
             <div id="modal-body" class="p-8 space-y-8"></div>
 
             <!-- Modal Actions -->
-            <div id="modal-actions" class="px-8 py-6 flex flex-wrap gap-3 items-center" style="border-top: 1px solid rgba(255,255,255,0.06);">
-                <button id="modal-approve-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.2);">
-                    <span class="material-symbols-outlined text-sm">check</span> Approve
-                </button>
-                <button id="modal-reject-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(114,12,19,0.15); color: #ffb3ae; border: 1px solid rgba(114,12,19,0.25);">
-                    <span class="material-symbols-outlined text-sm">block</span> Reject
-                </button>
-                <button id="modal-delete-btn" onclick="" class="hidden flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(255,0,0,0.1); color: #ff6b6b; border: 1px solid rgba(255,0,0,0.2);">
-                    <span class="material-symbols-outlined text-sm">delete</span> Delete Record
+            <div id="modal-actions" class="px-8 py-6 flex flex-wrap gap-3 items-center justify-between" style="border-top: 1px solid rgba(255,255,255,0.06);">
+                <div class="flex items-center gap-3">
+                    <button id="modal-approve-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.2);">
+                        <span class="material-symbols-outlined text-sm">check</span> Approve
+                    </button>
+                    <button id="modal-reject-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(114,12,19,0.15); color: #ffb3ae; border: 1px solid rgba(114,12,19,0.2);">
+                        <span class="material-symbols-outlined text-sm">block</span> Reject
+                    </button>
+                    <button id="modal-delete-btn" onclick="" class="hidden items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.3);">
+                        <span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+                </div>
+                <button onclick="closeModal()" class="px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:bg-white/5" style="color: #a68a88; border: 1px solid rgba(255,255,255,0.08);">
+                    Close
                 </button>
             </div>
         </div>
@@ -284,16 +299,15 @@
     <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3"></div>
 
     <script>
-        // ─── CONFIG ─────────────────────────────────────────────────────────────
         const WHITELIST = [
-            'ronitrishir@gmail.com','ronitrishi05@gmail.com','seemanchalmohanty@gmail.com',
-            'ayogeshkumar22@gmail.com','sahooswarup60@gmail.com','nayakkalpana501@gmail.com'
+            'support@ragelabs.in', 'support@ragelabs.com', 'ronitrishir@gmail.com', 'ronitrishi05@gmail.com', 'seemanchalmohanty@gmail.com',
+            'ayogeshkumar22@gmail.com', 'sahooswarup60@gmail.com', 'nayakkalpana501@gmail.com'
         ];
-        const PASS = 'RLA20TWO6';
+        const VALID_PASSWORDS = ['ragelabs27072026', 'RLA20TWO6'];
         const API = 'http://localhost:8080/api';
 
         let currentTab = 'pitches';
-        let allData = { pitches: [], apps: [] };
+        let allData = { pitches: [], apps: [], contacts: [] };
         let currentModalItem = null;
 
         // ─── AUTH ────────────────────────────────────────────────────────────────
@@ -303,7 +317,7 @@
             const pass  = document.getElementById('auth-password').value;
             const err   = document.getElementById('auth-error');
 
-            if (WHITELIST.includes(email) && pass === PASS) {
+            if (WHITELIST.includes(email.toLowerCase()) && VALID_PASSWORDS.includes(pass)) {
                 document.getElementById('auth-screen').style.display = 'none';
                 document.getElementById('dashboard').classList.remove('hidden');
                 document.getElementById('dashboard').classList.add('flex');
@@ -323,21 +337,21 @@
         async function fetchData() {
             showLoading(true);
             try {
-                const [pRes, aRes] = await Promise.all([
+                const [pRes, aRes, cRes] = await Promise.all([
                     fetch(`${API}/pitch`),
-                    fetch(`${API}/apply`)
+                    fetch(`${API}/apply`),
+                    fetch(`${API}/contact`)
                 ]);
 
-                if (!pRes.ok || !aRes.ok) throw new Error('API error');
-
-                allData.pitches = await pRes.json();
-                allData.apps    = await aRes.json();
+                allData.pitches  = pRes.ok ? await pRes.json() : [];
+                allData.apps     = aRes.ok ? await aRes.json() : [];
+                allData.contacts = cRes.ok ? await cRes.json() : [];
 
                 updateStats();
                 renderTable();
             } catch (err) {
                 console.error(err);
-                showToast('Failed to connect to Command Center API. Is the backend running?', 'error');
+                showToast('Failed to connect to Command Center API. Is backend running?', 'error');
                 showLoading(false);
                 document.getElementById('empty-state').classList.remove('hidden');
             } finally {
@@ -346,8 +360,9 @@
         }
 
         function updateStats() {
-            document.getElementById('stat-pitches').textContent = allData.pitches.length;
-            document.getElementById('stat-apps').textContent = allData.apps.length;
+            document.getElementById('stat-pitches').textContent  = allData.pitches.length;
+            document.getElementById('stat-apps').textContent     = allData.apps.length;
+            document.getElementById('stat-contacts').textContent = allData.contacts.length;
         }
 
         function showLoading(v) {
@@ -357,76 +372,138 @@
         // ─── TABS ────────────────────────────────────────────────────────────────
         function switchTab(tab) {
             currentTab = tab;
-            document.getElementById('tab-pitches').className = 'tab-btn ' + (tab === 'pitches' ? 'active' : '');
-            document.getElementById('tab-apps').className    = 'tab-btn ' + (tab === 'apps' ? 'active' : '');
-            document.getElementById('table-title').textContent = tab === 'pitches' ? 'Incoming Venture Pitches' : 'Active Operative Candidates';
+            document.getElementById('tab-pitches').className  = 'tab-btn ' + (tab === 'pitches' ? 'active' : '');
+            document.getElementById('tab-apps').className     = 'tab-btn ' + (tab === 'apps' ? 'active' : '');
+            document.getElementById('tab-contacts').className = 'tab-btn ' + (tab === 'contacts' ? 'active' : '');
+
+            const titles = {
+                pitches: 'Incoming Venture Pitches',
+                apps: 'Active Operative Candidates',
+                contacts: 'Platform Enquiries & Contact Messages'
+            };
+            document.getElementById('table-title').textContent = titles[tab];
             document.getElementById('table-search').value = '';
+
+            // Update column headers for contacts tab
+            if (tab === 'contacts') {
+                document.getElementById('th-col1').textContent = 'Sender Name';
+                document.getElementById('th-col2').textContent = 'Email Address';
+                document.getElementById('th-col3').textContent = 'Subject Line';
+                document.getElementById('th-col4').textContent = 'Timestamp';
+            } else {
+                document.getElementById('th-col1').textContent = 'Name / Project';
+                document.getElementById('th-col2').textContent = 'Contact Information';
+                document.getElementById('th-col3').textContent = 'Role / Focus';
+                document.getElementById('th-col4').textContent = 'Status';
+            }
+
             renderTable();
         }
 
         // ─── RENDER TABLE ────────────────────────────────────────────────────────
         function renderTable(query = '') {
             const body = document.getElementById('table-body');
-            const raw  = currentTab === 'pitches' ? allData.pitches : allData.apps;
+            let raw = [];
+            if (currentTab === 'pitches') raw = allData.pitches;
+            else if (currentTab === 'apps') raw = allData.apps;
+            else if (currentTab === 'contacts') raw = allData.contacts;
 
+            const q = query.toLowerCase();
             const data = raw.filter(item => {
-                const name = (item.founderName || item.fullName || '').toLowerCase();
-                const proj = (item.projectName || item.preferredRole || '').toLowerCase();
-                return name.includes(query.toLowerCase()) || proj.includes(query.toLowerCase());
+                const name = (item.founderName || item.fullName || item.name || '').toLowerCase();
+                const proj = (item.projectName || item.preferredRole || item.subject || '').toLowerCase();
+                const mail = (item.email || '').toLowerCase();
+                const msg  = (item.message || '').toLowerCase();
+                return name.includes(q) || proj.includes(q) || mail.includes(q) || msg.includes(q);
             });
 
             document.getElementById('empty-state').classList.toggle('hidden', data.length > 0);
 
             if (data.length === 0) { body.innerHTML = ''; return; }
 
-            body.innerHTML = data.map(item => `
-                <tr class="data-row transition-all cursor-pointer" onclick="viewDetails(${item.id})">
-                    <td class="px-6 py-5">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-black uppercase" style="background: rgba(114,12,19,0.2); color: #ffb3ae;">
-                                ${(item.founderName || item.fullName || '?').charAt(0)}
+            if (currentTab === 'contacts') {
+                body.innerHTML = data.map(item => `
+                    <tr class="data-row transition-all cursor-pointer hover:bg-white/[0.02]" onclick="viewDetails(${item.id})">
+                        <td class="px-6 py-5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-black uppercase" style="background: rgba(34,197,94,0.2); color: #4ade80;">
+                                    ${(item.name || '?').charAt(0)}
+                                </div>
+                                <div>
+                                    <p class="font-black text-sm uppercase tracking-tight" style="color: #f6ddde;">${escapeHtml(item.name || 'N/A')}</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest" style="color: #a68a88;">Contact Message</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-black text-sm uppercase tracking-tight" style="color: #f6ddde;">${item.founderName || item.fullName || 'N/A'}</p>
-                                <p class="text-[10px] font-bold uppercase tracking-widest" style="color: #a68a88;">${item.projectName || 'Career Application'}</p>
+                        </td>
+                        <td class="px-4 py-5">
+                            <p class="text-xs font-medium" style="color: #debfbd;">${escapeHtml(item.email || '—')}</p>
+                        </td>
+                        <td class="px-4 py-5">
+                            <p class="text-xs font-black uppercase tracking-wider" style="color: #debfbd;">${escapeHtml(item.subject || 'General Inquiry')}</p>
+                        </td>
+                        <td class="px-4 py-5 text-center">
+                            <span class="text-[10px] font-bold" style="color: #a68a88;">${item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'RECENT'}</span>
+                        </td>
+                        <td class="px-6 py-5 text-right">
+                            <div class="row-actions flex justify-end gap-1.5">
+                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #debfbd;" title="View Details">
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+                                </button>
                             </div>
-                        </div>
-                    </td>
-                    <td class="px-4 py-5">
-                        <p class="text-xs font-medium" style="color: #debfbd;">${item.email || '—'}</p>
-                        <div class="flex gap-2 mt-1">
-                            ${item.linkedin ? `<a href="${item.linkedin}" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #b4c5ff;">LINKEDIN</a>` : ''}
-                            ${item.twitter  ? `<a href="${item.twitter}"  target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #ffb3ae;">TWITTER</a>` : ''}
-                        </div>
-                    </td>
-                    <td class="px-4 py-5">
-                        <p class="text-xs font-black uppercase tracking-wider" style="color: #debfbd;">${item.primaryRole || item.preferredRole || 'N/A'}</p>
-                        <p class="text-[10px] font-bold" style="color: #574140;">${item.weeklyHours ? item.weeklyHours + ' hrs/wk' : (item.experience ? item.experience + ' exp' : '')}</p>
-                    </td>
-                    <td class="px-4 py-5 text-center">
-                        <span class="inline-flex px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${getStatusClass(item.status)}">
-                            ${item.status || 'PENDING'}
-                        </span>
-                    </td>
-                    <td class="px-6 py-5 text-right">
-                        <div class="row-actions flex justify-end gap-1.5">
-                            <button onclick="event.stopPropagation(); updateStatus(${item.id},'APPROVED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(34,197,94,0.1); color: #4ade80;" title="Approve">
-                                <span class="material-symbols-outlined text-[16px]">check</span>
-                            </button>
-                            <button onclick="event.stopPropagation(); updateStatus(${item.id},'REJECTED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(114,12,19,0.1); color: #ffb3ae;" title="Reject">
-                                <span class="material-symbols-outlined text-[16px]">block</span>
-                            </button>
-                            <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #debfbd;" title="View Details">
-                                <span class="material-symbols-outlined text-[16px]">visibility</span>
-                            </button>
-                            ${(item.status || '').toUpperCase() === 'REJECTED' ? `
-                            <button onclick="event.stopPropagation(); deleteRecord(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,0,0,0.1); color: #ff6b6b;" title="Delete">
-                                <span class="material-symbols-outlined text-[16px]">delete</span>
-                            </button>` : ''}
-                        </div>
-                    </td>
-                </tr>
-            `).join('');
+                        </td>
+                    </tr>
+                `).join('');
+            } else {
+                body.innerHTML = data.map(item => `
+                    <tr class="data-row transition-all cursor-pointer hover:bg-white/[0.02]" onclick="viewDetails(${item.id})">
+                        <td class="px-6 py-5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-black uppercase" style="background: rgba(114,12,19,0.2); color: #ffb3ae;">
+                                    ${(item.founderName || item.fullName || '?').charAt(0)}
+                                </div>
+                                <div>
+                                    <p class="font-black text-sm uppercase tracking-tight" style="color: #f6ddde;">${escapeHtml(item.founderName || item.fullName || 'N/A')}</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest" style="color: #a68a88;">${escapeHtml(item.projectName || 'Career Application')}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <p class="text-xs font-medium" style="color: #debfbd;">${escapeHtml(item.email || '—')}</p>
+                            <div class="flex gap-2 mt-1">
+                                ${item.linkedin ? `<a href="${escapeHtml(item.linkedin)}" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #b4c5ff;">LINKEDIN</a>` : ''}
+                                ${item.portfolio ? `<a href="${escapeHtml(item.portfolio)}" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #4ade80;">PORTFOLIO</a>` : ''}
+                                ${item.twitter  ? `<a href="${escapeHtml(item.twitter)}"  target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #ffb3ae;">TWITTER</a>` : ''}
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <p class="text-xs font-black uppercase tracking-wider" style="color: #debfbd;">${escapeHtml(item.primaryRole || item.preferredRole || 'N/A')}</p>
+                            <p class="text-[10px] font-bold" style="color: #a68a88;">${item.weeklyHours ? item.weeklyHours + ' hrs/wk' : (item.experience ? item.experience + ' exp' : '')}</p>
+                        </td>
+                        <td class="px-4 py-5 text-center">
+                            <span class="inline-flex px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${getStatusClass(item.status)}">
+                                ${item.status || 'PENDING'}
+                            </span>
+                        </td>
+                        <td class="px-6 py-5 text-right">
+                            <div class="row-actions flex justify-end gap-1.5">
+                                <button onclick="event.stopPropagation(); updateStatus(${item.id},'APPROVED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(34,197,94,0.1); color: #4ade80;" title="Approve">
+                                    <span class="material-symbols-outlined text-[16px]">check</span>
+                                </button>
+                                <button onclick="event.stopPropagation(); updateStatus(${item.id},'REJECTED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(114,12,19,0.1); color: #ffb3ae;" title="Reject">
+                                    <span class="material-symbols-outlined text-[16px]">block</span>
+                                </button>
+                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #debfbd;" title="View Details">
+                                    <span class="material-symbols-outlined text-[16px]">visibility</span>
+                                </button>
+                                ${(item.status || '').toUpperCase() === 'REJECTED' ? `
+                                <button onclick="event.stopPropagation(); deleteRecord(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,0,0,0.1); color: #ff6b6b;" title="Delete">
+                                    <span class="material-symbols-outlined text-[16px]">delete</span>
+                                </button>` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            }
         }
 
         function getStatusClass(status) {
@@ -443,20 +520,29 @@
 
         // ─── DETAIL MODAL ────────────────────────────────────────────────────────
         function viewDetails(id) {
-            const list = currentTab === 'pitches' ? allData.pitches : allData.apps;
+            let list = [];
+            if (currentTab === 'pitches') list = allData.pitches;
+            else if (currentTab === 'apps') list = allData.apps;
+            else if (currentTab === 'contacts') list = allData.contacts;
+
             const item = list.find(x => x.id === id);
             if (!item) return;
 
             currentModalItem = item;
 
             // Title/subtitle
-            document.getElementById('modal-title').textContent   = item.founderName || item.fullName || 'Unknown';
-            document.getElementById('modal-subtitle').textContent = item.projectName ? `Venture: ${item.projectName}` : 'Job Application';
+            document.getElementById('modal-title').textContent   = item.founderName || item.fullName || item.name || 'Unknown Entry';
+            document.getElementById('modal-subtitle').textContent = item.projectName ? `Venture: ${item.projectName}` : (item.preferredRole ? `Role: ${item.preferredRole}` : `Subject: ${item.subject || 'General Message'}`);
 
             // Status badge
             const sb = document.getElementById('modal-status');
-            sb.textContent = (item.status || 'PENDING').toUpperCase();
-            sb.className = 'px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ' + getStatusClass(item.status);
+            if (currentTab === 'contacts') {
+                sb.textContent = 'ENQUIRY';
+                sb.className = 'px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest badge-approved';
+            } else {
+                sb.textContent = (item.status || 'PENDING').toUpperCase();
+                sb.className = 'px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest ' + getStatusClass(item.status);
+            }
 
             // Body
             const body = document.getElementById('modal-body');
@@ -467,39 +553,39 @@
                         <p class="detail-label mb-4">— Founder Information</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             ${field('Full Name', item.founderName)}
-                            ${field('Email', item.email)}
-                            ${field('LinkedIn', item.linkedin ? `<a href="${item.linkedin}" target="_blank" class="underline" style="color:#b4c5ff;">${item.linkedin}</a>` : '—', true)}
+                            ${field('Email Address', item.email)}
+                            ${field('LinkedIn Profile', item.linkedin ? `<a href="${item.linkedin}" target="_blank" class="underline" style="color:#b4c5ff;">${item.linkedin}</a>` : '—', true)}
                             ${field('Twitter / X', item.twitter ? `<a href="${item.twitter}" target="_blank" class="underline" style="color:#ffb3ae;">${item.twitter}</a>` : '—', true)}
                             ${field('Primary Skill', item.primaryRole)}
                             ${field('Weekly Commitment', item.weeklyHours ? item.weeklyHours + ' hrs/wk' : '—')}
-                            ${item.pastProjects ? `<div class="sm:col-span-2">${field('Past Projects', item.pastProjects)}</div>` : ''}
+                            ${item.pastProjects ? `<div class="sm:col-span-2">${field('Past Projects & Experience', item.pastProjects)}</div>` : ''}
                         </div>
                     </div>
                     <div class="detail-section">
-                        <p class="detail-label mb-4">— Project Core</p>
+                        <p class="detail-label mb-4">— Project Core Blueprint</p>
                         <div class="grid grid-cols-1 gap-5">
                             ${field('Project Name', item.projectName)}
-                            ${field('The Problem', item.problem)}
-                            ${field('The Solution', item.solution)}
+                            ${field('Problem Statement', item.problem)}
+                            ${field('Proposed Solution MVP', item.solution)}
                             ${field('Target Audience', item.targetAudience)}
                         </div>
                     </div>
                     <div class="detail-section">
-                        <p class="detail-label mb-4">— Technical & Scope</p>
+                        <p class="detail-label mb-4">— Technical & Scope Specifications</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             ${field('MVP Feature 1', item.mvpFeature1)}
                             ${field('MVP Feature 2', item.mvpFeature2)}
                             ${field('MVP Feature 3', item.mvpFeature3)}
-                            ${field('Platform', item.platform)}
-                            ${item.integrations ? `<div class="sm:col-span-2">${field('Integrations', item.integrations)}</div>` : ''}
+                            ${field('Target Platform', item.platform)}
+                            ${item.integrations ? `<div class="sm:col-span-2">${field('Integrations Needed', item.integrations)}</div>` : ''}
                         </div>
                     </div>
                     <div class="detail-section">
-                        <p class="detail-label mb-4">— Market & Validation</p>
+                        <p class="detail-label mb-4">— Market & Go-To-Market Validation</p>
                         <div class="grid grid-cols-1 gap-5">
                             ${field('User Validation', item.userValidation)}
                             ${field('Acquisition Strategy', item.acquisitionStrategy)}
-                            <div class="grid grid-cols-3 gap-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 ${field('Competitor 1', item.competitor1)}
                                 ${field('Competitor 2', item.competitor2)}
                                 ${field('Competitor 3', item.competitor3)}
@@ -507,28 +593,42 @@
                         </div>
                     </div>
                 `;
-            } else {
+            } else if (currentTab === 'apps') {
                 body.innerHTML = `
                     <div>
                         <p class="detail-label mb-4">— Applicant Details</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             ${field('Full Name', item.fullName)}
-                            ${field('Email', item.email)}
-                            ${field('Phone', item.phone)}
-                            ${field('Address', item.address)}
+                            ${field('Email Address', item.email)}
+                            ${field('Contact Phone', item.phone)}
+                            ${field('Location (City, Country)', item.address)}
                             ${field('Key Skills', item.skills)}
-                            ${field('Experience', item.experience)}
+                            ${field('Years of Experience', item.experience)}
                             ${field('Preferred Role', item.preferredRole)}
                             ${field('Referral Source', item.referralSource)}
-                            ${item.linkedin ? `<div class="sm:col-span-2">${field('LinkedIn', `<a href="${item.linkedin}" target="_blank" class="underline" style="color:#b4c5ff;">${item.linkedin}</a>`, true)}</div>` : ''}
-                            ${item.portfolio ? `<div class="sm:col-span-2">${field('Portfolio / GitHub', `<a href="${item.portfolio}" target="_blank" class="underline" style="color:#b4c5ff;">${item.portfolio}</a>`, true)}</div>` : ''}
+                            ${item.linkedin ? `<div class="sm:col-span-2">${field('LinkedIn Profile', `<a href="${item.linkedin}" target="_blank" class="underline" style="color:#b4c5ff;">${item.linkedin}</a>`, true)}</div>` : ''}
+                            ${item.portfolio ? `<div class="sm:col-span-2">${field('Portfolio / GitHub', `<a href="${item.portfolio}" target="_blank" class="underline" style="color:#4ade80;">${item.portfolio}</a>`, true)}</div>` : ''}
+                            ${item.resumeFileName ? `<div class="sm:col-span-2">${field('Attached Resume File', `<span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-yellow-400"><span class="material-symbols-outlined text-sm">attach_file</span> ${escapeHtml(item.resumeFileName)}</span>`, true)}</div>` : ''}
                         </div>
                     </div>
                     <div class="detail-section">
-                        <p class="detail-label mb-4">— Motivation & Goals</p>
+                        <p class="detail-label mb-4">— Motivation & Career Vision</p>
                         <div class="grid grid-cols-1 gap-5">
                             ${field('Career Goals', item.careerGoals)}
                             ${field('Why Rage Labs?', item.motivation)}
+                        </div>
+                    </div>
+                `;
+            } else {
+                body.innerHTML = `
+                    <div>
+                        <p class="detail-label mb-4">— Enquiry & Contact Message</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            ${field('Sender Name', item.name)}
+                            ${field('Email Address', item.email)}
+                            <div class="sm:col-span-2">${field('Subject Line', item.subject)}</div>
+                            <div class="sm:col-span-2">${field('Message Body', item.message)}</div>
+                            ${field('Submitted At', item.createdAt ? new Date(item.createdAt).toLocaleString() : 'N/A')}
                         </div>
                     </div>
                 `;
@@ -539,17 +639,24 @@
             const rejectBtn  = document.getElementById('modal-reject-btn');
             const deleteBtn  = document.getElementById('modal-delete-btn');
 
-            approveBtn.onclick = (e) => { e.stopPropagation(); updateStatus(id, 'APPROVED'); closeModal(); };
-            rejectBtn.onclick  = (e) => { e.stopPropagation(); updateStatus(id, 'REJECTED'); closeModal(); };
-            deleteBtn.onclick  = (e) => { e.stopPropagation(); deleteRecord(id); closeModal(); };
-
-            // Show delete only for REJECTED
-            if ((item.status || '').toUpperCase() === 'REJECTED') {
-                deleteBtn.classList.remove('hidden');
-                deleteBtn.classList.add('flex');
+            if (currentTab === 'contacts') {
+                approveBtn.style.display = 'none';
+                rejectBtn.style.display  = 'none';
+                deleteBtn.style.display  = 'none';
             } else {
-                deleteBtn.classList.add('hidden');
-                deleteBtn.classList.remove('flex');
+                approveBtn.style.display = 'flex';
+                rejectBtn.style.display  = 'flex';
+                approveBtn.onclick = (e) => { e.stopPropagation(); updateStatus(id, 'APPROVED'); closeModal(); };
+                rejectBtn.onclick  = (e) => { e.stopPropagation(); updateStatus(id, 'REJECTED'); closeModal(); };
+                deleteBtn.onclick  = (e) => { e.stopPropagation(); deleteRecord(id); closeModal(); };
+
+                if ((item.status || '').toUpperCase() === 'REJECTED') {
+                    deleteBtn.classList.remove('hidden');
+                    deleteBtn.classList.add('flex');
+                } else {
+                    deleteBtn.classList.add('hidden');
+                    deleteBtn.classList.remove('flex');
+                }
             }
 
             // Show modal
@@ -592,7 +699,6 @@
                 if (res.ok) {
                     showToast(`Entry ${newStatus.toLowerCase()} successfully ✓`, 'success');
                 } else {
-                    // Fallback: update locally
                     const list = currentTab === 'pitches' ? allData.pitches : allData.apps;
                     const item = list.find(x => x.id === id);
                     if (item) item.status = newStatus;
@@ -611,10 +717,9 @@
                 const res = await fetch(`${API}/${apiPart}/${id}`, { method: 'DELETE' });
                 if (res.ok || res.status === 204) {
                     showToast('Record permanently deleted', 'success');
-                    // Remove locally
                     if (currentTab === 'pitches') {
                         allData.pitches = allData.pitches.filter(x => x.id !== id);
-                    } else {
+                    } else if (currentTab === 'apps') {
                         allData.apps = allData.apps.filter(x => x.id !== id);
                     }
                     updateStats();
@@ -627,17 +732,49 @@
             }
         }
 
-        // ─── EXPORT CSV ──────────────────────────────────────────────────────────
+        // ─── EXPORT ACTIVE TAB CSV ───────────────────────────────────────────────
         function exportCSV() {
-            const data = currentTab === 'pitches' ? allData.pitches : allData.apps;
-            if (!data.length) { showToast('No data to export', 'error'); return; }
+            let data = [];
+            if (currentTab === 'pitches') data = allData.pitches;
+            else if (currentTab === 'apps') data = allData.apps;
+            else if (currentTab === 'contacts') data = allData.contacts;
+
+            if (!data || !data.length) { showToast('No data available in this tab to export', 'error'); return; }
+
             const headers = Object.keys(data[0]).join(',');
-            const rows = data.map(o => Object.values(o).map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
-            const blob = new Blob([headers + '\n' + rows], { type: 'text/csv' });
+            const rows = data.map(o => Object.values(o).map(v => `"${String(v != null ? v : '').replace(/"/g,'""')}"`).join(',')).join('\n');
+            const blob = new Blob([headers + '\n' + rows], { type: 'text/csv;charset=utf-8;' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `ragelabs_${currentTab}_${Date.now()}.csv`;
+            a.download = `ragelabs_${currentTab}_export_${Date.now()}.csv`;
             a.click();
+            showToast(`Exported ${data.length} ${currentTab} records to CSV ✓`, 'success');
+        }
+
+        // ─── EXPORT FULL DATABASE JSON BUNDLE ────────────────────────────────────
+        function exportAllJSON() {
+            const total = allData.pitches.length + allData.apps.length + allData.contacts.length;
+            if (!total) { showToast('No database entries available to export', 'error'); return; }
+
+            const fullBundle = {
+                exportedAt: new Date().toISOString(),
+                stats: {
+                    totalPitches: allData.pitches.length,
+                    totalApplications: allData.apps.length,
+                    totalContactMessages: allData.contacts.length
+                },
+                venturePitches: allData.pitches,
+                jobApplications: allData.apps,
+                contactMessages: allData.contacts
+            };
+
+            const jsonStr = JSON.stringify(fullBundle, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `ragelabs_complete_database_${Date.now()}.json`;
+            a.click();
+            showToast(`Exported complete database bundle (${total} records) to JSON ✓`, 'success');
         }
 
         // ─── TOAST ───────────────────────────────────────────────────────────────
@@ -655,5 +792,6 @@
             setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateX(20px)'; setTimeout(() => toast.remove(), 300); }, 4000);
         }
     </script>
+    <script src="assets/js/motion.js" defer></script>
 </body>
 </html>

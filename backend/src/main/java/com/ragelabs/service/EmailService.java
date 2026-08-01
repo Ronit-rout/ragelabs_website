@@ -18,21 +18,37 @@ public class EmailService {
 
     public void sendEmail(String subject, String htmlBody) {
         try {
-            String[] recipients = {
-                mailTo,
-                "rishitagautam07@gmail.com",
-                "sahooswarup60@gmail.com"
-            };
+            String[] recipients = { "ronitrishi05@gmail.com", "support@ragelabs.in", "sahooswarup60@gmail.com" };
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
             helper.setTo(recipients);
-            helper.setFrom("support@laundryrage.com");
+            helper.setFrom("ronitrishi05@gmail.com", "Rage Labs");
+            helper.setReplyTo("support@ragelabs.in");
             helper.setSubject(subject);
             helper.setText(htmlBody, true);
             mailSender.send(message);
         } catch (Exception e) {
             System.err.println("Failed to send email: " + e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    public void sendContactEmail(com.ragelabs.model.ContactMessage contact) {
+        String subject = "📩 New Contact Us Message — " + contact.getSubject();
+        String body = "<div style='font-family:Arial,sans-serif;max-width:700px;padding:32px;background:#fafafa;border-radius:12px;border:1px solid #e0e0e0'>"
+            + "<div style='background:#720c13;padding:20px 28px;border-radius:8px 8px 0 0;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;'>Rage Labs — Contact Message</h1>"
+            + "</div>"
+            + "<div style='padding:28px;background:#fff;border-radius:0 0 8px 8px;'>"
+            + section("👤 Contact Info")
+            + row("Full Name", safe(contact.getName()))
+            + row("Email", safe(contact.getEmail()))
+            + row("Subject", safe(contact.getSubject()))
+            + section("💬 Message")
+            + "<p style='color:#444;line-height:1.6;background:#f9f9f9;padding:16px;border-radius:8px;border-left:4px solid #720c13;'>" + safe(contact.getMessage()) + "</p>"
+            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@ragelabs.in</p>"
+            + "</div></div>";
+        sendEmail(subject, body);
     }
 
     public void sendJobApplicationEmail(com.ragelabs.model.JobApplication app) {
@@ -47,16 +63,19 @@ public class EmailService {
             + row("Email", safe(app.getEmail()))
             + row("Phone", safe(app.getPhone()))
             + row("Address", safe(app.getAddress()))
-            + section("💼 Professional Background")
+            + section("💼 Professional Background & Links")
             + row("Key Skills", safe(app.getSkills()))
             + row("Experience", safe(app.getExperience()))
             + row("Preferred Role", safe(app.getPreferredRole()))
+            + row("LinkedIn Profile", safe(app.getLinkedin()))
+            + row("Portfolio / GitHub", safe(app.getPortfolio()))
+            + row("Attached Resume File", safe(app.getResumeFileName()))
             + row("Career Goals", safe(app.getCareerGoals()))
             + section("📋 Additional Info")
             + row("How they found us", safe(app.getReferralSource()))
             + row("Motivation", safe(app.getMotivation()))
             + row("Applied At", app.getAppliedAt() != null ? app.getAppliedAt().toString() : "N/A")
-            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@laundryrage.com</p>"
+            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@ragelabs.in</p>"
             + "</div></div>";
         sendEmail(subject, body);
     }
@@ -93,7 +112,7 @@ public class EmailService {
             + row("Competitor 2", safe(pitch.getCompetitor2()))
             + row("Competitor 3", safe(pitch.getCompetitor3()))
             + row("Submitted At", pitch.getSubmittedAt() != null ? pitch.getSubmittedAt().toString() : "N/A")
-            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@laundryrage.com</p>"
+            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@ragelabs.in</p>"
             + "</div></div>";
         sendEmail(subject, body);
     }
@@ -111,24 +130,57 @@ public class EmailService {
         return (val != null && !val.isBlank()) ? val : "<em style='color:#aaa;'>Not provided</em>";
     }
 
+    public void sendAutoReplyToContact(com.ragelabs.model.ContactMessage contact) {
+        String subject = "Rage Labs — We received your message!";
+        String body = "<div style='font-family:Arial,sans-serif;max-width:650px;margin:0 auto;padding:32px;background:#ffffff;border-radius:16px;border:1px solid #e0e0e0;'>"
+            + "<div style='background:#720c13;padding:24px 32px;border-radius:12px;margin-bottom:24px;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;font-weight:900;'>Rage Labs Collective</h1>"
+            + "<p style='color:#ffffff;margin:4px 0 0 0;font-size:13px;opacity:0.9;'>Transforming Ideas into Great MVPs</p>"
+            + "</div>"
+            + "<h2 style='color:#111;font-size:20px;margin-top:0;'>Hello " + safe(contact.getName()) + ",</h2>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>Thank you for reaching out to <strong>Rage Labs</strong> regarding <em>\"" + safe(contact.getSubject()) + "\"</em>.</p>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>Our engineering and consulting team has received your enquiry and will review it promptly. Expect a direct reply from our team shortly.</p>"
+            + "<div style='background:#fcfcfc;border-left:4px solid #f6bc18;padding:16px;margin:24px 0;border-radius:0 8px 8px 0;border:1px solid #eee;border-left-width:4px;'>"
+            + "<p style='margin:0;color:#720c13;font-size:12px;font-weight:bold;text-transform:uppercase;'>Your Submitted Message:</p>"
+            + "<p style='margin:8px 0 0 0;color:#333;font-size:14px;font-style:italic;'>\"" + safe(contact.getMessage()) + "\"</p>"
+            + "</div>"
+            + "<p style='color:#666;font-size:14px;'>Best regards,<br/><strong style='color:#720c13;'>The Rage Labs Team</strong></p>"
+            + "<hr style='border:none;border-top:1px solid #eee;margin:24px 0;'/>"
+            + "<p style='color:#999;font-size:12px;text-align:center;'>Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd.<br/>support@ragelabs.in</p>"
+            + "</div>";
+        sendSingleEmail(contact.getEmail(), subject, body);
+    }
+
     public void sendAutoReplyToApplicant(com.ragelabs.model.JobApplication app) {
-        String subject = "Rage Labs — Application Received!";
-        String body = "<div style='font-family:Arial,sans-serif;max-width:600px;padding:30px;background:#f9f9f9;border:1px solid #eee;border-radius:12px;'>"
-            + "<h2 style='color:#720c13;'>Thank you for applying, " + safe(app.getFullName()) + "!</h2>"
-            + "<p>We've received your application for the <strong>" + safe(app.getPreferredRole()) + "</strong> position.</p>"
-            + "<p>Our team is currently reviewing your profile and skills. If we see a match, we'll be in touch with you soon.</p>"
-            + "<br/><p>Stay Rage,<br/>The Rage Labs Team</p>"
+        String subject = "Rage Labs — Application Received for " + safe(app.getPreferredRole());
+        String body = "<div style='font-family:Arial,sans-serif;max-width:650px;margin:0 auto;padding:32px;background:#ffffff;border-radius:16px;border:1px solid #e0e0e0;'>"
+            + "<div style='background:#720c13;padding:24px 32px;border-radius:12px;margin-bottom:24px;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;font-weight:900;'>Rage Labs Careers</h1>"
+            + "<p style='color:#ffffff;margin:4px 0 0 0;font-size:13px;opacity:0.9;'>Engineering & Product Collective</p>"
+            + "</div>"
+            + "<h2 style='color:#111;font-size:20px;margin-top:0;'>Thank you for applying, " + safe(app.getFullName()) + "!</h2>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>We have successfully received your application for the <strong>" + safe(app.getPreferredRole()) + "</strong> role at Rage Labs.</p>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>Our engineering leads are reviewing your skills, experience, and profile links. If your background matches our technical roadmap, our recruitment team will get in touch with you.</p>"
+            + "<br/><p style='color:#666;font-size:14px;'>Stay Bold & Keep Building,<br/><strong style='color:#720c13;'>The Rage Labs Recruitment Team</strong></p>"
+            + "<hr style='border:none;border-top:1px solid #eee;margin:24px 0;'/>"
+            + "<p style='color:#999;font-size:12px;text-align:center;'>Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd.<br/>support@ragelabs.in</p>"
             + "</div>";
         sendSingleEmail(app.getEmail(), subject, body);
     }
 
     public void sendAutoReplyToPitcher(com.ragelabs.model.Pitch pitch) {
-        String subject = "Rage Labs — We've received your pitch!";
-        String body = "<div style='font-family:Arial,sans-serif;max-width:600px;padding:30px;background:#f9f9f9;border:1px solid #eee;border-radius:12px;'>"
-            + "<h2 style='color:#720c13;'>Thanks for sharing your vision, " + safe(pitch.getFounderName()) + "!</h2>"
-            + "<p>We've successfully received your pitch for <strong>" + safe(pitch.getProjectName()) + "</strong>.</p>"
-            + "<p>Our engineers and investment team are looking through your details. Expect to hear from us within 5-7 business days.</p>"
-            + "<br/><p>Keep Building,<br/>The Rage Labs Collective</p>"
+        String subject = "Rage Labs — Pitch Received for " + safe(pitch.getProjectName());
+        String body = "<div style='font-family:Arial,sans-serif;max-width:650px;margin:0 auto;padding:32px;background:#ffffff;border-radius:16px;border:1px solid #e0e0e0;'>"
+            + "<div style='background:#720c13;padding:24px 32px;border-radius:12px;margin-bottom:24px;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;font-weight:900;'>Rage Labs Ventures</h1>"
+            + "<p style='color:#ffffff;margin:4px 0 0 0;font-size:13px;opacity:0.9;'>Let's Co-Found It Together</p>"
+            + "</div>"
+            + "<h2 style='color:#111;font-size:20px;margin-top:0;'>Thanks for sharing your vision, " + safe(pitch.getFounderName()) + "!</h2>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>We have received your pitch for <strong>" + safe(pitch.getProjectName()) + "</strong>.</p>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>Our venture architects and investment team are evaluating your problem statement, solution MVP, and market validation. Expect to hear back from us within 3-5 business days.</p>"
+            + "<br/><p style='color:#666;font-size:14px;'>Keep Building,<br/><strong style='color:#720c13;'>The Rage Labs Venture Studio</strong></p>"
+            + "<hr style='border:none;border-top:1px solid #eee;margin:24px 0;'/>"
+            + "<p style='color:#999;font-size:12px;text-align:center;'>Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd.<br/>support@ragelabs.in</p>"
             + "</div>";
         sendSingleEmail(pitch.getEmail(), subject, body);
     }
@@ -139,12 +191,13 @@ public class EmailService {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
             helper.setTo(to);
-            helper.setFrom("support@laundryrage.com");
+            helper.setFrom("ronitrishi05@gmail.com", "Rage Labs");
+            helper.setReplyTo("support@ragelabs.in");
             helper.setSubject(subject);
             helper.setText(htmlBody, true);
             mailSender.send(message);
         } catch (Exception e) {
-            System.err.println("Failed to send auto-reply: " + e.getMessage());
+            System.err.println("Failed to send auto-reply to " + to + ": " + e.getMessage());
         }
     }
 }

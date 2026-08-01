@@ -16,9 +16,14 @@ public class ContactController {
     @Autowired
     private ContactRepository contactRepository;
 
+    @Autowired
+    private com.ragelabs.service.EmailService emailService;
+
     @PostMapping
     public ResponseEntity<ContactMessage> submitContactForm(@RequestBody ContactMessage message) {
         ContactMessage savedMessage = contactRepository.save(message);
+        emailService.sendContactEmail(savedMessage);
+        emailService.sendAutoReplyToContact(savedMessage);
         return ResponseEntity.ok(savedMessage);
     }
 
