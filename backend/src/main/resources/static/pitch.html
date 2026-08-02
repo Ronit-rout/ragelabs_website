@@ -7,8 +7,7 @@
     <title>Share Your Pitch | Rage Labs – Venture Partnership</title>
     <meta name="description" content="Submit your startup pitch to Rage Labs. We co-found great ideas with equity-based partnerships." />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -25,24 +24,30 @@
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
                         "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "sans": ["Inter", "system-ui", "sans-serif"],
+                        "editorial": ["Playfair Display", "serif"]
                     },
                     borderRadius: {
-                        "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem",
-                        "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
                     },
                     animation: {
-                        'fade-up': 'fadeUp 0.8s ease-out forwards',
-                        'glow': 'glow 4s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
                         },
-                        glow: {
-                            '0%': { opacity: '0.4', filter: 'blur(30px)' },
-                            '100%': { opacity: '0.8', filter: 'blur(50px)' },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 },
@@ -50,120 +55,49 @@
         }
     </script>
     <style>
-        body { font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Professional Typography System */
+        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
+        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
+        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
+        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
+        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
+        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
+        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
+        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
+        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
+        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
 
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
             background-size: 40px 40px;
-            opacity: 0.06;
+            opacity: 0.08;
         }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(115, 12, 19, 0.1);
+        .reveal-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+        .glow-card { position: relative; overflow: hidden; }
+        .glow-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.28), transparent 60%);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
         }
-
-        .dark .glass-card {
-            background: rgba(15, 5, 6, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .field-input {
-            width: 100%;
-            padding: 14px 16px;
-            background: transparent;
-            border: 2px solid rgba(114, 12, 19, 0.12);
-            border-radius: 12px;
-            outline: none;
-            font-size: 15px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .field-input:focus {
-            border-color: #720c13;
-            box-shadow: 0 0 0 3px rgba(114, 12, 19, 0.08);
-        }
-
-        .field-input::placeholder { color: #aaa; }
-
-        .section-card {
-            background: #fff;
-            border: 1px solid rgba(114,12,19,0.08);
-            border-radius: 24px;
-            padding: 36px;
-            box-shadow: 0 4px 24px -4px rgba(114,12,19,0.06);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .section-card:hover {
-            border-color: rgba(114,12,19,0.2);
-            box-shadow: 0 8px 40px -8px rgba(114,12,19,0.12);
-        }
-
-        .dark .section-card {
-            background: rgba(25, 10, 12, 0.8);
-            border-color: rgba(255,255,255,0.06);
-        }
-
-        .dark .field-input {
-            color: #fff;
-            border-color: rgba(255,255,255,0.1);
-        }
-
-        .dark .field-input:focus {
-            border-color: #f6bc18;
-            box-shadow: 0 0 0 3px rgba(246,188,24,0.1);
-        }
-
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(114,12,19,0.07);
-            color: #720c13;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 99px;
-            margin-bottom: 12px;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            border-radius: 99px;
-            background: linear-gradient(90deg, #720c13 0%, #f6bc18 100%);
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 12px rgba(246,188,24,0.35);
-        }
-
-        /* Toast */
-        #toast {
-            position: fixed; bottom: 32px; right: 32px; z-index: 9999;
-            padding: 18px 28px; border-radius: 16px;
-            font-weight: 700; font-size: 15px;
-            opacity: 0; pointer-events: none;
-            transition: opacity 0.4s, transform 0.4s;
-            transform: translateY(16px);
-            max-width: 360px;
-        }
-        #toast.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-        #toast.success { background: #0f7b55; color: #fff; }
-        #toast.error { background: #720c13; color: #fff; }
-
-        .checkbox-label {
-            display: flex; align-items: center; gap: 10px;
-            cursor: pointer; font-size: 15px; font-weight: 500;
-            padding: 10px 14px; border-radius: 10px;
-            border: 2px solid rgba(114,12,19,0.1);
-            transition: all 0.2s;
-        }
-        .checkbox-label:hover { border-color: rgba(114,12,19,0.3); background: rgba(114,12,19,0.03); }
-        .checkbox-label input:checked ~ span { color: #720c13; font-weight: 700; }
+        .glow-card:hover::before { opacity: 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
 
@@ -173,35 +107,82 @@
     <div id="toast" role="alert"></div>
 
     <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <!-- Top Navigation Bar (Dark Crimson Header) -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
-                <span class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+            <!-- Logo Hover Container (Requirement 6) -->
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
             </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="portfolio.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
                     Portfolio
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="careers.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
+                    About Us
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
                     Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="about.html">
-                    About
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </nav>
-            <div id="auth-nav" class="flex items-center gap-3">
-                <!-- Auth buttons/Avatar injected by JS -->
+
+            <div class="flex items-center gap-4">
+                <div id="auth-nav" class="flex items-center gap-3"></div>
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Drawer Overlay & Menu -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
+                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Auth Gate Modal -->
     <div id="auth-gate" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-background-dark/90 backdrop-blur-xl">
@@ -445,44 +426,73 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-16">
+        <!-- Footer (Enterprise Standard) -->
+    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-12 lg:py-20">
         <div class="mx-auto max-w-7xl px-6 lg:px-10">
             <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
-                <div class="lg:col-span-2 space-y-6">
+                <!-- Branding -->
+                <div class="lg:col-span-2 flex flex-col gap-6">
                     <div class="flex items-center gap-3">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
-                        <span class="text-2xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
+                        <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
                     </div>
-                    <p class="max-w-md text-gray-500 font-medium">A high-end engineering collective dedicated to crafting digital products that push the boundaries of technology.</p>
+                    <p class="max-w-sm text-gray-500 font-medium text-sm leading-relaxed">
+                        A modern engineering collective dedicated to crafting digital products that push the boundaries of software mastery and enterprise solution architecture.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
+                            href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank" aria-label="Instagram">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                            </svg>
+                        </a>
+                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
+                            href="https://www.linkedin.com/company/ragelabs-company" target="_blank" aria-label="LinkedIn">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="space-y-6">
-                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
-                    <ul class="space-y-4">
-                        <li><a class="font-bold hover:text-primary transition-colors" href="services.html">Services</a></li>
-                        <li><a class="font-bold hover:text-primary transition-colors" href="portfolio.html">Portfolio</a></li>
-                        <li><a class="font-bold hover:text-primary transition-colors" href="careers.html">Careers</a></li>
-                        <li><a class="font-bold hover:text-primary transition-colors" href="about.html">About</a></li>
+                <!-- Quick Navigation -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="services.html">Services</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="portfolio.html">Portfolio</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="careers.html">Careers</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="about.html">About Us</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="space-y-6">
-                    <h3 class="font-black uppercase tracking-widest text-xs text-gray-400">Connect</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3 font-bold">
-                            <span class="material-symbols-outlined text-primary">mail</span>
-                            support@laundryrage.com
+                <!-- Contact Info -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Contact Us</h3>
+                    <ul class="flex flex-col gap-3 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">phone</span>
+                            +91 99370 32631
                         </li>
-                        <li class="flex items-center gap-3 font-bold">
-                            <span class="material-symbols-outlined text-primary">phone</span>
-                            +91 9937032631
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            support@ragelabs.in
+                        </li>
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">person</span>
+                            @rage_labs
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-16 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-400 font-medium text-sm">© 2024 Rage Labs Engineering Collective.</p>
-                <div class="flex gap-8 text-gray-400 font-bold text-sm">
-                    <a href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank" class="hover:text-primary transition-colors">Instagram</a>
-                    <a href="https://www.linkedin.com/company/ragelabs-company" target="_blank" class="hover:text-primary transition-colors">LinkedIn</a>
+            <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-primary/5 pt-10 text-sm text-gray-400 md:flex-row">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
+                </div>
+                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -506,10 +516,6 @@
                 authGate.classList.add('hidden');
                 document.body.style.overflow = 'auto';
                 
-                // Prefill some fields if available
-                if (user.fullName) document.getElementById('founderName').value = user.fullName;
-                if (user.email) document.getElementById('email').value = user.email;
-
                 const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
                 
                 authNav.innerHTML = `
@@ -541,6 +547,27 @@
         }
 
         window.addEventListener('load', initAuth);
+
+        // ─── Instant Page Transitions ───────────────────────────────────────────
+        (function() {
+            // Add overlay
+            var overlay = document.createElement('div');
+            overlay.id = 'page-transition';
+            overlay.style.cssText = 'position:fixed;inset:0;background:#0f0506;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.12s;';
+            document.body.prepend(overlay);
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('a');
+                if (!link) return;
+                var href = link.getAttribute('href');
+                if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto') === 0 || href.indexOf('javascript') === 0) return;
+                e.preventDefault();
+                overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
+                requestAnimationFrame(function() { setTimeout(function() { window.location.href = href; }, 80); });
+            });
+            ['index.html','services.html','contact.html','careers.html','about.html','portfolio.html'].forEach(function(p) {
+                var l = document.createElement('link'); l.rel = 'prefetch'; l.href = p; document.head.appendChild(l);
+            });
+        })();
 
         // ─── Dynamic Progress Bar ───────────────────────────────────────────────
         const form = document.getElementById('pitch-form');
@@ -659,6 +686,44 @@
             }
         });
     </script>
+    <!-- ACCENTURE GLOBAL SEARCH OVERLAY MODAL -->
+    <div id="global-search-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div id="search-modal-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-md transition-opacity"></div>
+        <div class="relative w-full max-w-3xl rounded-3xl bg-white dark:bg-[#150708] p-6 sm:p-8 shadow-2xl border border-primary/20 z-10 flex flex-col gap-6 max-h-[85vh]">
+            <div class="flex items-center justify-between pb-4 border-b border-primary/10 gap-4">
+                <div class="flex items-center gap-3 flex-1 bg-primary/5 dark:bg-white/5 px-4 py-3 rounded-2xl border border-primary/10 focus-within:border-primary transition-colors">
+                    <span class="material-symbols-outlined text-2xl text-primary">search</span>
+                    <input id="search-input" type="text" placeholder="Search services, case studies, insights..." class="w-full bg-transparent text-sm sm:text-base font-bold text-gray-900 dark:text-white focus:outline-none placeholder:text-gray-400">
+                </div>
+                <button id="search-modal-close" class="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" aria-label="Close Search">
+                    <span class="material-symbols-outlined text-2xl">close</span>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-black uppercase tracking-widest text-gray-400 mr-1">Trending Topics:</span>
+                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" data-query="AI">Generative AI</button>
+                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors" data-query="AutoFfy">AutoFfy MVP</button>
+            </div>
+
+            <div id="search-results-list" class="flex flex-col gap-3 overflow-y-auto pr-2 max-h-[50vh]">
+                <a href="services.html#engineering" class="search-item p-4 rounded-2xl border border-primary/5 hover:border-primary/20 hover:bg-primary/5 transition-all flex items-center justify-between" data-keywords="engineering scalable microservices java spring boot architecture">
+                    <div>
+                        <div class="text-xs font-black uppercase tracking-wider text-accent-yellow mb-1">Service capability</div>
+                        <div class="text-base font-bold text-gray-900 dark:text-white">Engineering Mastery & Scalable Systems</div>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">High-performance full-stack development, Java, Spring Boot, MySQL</div>
+                    </div>
+                    <span class="material-symbols-outlined text-primary text-xl">arrow_forward</span>
+                </a>
+            </div>
+
+            <div id="search-no-results" class="hidden text-center py-8 text-sm font-medium text-gray-400">
+                No matching results found for your search query. Try another topic chip above!
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/motion.js" defer></script>
 </body>
 
 </html>

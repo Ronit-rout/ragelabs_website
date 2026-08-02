@@ -7,12 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Rage Labs | Transforming Ideas into Software</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -28,7 +24,8 @@
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
                         "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "sans": ["Inter", "system-ui", "sans-serif"],
+                        "editorial": ["Playfair Display", "serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -58,10 +55,30 @@
         }
     </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Professional Typography System */
+        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
+        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
+        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
+        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
+        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
+        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
+        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
+        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
+        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
+        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
 
         h1,
         h2,
@@ -108,7 +125,7 @@
             position: absolute;
             inset: 0;
             border-radius: inherit;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.28), transparent 60%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -133,50 +150,51 @@
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white transition-colors duration-300">
-    <!-- Top Navigation Bar (Accenture Enterprise Standard) -->
-    <header
-        class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+    <!-- Top Navigation Bar (Dark Crimson Header) -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="flex items-center gap-3 group relative z-50">
-                <img src="images/logo.png" alt="Rage Labs Logo"
-                    class="h-10 w-10 object-contain transition-transform group-hover:scale-105 drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
-                <img src="images/logo_name.png" alt="Rage Labs"
-                    class="h-8 object-contain dark:brightness-0 dark:invert">
+            <!-- Logo Hover Container (Requirement 6) -->
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
             </a>
 
-            <!-- Desktop Navigation (Dropdown-Free, Red & Gold Theme) -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="portfolio.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
                     Portfolio
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="careers.html">
-                    Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="about.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
                     About Us
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="contact.html">
-                    Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
+                    Careers
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-            </nav>v>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
 
             <div class="flex items-center gap-4">
                 <div id="auth-nav" class="flex items-center gap-3"></div>
-                    <!-- Auth buttons or user avatar injected via JS -->
-                </div>
-
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn"
-                    class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all"
-                    aria-label="Toggle Navigation">
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
             </div>
@@ -184,125 +202,83 @@
     </header>
 
     <!-- Mobile Drawer Overlay & Menu -->
-    <div id="mobile-menu-drawer"
-        class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div
-            class="absolute right-0 top-0 h-full w-[300px] bg-white dark:bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-primary/10 z-10">
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-primary/10">
-                    <div class="flex items-center gap-2">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
-                        <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
-                    </div>
-                    <button id="mobile-menu-close"
-                        class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
                         <span class="material-symbols-outlined text-xl">close</span>
                     </button>
                 </div>
 
-                <nav class="flex flex-col gap-4 mt-6">
-                    <a href="services.html"
-                        class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Services
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="portfolio.html"
-                        class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Portfolio
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="careers.html"
-                        class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Careers
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="about.html"
-                        class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        About Us
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="contact.html"
-                        class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Contact
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
                 </nav>
             </div>
 
-            <div class="pt-6 border-t border-primary/10 flex flex-col gap-3">
-                <a href="login.html"
-                    class="flex h-11 items-center justify-center rounded-xl border border-primary/20 text-sm font-bold text-primary hover:bg-primary/5 transition-all">Sign
-                    In</a>
-                <a href="signup.html"
-                    class="flex h-11 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-[#5a090f] transition-all">Sign
-                    Up</a>
+            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
+                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
             </div>
         </div>
     </div>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden pt-20 pb-24 lg:pt-32 lg:pb-40">
+        <!-- Hero Section (Requirement 5 Text-Focused Right Side) -->
+        <section class="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-36">
             <div class="tech-grid absolute inset-0 -z-10"></div>
             <!-- Animated Background Glow Orbs -->
-            <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-pulse-slow">
-            </div>
-            <div class="absolute top-1/2 -right-24 h-64 w-64 rounded-full bg-accent-yellow/15 blur-[100px] animate-pulse-slow"
-                style="animation-delay: 2s"></div>
-            <div class="absolute bottom-0 left-1/4 h-32 w-32 rounded-full bg-primary/5 blur-[60px]"></div>
+            <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-primary/20 blur-[120px] animate-pulse-slow"></div>
+            <div class="absolute top-1/4 -right-32 h-[500px] w-[500px] rounded-full bg-accent-yellow/20 blur-[140px] animate-pulse-slow" style="animation-delay: 2s"></div>
+            <div class="absolute -bottom-24 left-1/3 h-[400px] w-[400px] rounded-full bg-accent-yellow/10 blur-[120px] pointer-events-none"></div>
 
             <div class="mx-auto max-w-7xl px-6 lg:px-10">
-                <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
+                <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
                     <div class="flex flex-col gap-8">
-                        <div
-                            class="inline-flex items-center gap-3 w-fit rounded-full bg-white dark:bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-sm border border-primary/10 animate-fade-up">
+                        <div class="inline-flex items-center gap-3 w-fit rounded-full bg-white dark:bg-white/5 px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-sm border border-primary/10 animate-fade-up">
                             <span class="flex h-2 w-2 items-center justify-center">
-                                <span
-                                    class="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-accent-yellow opacity-75"></span>
+                                <span class="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-accent-yellow opacity-75"></span>
                                 <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary"></span>
                             </span>
                             Future-Ready <span class="text-accent-yellow">Solutions</span>
                         </div>
-                        <h1 class="text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl font-display animate-fade-up"
-                            style="animation-delay: 0.1s">
-                            Transforming <br />ideas into <span class="relative inline-block"><span class="relative z-10 text-primary">Great MVPs</span><span class="absolute bottom-2 left-0 h-3 w-full bg-accent-yellow/30 -z-10"></span></span>.
+                        <h1 class="text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl font-display animate-fade-up" style="animation-delay: 0.1s">
+                            Ideas are easy to have. <br /><span class="relative inline-block"><span class="relative z-10 text-primary">Building one well</span><span class="absolute bottom-2 left-0 h-3 w-full bg-accent-yellow/30 -z-10"></span></span> is the hard part.
                         </h1>
-                        <p class="max-w-xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 font-medium animate-fade-up"
-                            style="animation-delay: 0.2s">
-                            Expert engineering and design solutions tailored for the next generation of digital
-                            products. We build scalable, high-performance systems for global visionaries.
+                        <p class="max-w-xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 font-medium animate-fade-up" style="animation-delay: 0.2s">
+                            Good products start with good questions. We help figure out what should be built, why it matters, and how to make it work.
                         </p>
-                        <div class="flex flex-wrap gap-5 animate-fade-up" style="animation-delay: 0.3s">
-                            <a href="pitch.html"
-                                class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-accent-yellow px-8 text-base font-bold text-primary shadow-2xl shadow-accent-yellow/20 hover:bg-white hover:-translate-y-1 transition-all duration-300 hover:shadow-accent-yellow/40">
+                        <div class="flex flex-wrap gap-4 animate-fade-up" style="animation-delay: 0.3s">
+                            <a href="pitch.html" class="flex h-14 min-w-[180px] items-center justify-center rounded-xl bg-accent-yellow px-8 text-base font-bold text-primary shadow-2xl shadow-accent-yellow/20 hover:bg-white hover:-translate-y-1 transition-all duration-300">
                                 Share Your Pitch
                             </a>
-                            <a href="signup.html"
-                                class="flex h-14 min-w-[200px] items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-white shadow-2xl shadow-primary/30 hover:bg-[#5a090f] hover:-translate-y-1 transition-all duration-300 hover:shadow-primary/50">
-                                Get Started Now
-                            </a>
-                            <a href="services.html"
-                                class="flex h-14 min-w-[200px] items-center justify-center rounded-xl border-2 border-primary/10 bg-white/50 backdrop-blur-sm px-8 text-base font-bold text-primary hover:bg-white hover:border-primary/30 transition-all duration-300">
-                                Explore Services
+                            <a href="see-what-we-do.html" class="flex h-14 min-w-[180px] items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-white shadow-2xl shadow-primary/30 hover:bg-[#5a090f] hover:-translate-y-1 transition-all duration-300">
+                                See What We Do →
                             </a>
                         </div>
                     </div>
-                    <div class="relative animate-float">
-                        <div
-                            class="aspect-square w-full rounded-3xl bg-gradient-to-tr from-primary via-primary to-accent-blue p-[1px] shadow-[0_32px_64px_-16px_rgba(115,12,19,0.3)] relative group">
-                            <div
-                                class="h-full w-full overflow-hidden rounded-[23px] bg-white dark:bg-background-dark relative">
-                                <img alt="Tech Background"
-                                    class="h-full w-full object-cover opacity-90 transition-all duration-1000 group-hover:scale-105"
-                                    src="images/index-poster.png" />
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none">
-                                </div>
-                                <div
-                                    class="absolute -inset-1 bg-gradient-to-tr from-primary/30 to-accent-blue/30 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10">
-                                </div>
-                            </div>
+
+                    <!-- Right Side: Text-Focused Vision Box (Requirement 5) -->
+                    <div class="flex flex-col justify-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/15 backdrop-blur-sm shadow-xl animate-fade-up" style="animation-delay: 0.2s">
+                        <span class="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">Our Core Statement</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white font-display leading-tight mb-4">
+                            Turning tomorrow into something more beautiful.
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-medium mb-8">
+                            We turn ambitious ideas into thoughtful digital products—combining technology, design, and execution to build experiences made for what comes next.
+                        </p>
+                        <div>
+                            <a href="see-what-we-do.html" class="inline-flex items-center gap-2 text-base font-bold text-primary dark:text-accent-yellow hover:underline group">
+                                See What We Do
+                                <span class="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -404,127 +380,10 @@
             </div>
         </section>
 
-        <!-- NEW SECTION: Who Built RageLabs -->
-        <section class="py-24 relative overflow-hidden bg-background-light dark:bg-background-dark">
-            <div class="mx-auto max-w-7xl px-6 lg:px-10">
-                <div class="mb-16 flex flex-col gap-4 text-center items-center reveal-fade-up">
-                    <div
-                        class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-black text-primary uppercase tracking-widest">
-                        Leadership & Structure
-                    </div>
-                    <h2 class="text-4xl font-black tracking-tighter sm:text-5xl font-display">Who Built <span
-                            class="text-primary">RageLabs</span></h2>
-                    <p class="max-w-2xl text-lg text-gray-600 dark:text-gray-400 font-medium">
-                        The visionaries and structural foundation driving software mastery, venture partnerships, and
-                        enterprise digital solutions.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Profile Card 1: Ronit Rout -->
-                    <div
-                        class="group glow-card glass-card relative rounded-3xl p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 border border-primary/10 flex flex-col items-center text-center reveal-fade-up">
-                        <div class="relative mb-6">
-                            <div
-                                class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-primary via-[#9a141d] to-accent-yellow p-[2px] shadow-xl">
-                                <div
-                                    class="w-full h-full rounded-[14px] bg-white dark:bg-background-dark flex items-center justify-center text-3xl font-black text-primary font-title">
-                                    RR
-                                </div>
-                            </div>
-                            <span
-                                class="absolute -bottom-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent-yellow text-primary shadow-md">
-                                <span class="material-symbols-outlined text-base font-bold">verified</span>
-                            </span>
-                        </div>
-                        <span
-                            class="text-xs font-black text-accent-yellow uppercase tracking-[0.2em] mb-1">Co-Founder</span>
-                        <h3 class="text-2xl font-black text-gray-900 dark:text-white tracking-tight font-display mb-3">
-                            Ronit Rout</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-6">
-                            Architecting scalable core engineering, full-stack infrastructure, and high-performance
-                            software systems at RageLabs.
-                        </p>
-                        <div
-                            class="mt-auto flex items-center gap-3 pt-4 border-t border-primary/5 w-full justify-center">
-                            <span
-                                class="inline-flex items-center gap-1.5 text-xs font-bold text-primary bg-primary/5 px-3 py-1 rounded-full">
-                                <span class="material-symbols-outlined text-sm">code</span> Architecture Lead
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Profile Card 2: Swarup Kumar Sahoo -->
-                    <div class="group glow-card glass-card relative rounded-3xl p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-accent-blue/20 border border-primary/10 flex flex-col items-center text-center reveal-fade-up"
-                        style="transition-delay: 0.1s">
-                        <div class="relative mb-6">
-                            <div
-                                class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-accent-blue via-[#3b82f6] to-accent-yellow p-[2px] shadow-xl">
-                                <div
-                                    class="w-full h-full rounded-[14px] bg-white dark:bg-background-dark flex items-center justify-center text-3xl font-black text-accent-blue font-title">
-                                    SS
-                                </div>
-                            </div>
-                            <span
-                                class="absolute -bottom-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-accent-yellow text-primary shadow-md">
-                                <span class="material-symbols-outlined text-base font-bold">verified</span>
-                            </span>
-                        </div>
-                        <span
-                            class="text-xs font-black text-accent-yellow uppercase tracking-[0.2em] mb-1">Co-Founder</span>
-                        <h3 class="text-2xl font-black text-gray-900 dark:text-white tracking-tight font-display mb-3">
-                            Swarup Kumar Sahoo</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-6">
-                            Driving product strategy, venture acceleration, and strategic client engineering
-                            partnerships at RageLabs.
-                        </p>
-                        <div
-                            class="mt-auto flex items-center gap-3 pt-4 border-t border-primary/5 w-full justify-center">
-                            <span
-                                class="inline-flex items-center gap-1.5 text-xs font-bold text-accent-blue bg-accent-blue/5 px-3 py-1 rounded-full">
-                                <span class="material-symbols-outlined text-sm">rocket_launch</span> Product Strategy
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Profile Card 3: Parent Company -->
-                    <div class="group glow-card glass-card relative rounded-3xl p-8 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 border border-primary/10 flex flex-col items-center text-center reveal-fade-up"
-                        style="transition-delay: 0.2s">
-                        <div class="relative mb-6">
-                            <div
-                                class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-gray-400 to-gray-600 p-[2px] shadow-xl">
-                                <div
-                                    class="w-full h-full rounded-[14px] bg-white dark:bg-background-dark flex items-center justify-center text-3xl font-black text-gray-400 font-title">
-                                    <span class="material-symbols-outlined text-4xl">corporate_fare</span>
-                                </div>
-                            </div>
-                            <span
-                                class="absolute -bottom-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-500 shadow-md">
-                                <span class="material-symbols-outlined text-base font-bold">schedule</span>
-                            </span>
-                        </div>
-                        <span class="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-1">Parent
-                            Company</span>
-                        <h3 class="text-2xl font-black text-gray-900 dark:text-white tracking-tight font-display mb-3">
-                            Placeholder</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-medium mb-6">
-                            Parent organization supporting RageLabs enterprise operations, backing capital, and global
-                            expansion strategy.
-                        </p>
-                        <div
-                            class="mt-auto flex items-center gap-3 pt-4 border-t border-primary/5 w-full justify-center">
-                            <span
-                                class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-500 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
-                                To Be Announced
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Featured Projects Showcase Section with Accenture Topic Micro-Filters -->
-        <section id="featured-projects" class="bg-white py-24 dark:bg-background-dark/50 border-t border-primary/5">
+        <section id="featured-projects" class="relative bg-white py-24 dark:bg-background-dark/50 border-t border-primary/5 overflow-hidden">
+            <!-- Background yellow glare sphere -->
+            <div class="absolute -bottom-32 -left-32 -z-10 w-[500px] h-[500px] rounded-full bg-accent-yellow/10 blur-[130px] pointer-events-none"></div>
             <div class="mx-auto max-w-7xl px-6 lg:px-10">
                 <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-fade-up">
                     <div>
@@ -570,7 +429,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Project 1: Autofy -->
+                    <!-- Project 1: AutoFfy -->
                     <div class="filterable-card group glow-card glass-card relative overflow-hidden rounded-3xl border border-primary/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between reveal-fade-up"
                         data-category="ai enterprise">
                         <div>
@@ -582,7 +441,7 @@
                                     class="absolute top-3 right-3 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 px-3 py-1 text-xs font-bold uppercase tracking-wider">Automotive
                                     AI</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">Autofy</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">AutoFfy</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium mb-6">
                                 Next-generation vehicle automation, dealership workflow engine, and fleet intelligence
                                 platform engineered for modern automotive operations.
@@ -594,8 +453,8 @@
                             </span>
                             <button
                                 class="card-quickview-btn inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-accent-yellow transition-colors"
-                                data-title="Autofy — Automotive AI Platform" data-category="Automotive & AI Engineering"
-                                data-desc="Built for dealership chains and fleet managers, Autofy leverages automated diagnostic pipelines, real-time inventory tracking, and predictive maintenance algorithms."
+                                data-title="AutoFfy — Automotive AI Platform" data-category="Automotive & AI Engineering"
+                                data-desc="Built for dealership chains and fleet managers, AutoFfy leverages automated diagnostic pipelines, real-time inventory tracking, and predictive maintenance algorithms."
                                 data-metrics="3x Workflow Speedup • 99.9% Uptime SLA • 45k+ Daily Scans"
                                 data-stack="Spring Boot, Tailwind CSS, Python AI Services, MySQL">
                                 Quick View <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -608,9 +467,8 @@
                         style="transition-delay: 0.1s" data-category="enterprise">
                         <div>
                             <div
-                                class="aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
-                                <span
-                                    class="material-symbols-outlined text-6xl text-primary opacity-75">local_laundry_service</span>
+                                class="aspect-video w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-800 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
+                                <img src="images/1.png" alt="LaundryRage App Screenshot" class="w-full h-full object-cover" />
                                 <span
                                     class="absolute top-3 right-3 rounded-full bg-primary/20 text-primary dark:text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">Live
                                     Product</span>
@@ -1010,18 +868,16 @@
                         <div>
                             <div class="text-[11px] font-black uppercase tracking-[0.2em] text-primary mb-3">CORPORATE UPDATE</div>
                             <h3 class="text-xl font-black text-gray-900 leading-tight group-hover:text-primary transition-colors mb-3">
-                                SSSD Consumer Products & Services Integration
+                                SSSSD Consumer Products & Services Integration
                             </h3>
                             <p class="text-xs text-gray-600 leading-relaxed font-medium mb-4">
-                                Rage Labs operates under ROC Cuttack registered entity to accelerate enterprise software deployment in India and globally.
+                                Rage Labs operates under SSSSD Consumer Products and Services Private Limited, a ROC Cuttack registered entity, to accelerate enterprise software deployment.
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-primary/5 border border-primary/20 p-4 flex items-center justify-center relative overflow-hidden mb-4">
-                                <div class="text-center">
-                                    <div class="text-lg font-black text-primary">SSSD</div>
-                                    <div class="text-[10px] font-bold text-gray-500">ROC Cuttack • Odisha</div>
-                                </div>
+                            <div class="w-full h-36 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 border border-primary/20 flex items-center justify-center relative overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform">
+                                <span class="material-symbols-outlined text-5xl text-primary opacity-75">domain</span>
+                                <span class="absolute top-3 right-3 rounded-full bg-primary/25 text-primary px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider">SSSSD Group</span>
                             </div>
                             <div class="flex items-center justify-end">
                                 <span class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors flex items-center gap-1">
@@ -1130,7 +986,7 @@
                         of software mastery and enterprise solution architecture.
                     </p>
                     <div class="inline-flex items-center gap-2 rounded-xl bg-primary/5 px-3.5 py-1.5 text-xs font-bold text-gray-800 border border-primary/10 w-fit">
-                        <span class="material-symbols-outlined text-primary text-sm">domain</span> Unit of SSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha)
+                        <span class="material-symbols-outlined text-primary text-sm">domain</span> Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha)
                     </div>
                     <div class="flex gap-4">
                         <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
@@ -1156,15 +1012,17 @@
                 <div class="flex flex-col gap-6">
                     <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
                     <ul class="flex flex-col gap-3">
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300"
-                                href="services.html">Services</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300"
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
+                                href="see-what-we-do.html">See What We Do</a></li>
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
+                                href="what-we-think.html">What We Think</a></li>
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
                                 href="portfolio.html">Portfolio</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300"
-                                href="careers.html">Careers</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300"
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
                                 href="about.html">About Us</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300"
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
+                                href="careers.html">Careers</a></li>
+                        <li><a class="text-sm font-semibold hover:text-accent-yellow transition-colors text-gray-700 dark:text-gray-300"
                                 href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -1193,7 +1051,7 @@
                     <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
                 </div>
-                <p>© 2026 Rage Labs • Unit of SSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
+                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
                 <div class="flex gap-8">
                     <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
                     <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
@@ -1230,7 +1088,7 @@
                     data-query="AI">Generative AI</button>
                 <button
                     class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors"
-                    data-query="Autofy">Autofy MVP</button>
+                    data-query="AutoFfy">AutoFfy MVP</button>
                 <button
                     class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-yellow/10 text-amber-600 dark:text-accent-yellow hover:bg-accent-yellow hover:text-primary transition-colors"
                     data-query="Logistics">Logistics Engine</button>
@@ -1271,10 +1129,10 @@
 
                 <a href="portfolio.html#featured"
                     class="search-item p-4 rounded-2xl border border-primary/5 hover:border-primary/20 hover:bg-primary/5 transition-all flex items-center justify-between"
-                    data-keywords="autofy automotive ai fleet automation software">
+                    data-keywords="autoffy automotive ai fleet automation software">
                     <div>
                         <div class="text-xs font-black uppercase tracking-wider text-primary mb-1">Featured MVP</div>
-                        <div class="text-base font-bold text-gray-900 dark:text-white">Autofy — Vehicle Automation
+                        <div class="text-base font-bold text-gray-900 dark:text-white">AutoFfy — Vehicle Automation
                             Platform</div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">Next-generation dealership & fleet
                             intelligence suite</div>

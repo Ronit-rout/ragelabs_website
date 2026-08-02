@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rage Labs | Innovation Redefined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#720c13",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#0f0506",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                        "sans": ["Inter", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
+        }
+        .reveal-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+        .glow-card { position: relative; overflow: hidden; }
+        .glow-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
+        }
+        .glow-card:hover::before { opacity: 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<!-- Main Wrapper -->
+<div class="flex min-h-screen w-full flex-col lg:flex-row overflow-hidden">
+<!-- Left Panel: Branding & Visuals (Visible on Large Screens) -->
+<div class="hidden lg:flex lg:w-1/2 relative bg-primary flex-col justify-between p-12 overflow-hidden">
+<!-- Background Pattern/Image Overlay -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" data-alt="Minimalist geometric white dot pattern on dark red background" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;">
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 text-white">
+<div class="size-10 flex items-center justify-center bg-white/10 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-3xl">science</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight">Rage Labs</h1>
+</div>
+</div>
+<div class="relative z-10">
+<h2 class="text-5xl font-bold text-white leading-tight mb-6">Accelerating the future of <br/><span class="text-accent-yellow drop-shadow-sm">decentralized innovation.</span></h2>
+<p class="text-xl text-red-100/80 max-w-lg font-light">
+                    Join a community of builders, researchers, and visionaries pushing the boundaries of what's possible in the digital lab.
+                </p>
+</div>
+<div class="relative z-10 flex gap-8">
+<div class="text-white/60 text-sm">
+<p class="font-bold text-white">12k+</p>
+<p>Active Nodes</p>
+</div>
+<div class="text-white/60 text-sm">
+<p class="font-bold text-white">45ms</p>
+<p>Avg Latency</p>
+</div>
+<div class="text-white/60 text-sm">
+<p class="font-bold text-white">99.9%</p>
+<p>Uptime</p>
+</div>
+</div>
+</div>
+<!-- Right Panel: Auth Forms -->
+<div class="flex-1 flex flex-col items-center justify-center p-6 lg:p-12 bg-background-light dark:bg-background-dark relative"><div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(at 0% 0%, #0047AB 0, transparent 50%), radial-gradient(at 100% 100%, #FFD700 0, transparent 50%);"></div>
+<!-- Mobile Header -->
+<div class="lg:hidden flex items-center gap-2 mb-12 self-start">
+<span class="material-symbols-outlined text-primary text-3xl">science</span>
+<span class="text-xl font-bold text-primary">Rage Labs</span>
+</div>
+<div class="w-full max-w-[440px] space-y-8">
+<!-- Tabs/Switchers for Demo (Usually these would be separate pages) -->
+<div class="flex flex-col gap-2">
+<h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Create an account</h3>
+<p class="text-slate-500 dark:text-slate-400">Enter your details below to join the lab.</p>
+</div>
+<!-- Sign Up Form -->
+<form action="#" class="space-y-5" method="POST">
+<div class="grid grid-cols-1 gap-4">
+<div class="space-y-1">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="full-name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-slate-900 dark:text-white placeholder:text-slate-400 transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="full-name" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-slate-900 dark:text-white placeholder:text-slate-400 transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="email" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">lock</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-slate-900 dark:text-white placeholder:text-slate-400 transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- Password Strength indicator mock -->
+<div class="flex gap-1 mt-2">
+<div class="h-1 flex-1 rounded-full bg-primary"></div>
+<div class="h-1 flex-1 rounded-full bg-accent-yellow"></div>
+<div class="h-1 flex-1 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="h-1 flex-1 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="terms" type="checkbox"/>
+<label class="text-sm text-slate-500 dark:text-slate-400" for="terms">
+                            I agree to the <a class="text-primary hover:underline font-medium hover:text-accent-blue transition-colors" href="#">Terms of Service</a> and <a class="text-primary hover:underline font-medium hover:text-accent-blue transition-colors" href="#">Privacy Policy</a>.
+                        </label>
+</div>
+<button class="w-full bg-primary hover:bg-[#8e0f18] text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 group" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<div class="relative py-4">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200 dark:border-slate-800"></div></div>
+<div class="relative flex justify-center text-xs uppercase"><span class="bg-background-light dark:bg-background-dark px-2 text-slate-500">Or continue with</span></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-accent-blue/30 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200">
+<img alt="" class="w-5 h-5" data-alt="Google logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJolzHgt4Lapbz0Xjrdm99m8gk9evvwsMQW5iX0qy4Q7mbpdAwSLhPu7GmAieof2UxAgCGVV4ejh03BDkpfSYIjPC6WuwFF9cWIz5SD6-F3_Dd4XKnWNa_Y0pUjQWcw4rgbdF40smAaAHq7rsOxpUKzbpoTELQ2LtilGeWdDoY4JqPFJhAIfa0tt5ShH1Vn5eBIujJUxw2JjA0sjE0CcjRs5wNQbTTGTD33pOoAcu6F2DYPeQ5olEFBPRTCgmYWYVs0QmBaoPr7Q"/>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-accent-blue/30 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200">
+<svg class="w-5 h-5 dark:fill-white" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">GitHub</span>
+</button>
+</div>
+<div class="text-center">
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                        Already have an account? 
+                        <a class="text-primary font-bold hover:underline hover:text-accent-blue transition-colors" href="#">Sign In</a>
+</p>
+</div>
+<!-- Footer Nav Mock -->
+<div class="flex justify-center gap-6 pt-8">
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Help Center</a>
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-xs text-slate-400 hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Hidden section for Sign In state (Example Toggle) -->
+<!-- In a real app, this would be a separate route or a conditional state -->
+<div class="hidden">
+<!-- The structure for Sign In would be identical but with only Email/Password fields -->
+<div class="flex flex-col gap-2">
+<h3 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Welcome back</h3>
+<p class="text-slate-500 dark:text-slate-400">Log in to manage your experiments.</p>
+</div>
+<form class="space-y-5">
+<div class="space-y-1">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="signin-email">Email Address</label>
+<input class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="signin-email" placeholder="name@company.com" type="email"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="signin-password">Password</label>
+<a class="text-xs text-primary font-medium hover:underline hover:text-accent-blue transition-colors" href="#">Forgot password?</a>
+</div>
+<input class="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg transition-all duration-300 focus:scale-[1.01] focus:shadow-md" id="signin-password" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg">Sign In</button>
+</form>
+</div>
+<script src="../assets/js/motion.js" defer></script>
+</body></html>

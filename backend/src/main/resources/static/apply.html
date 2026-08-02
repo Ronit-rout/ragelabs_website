@@ -7,97 +7,178 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Application Form | Rage Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#730c13",
-                        "brand-blue": "#3b82f6",
-                        "background-light": "#fcfcfc",
-                        "background-dark": "#0a0505",
+                        "primary": "#720c13",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#0f0506",
                     },
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
-                        "title": ["Big Shoulders Display", "sans-serif"]
+                        "title": ["Big Shoulders Display", "sans-serif"],
+                        "sans": ["Inter", "system-ui", "sans-serif"],
+                        "editorial": ["Playfair Display", "serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
                         "lg": "0.5rem",
                         "xl": "0.75rem",
                         "2xl": "1rem",
+                        "3xl": "1.5rem",
                         "full": "9999px"
                     },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
                 },
             },
         }
     </script>
     <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Professional Typography System */
+        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
+        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
+        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
+        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
+        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
+        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
+        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
+        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
+        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
+        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
 
-        .form-input:focus~label,
-        .form-input:not(:placeholder-shown)~label {
-            transform: translateY(-1.25rem) scale(0.85);
-            color: #3b82f6;
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
         }
-
-        .section-fade {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .reveal-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+        .glow-card { position: relative; overflow: hidden; }
+        .glow-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.28), transparent 60%);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
         }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #3b82f6;
-            border-radius: 10px;
-        }
+        .glow-card:hover::before { opacity: 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] transition-colors duration-300">
     <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <!-- Top Navigation Bar (Dark Crimson Header) -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
-                <span class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage labs</span>
+            <!-- Logo Hover Container (Requirement 6) -->
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
             </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="portfolio.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
                     Portfolio
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="careers.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
+                    About Us
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
                     Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow transition-all duration-300"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] hover:text-primary transition-all relative group" href="about.html">
-                    About
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent-blue transition-all group-hover:w-full"></span>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </nav>
-            <div id="auth-nav" class="flex items-center gap-3">
-                <!-- Auth buttons/Avatar injected by JS -->
+
+            <div class="flex items-center gap-4">
+                <div id="auth-nav" class="flex items-center gap-3"></div>
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Drawer Overlay & Menu -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-accent-yellow">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
+                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notifications -->
     <div id="toast-container" class="fixed bottom-10 right-10 z-[100] flex flex-col gap-3"></div>
@@ -120,75 +201,64 @@
             </div>
             <div class="w-full bg-primary/10 h-3 rounded-full overflow-hidden">
                 <div id="progress-bar"
-                    class="bg-brand-blue h-full w-0 transition-all duration-700 ease-out shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+                    class="bg-primary h-full w-0 transition-all duration-700 ease-out shadow-[0_0_8px_rgba(114,12,19,0.5)]">
                 </div>
             </div>
         </div>
         <!-- Form Container -->
-        <form class="space-y-8">
+        <form class="space-y-8" id="application-form">
             <!-- Section: Basic Info -->
             <section
-                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-brand-blue/30 md:p-10">
+                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-primary/30 md:p-10">
                 <div class="flex items-center gap-3 border-b border-primary/5 pb-4">
-                    <span class="material-symbols-outlined text-primary text-brand-blue">person</span>
+                    <span class="material-symbols-outlined text-primary">person</span>
                     <h3 class="text-xl font-bold">Basic Information</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="fullname" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Full Name <span class="text-primary">*</span></label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="fullname" name="fullname" placeholder=" " required="" type="text" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="fullname">Full Name</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="fullname" name="fullname" placeholder="Enter your full name" required type="text" />
                     </div>
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Email Address <span class="text-primary">*</span></label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="email" name="email" placeholder=" " required="" type="email" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="email">Email Address</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="email" name="email" placeholder="Enter your email address" required type="email" />
                     </div>
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Contact Number</label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="phone" name="phone" placeholder=" " type="tel" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="phone">Contact Number</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="phone" name="phone" placeholder="e.g. +91 9876543210" type="tel" />
                     </div>
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="address" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Current Location (City, Country)</label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="address" name="address" placeholder=" " type="text" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="address">Current Address (City, Country)</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="address" name="address" placeholder="e.g. Bhubaneswar, India" type="text" />
                     </div>
                 </div>
             </section>
             <!-- Section: Professional Details -->
             <section
-                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-brand-blue/30 md:p-10">
+                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-primary/30 md:p-10">
                 <div class="flex items-center gap-3 border-b border-primary/5 pb-4">
-                    <span class="material-symbols-outlined text-primary text-brand-blue">work</span>
+                    <span class="material-symbols-outlined text-primary">work</span>
                     <h3 class="text-xl font-bold">Professional Details</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="md:col-span-2 relative group">
+                    <div class="md:col-span-2 space-y-2">
+                        <label for="skills" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Key Skills</label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="skills" name="skills" placeholder=" " type="text" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="skills">Key Skills (e.g. React, Rust, Go, Solidity)</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="skills" name="skills" placeholder="e.g. React, Spring Boot, Java, Tailwind CSS" type="text" />
                     </div>
                     <div class="space-y-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1">Years of
-                            Experience</label>
+                        <label for="experience" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Years of Experience</label>
                         <select id="experience"
-                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-brand-blue outline-none appearance-none cursor-pointer transition-colors">
+                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none appearance-none cursor-pointer transition-colors">
                             <option value="">Select range</option>
                             <option value="0-2">0 - 2 years</option>
                             <option value="3-5">3 - 5 years</option>
@@ -197,9 +267,9 @@
                         </select>
                     </div>
                     <div class="space-y-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1">Preferred Role</label>
+                        <label for="preferred-role" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Preferred Role</label>
                         <select id="preferred-role"
-                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-brand-blue outline-none appearance-none cursor-pointer transition-colors">
+                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none appearance-none cursor-pointer transition-colors">
                             <option value="">Select position</option>
                             <option value="frontend">Frontend Engineer</option>
                             <option value="backend">Backend Engineer</option>
@@ -209,54 +279,50 @@
                         </select>
                     </div>
                     <div class="md:col-span-2 space-y-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1">Career Goals</label>
+                        <label for="career-goals" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Career Goals</label>
                         <textarea id="career-goals"
-                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-brand-blue outline-none resize-none transition-colors"
+                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none resize-none transition-colors"
                             placeholder="What drives you? Where do you see yourself in 3 years?" rows="4"></textarea>
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1 mb-2 block">Upload
-                            Resume (PDF, max 5MB)</label>
-                        <div
-                            class="border-2 border-dashed border-primary/20 rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer group bg-primary/5 hover:border-brand-blue/50">
+                    <div class="md:col-span-2 space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 block">Upload Resume (PDF, DOC, DOCX - max 5MB)</label>
+                        <div id="resume-dropzone"
+                            class="border-2 border-dashed border-primary/20 rounded-xl p-8 text-center hover:border-primary transition-colors cursor-pointer group bg-primary/5 relative">
                             <span
-                                class="material-symbols-outlined text-4xl text-primary/40 group-hover:text-primary transition-colors mb-2">cloud_upload</span>
-                            <p class="text-sm font-medium">Drag and drop your file here or <span
-                                    class="text-primary underline text-brand-blue">browse</span></p>
-                            <input class="hidden" type="file" />
+                                class="material-symbols-outlined text-4xl text-primary/60 group-hover:text-primary transition-colors mb-2 block">cloud_upload</span>
+                            <p id="resume-text" class="text-sm font-medium text-gray-700 dark:text-gray-300">Drag and drop your resume file here or <span
+                                    class="text-primary underline font-bold">browse</span></p>
+                            <p id="resume-file-info" class="text-xs text-primary font-bold mt-2 hidden"></p>
+                            <input id="resume-input" name="resume" type="file" accept=".pdf,.doc,.docx" class="hidden" />
                         </div>
                     </div>
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="linkedin" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">LinkedIn Profile URL</label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="linkedin" name="linkedin" placeholder=" " type="url" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="linkedin">LinkedIn Profile URL</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username" type="url" />
                     </div>
-                    <div class="relative group">
+                    <div class="space-y-2">
+                        <label for="portfolio" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300">Portfolio / GitHub URL</label>
                         <input
-                            class="form-input block w-full px-4 py-4 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary peer transition-all outline-none focus:border-brand-blue"
-                            id="portfolio" name="portfolio" placeholder=" " type="url" />
-                        <label
-                            class="absolute left-4 top-4 text-gray-400 pointer-events-none transition-all duration-200 origin-left"
-                            for="portfolio">Portfolio / GitHub URL</label>
+                            class="form-input block w-full px-4 py-3.5 text-base bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary transition-all outline-none"
+                            id="portfolio" name="portfolio" placeholder="https://github.com/username" type="url" />
                     </div>
                 </div>
             </section>
             <!-- Section: Additional Info -->
             <section
-                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-brand-blue/30 md:p-10">
+                class="bg-white dark:bg-zinc-900 p-8 rounded-xl border border-primary/10 shadow-sm space-y-6 section-fade hover:border-primary/30 md:p-10">
                 <div class="flex items-center gap-3 border-b border-primary/5 pb-4">
-                    <span class="material-symbols-outlined text-primary text-brand-blue">info</span>
+                    <span class="material-symbols-outlined text-primary">info</span>
                     <h3 class="text-xl font-bold">Additional Info</h3>
                 </div>
                 <div class="space-y-6">
                     <div class="space-y-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1">How did you get to know
+                        <label for="referral-source" class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 block">How did you get to know
                             about us?</label>
                         <select id="referral-source"
-                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-brand-blue outline-none appearance-none cursor-pointer transition-colors">
+                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none appearance-none cursor-pointer transition-colors">
                             <option value="">Select source</option>
                             <option value="linkedin">LinkedIn</option>
                             <option value="twitter">X / Twitter</option>
@@ -266,10 +332,10 @@
                         </select>
                     </div>
                     <div class="space-y-2">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 px-1">Why do you want to join
+                        <label for="motivation" class="text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 block">Why do you want to join
                             Rage Labs?</label>
                         <textarea id="motivation"
-                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-brand-blue outline-none resize-none transition-colors"
+                            class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none resize-none transition-colors"
                             placeholder="Tell us about your motivation to work with our team specifically."
                             rows="4"></textarea>
                     </div>
@@ -293,42 +359,74 @@
         </form>
     </main>
     <!-- Footer -->
-    <footer class="bg-white dark:bg-zinc-900 border-t border-primary/10 py-12">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center gap-3 transition-all">
-                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
-                    <span
-                        class="font-black italic tracking-tighter text-accent-yellow lowercase font-title text-xl">rage
-                        labs</span>
+        <!-- Footer (Enterprise Standard) -->
+    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-12 lg:py-20">
+        <div class="mx-auto max-w-7xl px-6 lg:px-10">
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
+                <!-- Branding -->
+                <div class="lg:col-span-2 flex flex-col gap-6">
+                    <div class="flex items-center gap-3">
+                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
+                        <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
+                    </div>
+                    <p class="max-w-sm text-gray-500 font-medium text-sm leading-relaxed">
+                        A modern engineering collective dedicated to crafting digital products that push the boundaries of software mastery and enterprise solution architecture.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
+                            href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank" aria-label="Instagram">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                            </svg>
+                        </a>
+                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
+                            href="https://www.linkedin.com/company/ragelabs-company" target="_blank" aria-label="LinkedIn">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex gap-8 text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-                    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-                    <a class="hover:text-primary transition-colors" href="#">Cookies</a>
-                    <a class="hover:text-primary transition-colors" href="#">Contact</a>
+                <!-- Quick Navigation -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="services.html">Services</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="portfolio.html">Portfolio</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="careers.html">Careers</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="about.html">About Us</a></li>
+                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="contact.html">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="flex gap-4">
-                    <a class="size-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                        href="#">
-                        <svg class="size-5 fill-current" viewbox="0 0 24 24">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.599 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                            </path>
-                        </svg>
-                    </a>
-                    <a class="size-10 rounded-full bg-primary/5 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                        href="#">
-                        <svg class="size-5 fill-current" viewbox="0 0 24 24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                        </svg>
-                    </a>
+                <!-- Contact Info -->
+                <div class="flex flex-col gap-6">
+                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Contact Us</h3>
+                    <ul class="flex flex-col gap-3 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">phone</span>
+                            +91 99370 32631
+                        </li>
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            support@ragelabs.in
+                        </li>
+                        <li class="flex items-center gap-3 text-sm font-semibold">
+                            <span class="material-symbols-outlined text-primary text-lg">person</span>
+                            @rage_labs
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8 text-center text-xs text-gray-400 font-medium tracking-widest uppercase">
-                © 2024 Rage Labs Inc. All rights reserved.
+            <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-primary/5 pt-10 text-sm text-gray-400 md:flex-row">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
+                </div>
+                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -344,10 +442,6 @@
                     <a href="signup.html?redirect=apply" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
                 `;
             } else {
-                // Prefill some fields if available
-                if (user.fullName) document.getElementById('fullname').value = user.fullName;
-                if (user.email) document.getElementById('email').value = user.email;
-
                 const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
                 
                 authNav.innerHTML = `
@@ -399,9 +493,77 @@
 
         window.addEventListener('load', initAuth);
 
+        // ─── Instant Page Transitions ───────────────────────────────────────────
+        (function() {
+            var overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;inset:0;background:#0f0506;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.12s;';
+            document.body.prepend(overlay);
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('a');
+                if (!link) return;
+                var href = link.getAttribute('href');
+                if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto') === 0 || href.indexOf('javascript') === 0) return;
+                e.preventDefault();
+                overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
+                requestAnimationFrame(function() { setTimeout(function() { window.location.href = href; }, 80); });
+            });
+            ['index.html','services.html','careers.html','contact.html','about.html'].forEach(function(p) {
+                var l = document.createElement('link'); l.rel = 'prefetch'; l.href = p; document.head.appendChild(l);
+            });
+        })();
+
         const form = document.querySelector('form');
         const progressBar = document.getElementById('progress-bar');
         const progressLabel = document.getElementById('progress-label');
+        const resumeDropzone = document.getElementById('resume-dropzone');
+        const resumeInput = document.getElementById('resume-input');
+        const resumeText = document.getElementById('resume-text');
+        const resumeFileInfo = document.getElementById('resume-file-info');
+
+        // Resume Dropzone Interactivity
+        if (resumeDropzone && resumeInput) {
+            resumeDropzone.addEventListener('click', () => resumeInput.click());
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                resumeDropzone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    resumeDropzone.classList.add('border-primary', 'bg-primary/10');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                resumeDropzone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    resumeDropzone.classList.remove('border-primary', 'bg-primary/10');
+                }, false);
+            });
+
+            resumeDropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                if (files && files.length > 0) {
+                    resumeInput.files = files;
+                    handleFileSelection(files[0]);
+                }
+            });
+
+            resumeInput.addEventListener('change', () => {
+                if (resumeInput.files && resumeInput.files.length > 0) {
+                    handleFileSelection(resumeInput.files[0]);
+                }
+            });
+        }
+
+        function handleFileSelection(file) {
+            if (file) {
+                resumeText.innerHTML = `Selected File: <strong class="text-primary">${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                resumeFileInfo.textContent = "Click or drag another file to replace";
+                resumeFileInfo.classList.remove('hidden');
+                updateProgress();
+            }
+        }
 
         function updateProgress() {
             const inputs = form.querySelectorAll('input:not([type=file]):not([type=checkbox]), textarea, select');
@@ -409,7 +571,11 @@
             inputs.forEach(el => {
                 if (el.value && el.value.trim() !== '') filled++;
             });
-            const pct = Math.round((filled / inputs.length) * 100);
+            if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
+                filled += 1;
+            }
+            const totalFields = inputs.length + 1;
+            const pct = Math.round((filled / totalFields) * 100);
             progressBar.style.width = pct + '%';
             progressLabel.textContent = pct + '% Complete';
         }
@@ -428,6 +594,11 @@
                 return;
             }
 
+            let resumeFileName = "";
+            if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
+                resumeFileName = resumeInput.files[0].name;
+            }
+
             const applicationData = {
                 fullName: document.getElementById('fullname').value,
                 email: document.getElementById('email').value,
@@ -436,9 +607,12 @@
                 skills: document.getElementById('skills').value,
                 experience: document.getElementById('experience').value,
                 preferredRole: document.getElementById('preferred-role').value,
+                linkedin: document.getElementById('linkedin') ? document.getElementById('linkedin').value : '',
+                portfolio: document.getElementById('portfolio') ? document.getElementById('portfolio').value : '',
                 careerGoals: document.getElementById('career-goals').value,
                 referralSource: document.getElementById('referral-source').value,
-                motivation: document.getElementById('motivation').value
+                motivation: document.getElementById('motivation').value,
+                resumeFileName: resumeFileName
             };
 
             const btn = e.target.querySelector('button[type="submit"]');
@@ -458,6 +632,8 @@
                 if (response.ok) {
                     showToast('Application logged! Our recruitment team will review and reach out.', 'success');
                     form.reset();
+                    if (resumeText) resumeText.innerHTML = 'Drag and drop your file here or <span class="text-primary underline font-bold">browse</span>';
+                    if (resumeFileInfo) resumeFileInfo.classList.add('hidden');
                     updateProgress();
                     setTimeout(() => { window.location.href = 'thankyou.html?type=career'; }, 2000);
                 } else {
@@ -474,6 +650,7 @@
             }
         });
     </script>
+    <script src="assets/js/motion.js" defer></script>
 </body>
 
 </html>

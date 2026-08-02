@@ -7,13 +7,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>About Us | Rage Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-        <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -28,7 +24,8 @@
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
                         "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "sans": ["Inter", "system-ui", "sans-serif"],
+                        "editorial": ["Playfair Display", "serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -60,6 +57,29 @@
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Professional Typography System */
+        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
+        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
+        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
+        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
+        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
+        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
+        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
+        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
+        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
+        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
+
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
             background-size: 40px 40px;
@@ -72,7 +92,7 @@
         .glow-card { position: relative; overflow: hidden; }
         .glow-card::before {
             content: ''; position: absolute; inset: 0; border-radius: inherit;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.28), transparent 60%);
             opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
         }
         .glow-card:hover::before { opacity: 1; }
@@ -83,45 +103,50 @@
 
 <body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] transition-colors duration-300">
     <!-- Navigation -->
-    <!-- Top Navigation Bar (Accenture Enterprise Standard) -->
-    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+    <!-- Top Navigation Bar (Dark Crimson Header) -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain transition-transform group-hover:scale-105">
-                <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain">
+            <!-- Logo Hover Container (Requirement 6) -->
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
             </a>
-            
-            <!-- Desktop Navigation with Mega-Menu Capabilities -->
-            <!-- Desktop Navigation (Dropdown-Free, Red & Gold Theme) -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="portfolio.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
                     Portfolio
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="careers.html">
-                    Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="about.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
                     About Us
+                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow transition-all duration-300"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
+                    Careers
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="contact.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
                     Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </nav>
 
             <div class="flex items-center gap-4">
                 <div id="auth-nav" class="flex items-center gap-3"></div>
-                    <!-- Auth buttons or user avatar injected via JS -->
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all" aria-label="Toggle Navigation">
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
             </div>
@@ -130,46 +155,27 @@
 
     <!-- Mobile Drawer Overlay & Menu -->
     <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div class="absolute right-0 top-0 h-full w-[300px] bg-white dark:bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-primary/10 z-10">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-primary/10">
-                    <div class="flex items-center gap-2">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
-                        <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
-                    </div>
-                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
                         <span class="material-symbols-outlined text-xl">close</span>
                     </button>
                 </div>
-
-                <nav class="flex flex-col gap-4 mt-6">
-                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Services
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Portfolio
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Careers
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        About Us
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Contact
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-accent-yellow">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
                 </nav>
             </div>
-
-            <div class="pt-6 border-t border-primary/10 flex flex-col gap-3">
-                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-primary/20 text-sm font-bold text-primary hover:bg-primary/5 transition-all">Sign In</a>
-                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-[#5a090f] transition-all">Sign Up</a>
+            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
+                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
             </div>
         </div>
     </div>
@@ -211,15 +217,15 @@
                     <div class="absolute top-0 right-0 w-64 h-64 bg-accent-yellow/10 rounded-full blur-3xl -z-10"></div>
                     <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
                         <div class="flex items-center gap-6">
-                            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-primary text-white flex items-center justify-center font-black text-2xl sm:text-3xl shadow-lg shadow-primary/20 border-4 border-white shrink-0">
-                                SSSD
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center shadow-lg shadow-primary/10 border border-primary/20 shrink-0">
+                                <span class="material-symbols-outlined text-4xl text-primary opacity-75">domain</span>
                             </div>
                             <div>
                                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-[11px] font-extrabold uppercase tracking-widest text-accent-blue mb-2">
                                     Parent Organization
                                 </div>
                                 <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                                    SSSD Consumer Products and Services Private Limited
+                                    SSSSD Consumer Products and Services Private Limited
                                 </h3>
                                 <p class="text-xs sm:text-sm text-gray-600 font-medium mt-1">
                                     Active Private Limited Company • Registered under Registrar of Companies (ROC Cuttack), Bhubaneswar, Odisha
@@ -248,44 +254,57 @@
                         The People Behind <span class="text-primary">Rage Labs</span>
                     </h2>
                     <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed font-medium">
-                        Rage Labs operates under the organizational framework of <strong class="text-gray-900">SSSD Consumer Products and Services Private Limited</strong>, driven by founding leadership and core software developers shaping next-generation digital platforms.
+                        Rage Labs operates under the organizational framework of <strong class="text-gray-900">SSSSD Consumer Products and Services Private Limited</strong>, driven by founding leadership and core software developers shaping next-generation digital platforms.
                     </p>
                 </div>
 
                 <!-- Co-Founders Subsection -->
                 <div class="mb-16">
-                    <h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6 text-center">Co-Founding Leadership</h3>
+                    <div class="flex items-center justify-center gap-3 mb-8">
+                        <!-- SSSSD Brand Mark (Requirement 8) -->
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary via-[#4a070c] to-accent-yellow p-[2px] shadow-lg flex items-center justify-center">
+                            <div class="w-full h-full rounded-[10px] bg-background-dark flex items-center justify-center text-accent-yellow font-black font-display text-sm tracking-tighter">
+                                S4D
+                            </div>
+                        </div>
+                        <h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary">Parent Company & Co-Founding Leadership</h3>
+                    </div>
+
                     <div class="grid md:grid-cols-2 gap-8 reveal-on-scroll">
-                        <!-- S. Mohanty -->
+                        <!-- Smaranika Mohanty -->
                         <div class="bg-[#fcfbfb] rounded-3xl p-8 border border-gray-200/80 shadow-md hover:shadow-xl transition-all group">
                             <div class="flex items-center gap-5 mb-5">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] text-white flex items-center justify-center text-xl font-bold font-display shadow-md group-hover:scale-105 transition-transform shrink-0">
-                                    SM
+                                <div class="w-16 h-16 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                                    <svg class="w-12 h-12 text-[#9ca3af] dark:text-[#71717a] mt-2.5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-gray-900">S. Mohanty</h4>
+                                    <h4 class="text-xl font-bold text-gray-900">Smaranika Mohanty</h4>
                                     <p class="text-xs font-extrabold uppercase tracking-widest text-primary mt-0.5">Co-Founder & Executive Director</p>
                                     <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mt-1 border border-primary/20">
-                                        SSSD Consumer Products & Services Pvt. Ltd.
+                                        SSSSD Consumer Products & Services Pvt. Ltd.
                                     </span>
                                 </div>
                             </div>
                             <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                                Provides executive leadership, strategic direction, and operational governance for Rage Labs under SSSD Consumer Products and Services Private Limited.
+                                Provides executive leadership, strategic direction, and operational governance for Rage Labs under SSSSD Consumer Products and Services Private Limited.
                             </p>
                         </div>
 
-                        <!-- D. Mohanty -->
+                        <!-- Sushant Kumar Mohanty -->
                         <div class="bg-[#fcfbfb] rounded-3xl p-8 border border-gray-200/80 shadow-md hover:shadow-xl transition-all group">
                             <div class="flex items-center gap-5 mb-5">
-                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] text-white flex items-center justify-center text-xl font-bold font-display shadow-md group-hover:scale-105 transition-transform shrink-0">
-                                    DM
+                                <div class="w-16 h-16 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                                    <svg class="w-12 h-12 text-[#9ca3af] dark:text-[#71717a] mt-2.5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
                                 <div>
-                                    <h4 class="text-xl font-bold text-gray-900">D. Mohanty</h4>
+                                    <h4 class="text-xl font-bold text-gray-900">Sushant Kumar Mohanty</h4>
                                     <p class="text-xs font-extrabold uppercase tracking-widest text-primary mt-0.5">Co-Founder & Director</p>
                                     <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary mt-1 border border-primary/20">
-                                        SSSD Consumer Products & Services Pvt. Ltd.
+                                        SSSSD Consumer Products & Services Pvt. Ltd.
                                     </span>
                                 </div>
                             </div>
@@ -299,13 +318,15 @@
                 <!-- Core Team Members Subsection -->
                 <div>
                     <h3 class="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6 text-center">Core Team Members & Leadership</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14 reveal-on-scroll">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14 max-w-4xl mx-auto reveal-on-scroll">
                         <!-- Ronit Rout -->
                         <div class="bg-[#fcfbfb] rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/20 transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-center gap-4 mb-6">
-                                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#8b1019] flex items-center justify-center text-white text-xl font-bold font-display shadow-md group-hover:scale-105 transition-transform shrink-0">
-                                        RR
+                                    <div class="w-16 h-16 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                                        <svg class="w-12 h-12 text-[#9ca3af] dark:text-[#71717a] mt-2.5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                        </svg>
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-900">Ronit Rout</h3>
@@ -330,8 +351,10 @@
                         <div class="bg-[#fcfbfb] rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/20 transition-all flex flex-col justify-between group">
                             <div>
                                 <div class="flex items-center gap-4 mb-6">
-                                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#8b1019] flex items-center justify-center text-white text-xl font-bold font-display shadow-md group-hover:scale-105 transition-transform shrink-0">
-                                        SKS
+                                    <div class="w-16 h-16 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform shadow-inner">
+                                        <svg class="w-12 h-12 text-[#9ca3af] dark:text-[#71717a] mt-2.5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                        </svg>
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-900">Swarup Kumar Sahoo</h3>
@@ -351,41 +374,63 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Yogesh Kumar Akula -->
-                        <div class="bg-[#fcfbfb] rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/20 transition-all flex flex-col justify-between group">
-                            <div>
-                                <div class="flex items-center gap-4 mb-6">
-                                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] flex items-center justify-center text-white text-xl font-bold font-display shadow-md group-hover:scale-105 transition-transform shrink-0">
-                                        YKA
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-bold text-gray-900">Yogesh Kumar Akula</h3>
-                                        <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-0.5">Operational Head</p>
-                                        <span class="inline-block text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 mt-1.5 border border-emerald-500/20">
-                                            Operations • Workflow Management
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="space-y-3 text-gray-600 text-xs sm:text-sm leading-relaxed font-medium">
-                                    <p>
-                                        Yogesh specializes in <strong>operational management, workflow optimization, platform logistics, and execution</strong> across Rage Labs initiatives.
-                                    </p>
-                                    <p>
-                                        He drives <strong>operational excellence</strong>, streamlining project delivery pipelines, cross-functional communication, and team execution.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Combined Summary Banner -->
-                <div class="rounded-3xl bg-gradient-to-r from-primary/5 via-accent-yellow/10 to-primary/5 p-8 sm:p-10 border border-primary/10 text-center max-w-4xl mx-auto shadow-sm">
+                <div class="rounded-3xl bg-gradient-to-r from-primary/5 via-accent-yellow/10 to-primary/5 p-8 sm:p-10 border border-primary/10 text-center max-w-4xl mx-auto shadow-sm mb-16">
                     <p class="text-base sm:text-lg text-gray-800 font-semibold leading-relaxed">
-                        Under parent organization <strong>SSSD Consumer Products and Services Private Limited</strong>, co-founders <strong>S. Mohanty</strong> & <strong>D. Mohanty</strong>, Operational Head <strong>Yogesh Kumar Akula</strong>, and Staff Engineers <strong>Ronit Rout</strong> & <strong>Swarup Kumar Sahoo</strong> combine vision, engineering, operations, and leadership to build world-class digital products.
+                        Under parent organization <strong>SSSSD Consumer Products and Services Private Limited</strong>, co-founders <strong>Smaranika Mohanty</strong> & <strong>Sushant Kumar Mohanty</strong>, and Staff Engineers <strong>Ronit Rout</strong> & <strong>Swarup Kumar Sahoo</strong> combine vision, engineering, and leadership to build world-class digital products.
                     </p>
                 </div>
+
+                <!-- Government of Odisha Startup Recognition Certificate Card (Requirements 11, 12, 13) -->
+                <div class="max-w-5xl mx-auto rounded-3xl bg-white border border-gray-200/80 shadow-2xl p-8 sm:p-12 reveal-on-scroll relative overflow-hidden">
+                    <div class="absolute -top-32 -left-32 -z-10 w-96 h-96 bg-accent-yellow/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-32 -right-32 -z-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                        
+                        <!-- Left: Original Startup Odisha Certificate Image -->
+                        <div class="lg:col-span-6 flex justify-center items-center">
+                            <div class="relative w-full rounded-2xl overflow-hidden border border-gray-200 shadow-xl hover:scale-[1.01] transition-transform duration-300">
+                                <img src="images/SSSSD.jpg" alt="Government of Odisha Startup Recognition Certificate" class="w-full h-auto object-contain block max-h-[350px]">
+                            </div>
+                        </div>
+
+                        <!-- Right: Supporting Text Content (Side 2) -->
+                        <div class="lg:col-span-6 space-y-6">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20 mb-3">
+                                    Official Credential
+                                </span>
+                                <h3 class="text-2xl sm:text-3xl font-black text-gray-900 font-display tracking-tight">
+                                    Recognised by Startup Odisha
+                                </h3>
+                                <p class="text-sm font-bold text-primary mt-1">
+                                    A milestone that made the journey official.
+                                </p>
+                            </div>
+
+                            <div class="space-y-4 text-sm text-gray-600 leading-relaxed font-medium">
+                                <p>
+                                    SSSSD Consumer Products and Services Pvt Ltd has been recognised as a Startup under the Odisha Startup Policy – 2016 by the Government of Odisha.
+                                </p>
+                                <p>
+                                    For us, the certificate is more than something to display. It marks the beginning of building with greater responsibility—taking ideas seriously, creating useful products, and continuing to learn as we grow.
+                                </p>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs font-bold text-gray-500">
+                                <span>Government of Odisha · Startup Odisha</span>
+                                <span class="text-primary">Certificate of Recognition · 2025</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
             </div>
         </section>
         <!-- Our Journey Section -->
@@ -529,6 +574,65 @@
                             deliverable, setting new industry benchmarks.</p>
                     </div>
                 </div>
+        <!-- Corporate Registration Document Section (SSSSD.pdf Integration) -->
+        <section class="py-20 px-6 bg-background-light dark:bg-background-dark border-t border-primary/5">
+            <div class="max-w-5xl mx-auto">
+                <div class="glow-card glass-card rounded-[2.5rem] p-8 sm:p-12 border border-primary/20 shadow-2xl relative overflow-hidden reveal-on-scroll">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        
+                        <!-- Left side: Document preview card -->
+                        <div class="lg:col-span-5 flex flex-col items-center">
+                            <a href="images/SSSSD.pdf" target="_blank" class="w-full max-w-[280px] aspect-[1/1.414] rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-[#150708] dark:to-[#220e10] border-2 border-primary/20 shadow-xl p-6 flex flex-col justify-between hover:scale-[1.02] active:scale-95 transition-all duration-300 relative group">
+                                <div class="absolute top-3 right-3 rounded-full bg-red-600/10 dark:bg-red-600/20 text-red-600 dark:text-red-400 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-widest font-sans flex items-center gap-1 border border-red-600/20">
+                                    <span class="material-symbols-outlined text-[10px]">picture_as_pdf</span> PDF Document
+                                </div>
+                                
+                                <div class="pt-6">
+                                    <div class="w-14 h-14 rounded-2xl bg-red-600/10 flex items-center justify-center mb-4 border border-red-600/20">
+                                        <span class="material-symbols-outlined text-red-600 text-3xl">description</span>
+                                    </div>
+                                    <h4 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider font-sans mb-1">Company Charter</h4>
+                                    <p class="text-[10px] text-gray-500 font-medium leading-tight">SSSSD Consumer Products and Services Private Limited</p>
+                                </div>
+
+                                <div class="pt-4 border-t border-primary/5 flex items-center justify-between text-xs font-bold text-gray-600 dark:text-gray-400">
+                                    <span>67.8 KB</span>
+                                    <span class="text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                        Open Document <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Right side: Text details -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div>
+                                <span class="uppercase-label text-primary">Corporate Governance</span>
+                                <h3 class="section-heading text-gray-900 dark:text-white mt-2">
+                                    SSSSD Incorporation & Legal Identification
+                                </h3>
+                                <p class="text-sm font-bold text-primary mt-1 font-sans">
+                                    Official Ministry of Corporate Affairs (MCA) Charter
+                                </p>
+                            </div>
+
+                            <p class="right-body text-gray-600 dark:text-gray-300">
+                                SSSSD Consumer Products and Services Private Limited is the registered parent entity behind Rage Labs. Registered under the Registrar of Companies (ROC Cuttack, Odisha), this company charter establishes our legal compliance, corporate governance structures, and capital authorization parameters. All proprietary software platforms, enterprise contracts, and developer operations run under this corporate umbrella.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4 pt-2">
+                                <a href="images/SSSSD.pdf" download class="cta-btn-text h-12 rounded-xl bg-primary px-6 text-white hover:bg-[#5a090f] transition-all shadow-md flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-base">download</span> Download PDF Document
+                                </a>
+                                <a href="images/SSSSD.pdf" target="_blank" class="cta-btn-text h-12 rounded-xl border border-primary/20 bg-transparent px-6 text-primary hover:bg-primary/5 transition-all flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-base">visibility</span> View Online
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -596,7 +700,7 @@
                     <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
                 </div>
-                <p>© 2026 Rage Labs • Unit of SSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
+                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
                 <div class="flex gap-8">
                     <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
                     <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
@@ -688,7 +792,7 @@
             <div class="flex items-center gap-2 flex-wrap">
                 <span class="text-xs font-black uppercase tracking-widest text-gray-400 mr-1">Trending Topics:</span>
                 <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" data-query="AI">Generative AI</button>
-                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors" data-query="Autofy">Autofy MVP</button>
+                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors" data-query="AutoFfy">AutoFfy MVP</button>
             </div>
 
             <div id="search-results-list" class="flex flex-col gap-3 overflow-y-auto pr-2 max-h-[50vh]">

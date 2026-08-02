@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Rage Labs | Innovation Redefined</title>
+    <title>Sign Up | Rage Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
@@ -13,18 +13,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">tailwind.config = {
+        <script id="tailwind-config">
+        tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#730c13",
-                        "accent-yellow": "#FFD700",
-                        "accent-blue": "#0047AB",
-                        "background-light": "#fcfcfc",
+                        "primary": "#720c13",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
                         "background-dark": "#0f0506",
                     },
                     fontFamily: {
@@ -33,18 +31,53 @@
                         "sans": ["Inter", "system-ui", "sans-serif"]
                     },
                     borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "0.75rem",
-                        "xl": "1rem",
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
                         "full": "9999px"
                     },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
                 },
             },
-        }</script>
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
         }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .tech-grid {
+            background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
+        }
+        .reveal-fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-fade-up.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.is-visible { opacity: 1; transform: scale(1); }
+        .glow-card { position: relative; overflow: hidden; }
+        .glow-card::before {
+            content: ''; position: absolute; inset: 0; border-radius: inherit;
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
+        }
+        .glow-card:hover::before { opacity: 1; }
+        .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
 </head>
 
@@ -60,10 +93,8 @@
             </div>
             <div class="relative z-10">
                 <a href="index.html" class="flex items-center gap-3 text-white">
-                    <img src="images/logo.png" alt="Rage Labs Logo"
-                        class="h-10 w-10 object-contain brightness-0 invert">
-                    <h1 class="text-3xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
-                        labs</h1>
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain drop-shadow-[0_0_10px_rgba(246,188,24,0.5)]">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain brightness-0 invert">
                 </a>
             </div>
             <div class="relative z-10">
@@ -76,15 +107,15 @@
             </div>
             <div class="relative z-10 flex gap-8">
                 <div class="text-white/60 text-sm">
-                    <p class="font-bold text-white">12k+</p>
+                    <p class="font-bold text-white" data-counter>12k+</p>
                     <p>Active Nodes</p>
                 </div>
                 <div class="text-white/60 text-sm">
-                    <p class="font-bold text-white">45ms</p>
+                    <p class="font-bold text-white" data-counter>45ms</p>
                     <p>Avg Latency</p>
                 </div>
                 <div class="text-white/60 text-sm">
-                    <p class="font-bold text-white">99.9%</p>
+                    <p class="font-bold text-white" data-counter>99.9%</p>
                     <p>Uptime</p>
                 </div>
             </div>
@@ -97,9 +128,10 @@
             </div>
             <!-- Mobile Header -->
             <div class="lg:hidden flex items-center gap-2 mb-12 self-start">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
-                <span class="text-2xl font-black italic tracking-tighter text-accent-yellow lowercase font-title">rage
-                    labs</span>
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain drop-shadow-md">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain dark:brightness-0 dark:invert">
+                </a>
             </div>
             <div class="w-full max-w-[440px] space-y-8">
                 <!-- Tabs/Switchers for Demo (Usually these would be separate pages) -->
@@ -302,6 +334,7 @@
             }
         });
     </script>
+    <script src="assets/js/motion.js" defer></script>
 </body>
 
 </html>

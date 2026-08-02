@@ -7,13 +7,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Careers | Rage Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-        <script id="tailwind-config">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -28,7 +24,8 @@
                     fontFamily: {
                         "display": ["Space Grotesk", "sans-serif"],
                         "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "sans": ["Inter", "system-ui", "sans-serif"],
+                        "editorial": ["Playfair Display", "serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -60,6 +57,29 @@
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Custom Professional Typography System */
+        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
+        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
+        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
+        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
+        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
+        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
+        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
+        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
+        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
+        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
+        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
+
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
             background-size: 40px 40px;
@@ -72,7 +92,7 @@
         .glow-card { position: relative; overflow: hidden; }
         .glow-card::before {
             content: ''; position: absolute; inset: 0; border-radius: inherit;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%);
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.28), transparent 60%);
             opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1;
         }
         .glow-card:hover::before { opacity: 1; }
@@ -83,45 +103,50 @@
 
 <body class="bg-background-light dark:bg-background-dark text-slate-900 transition-colors duration-300">
     <!-- Top Navigation Bar -->
-    <!-- Top Navigation Bar (Accenture Enterprise Standard) -->
-    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
+    <!-- Top Navigation Bar (Dark Crimson Header) -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain transition-transform group-hover:scale-105">
-                <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain">
+            <!-- Logo Hover Container (Requirement 6) -->
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
             </a>
-            
-            <!-- Desktop Navigation with Mega-Menu Capabilities -->
-            <!-- Desktop Navigation (Dropdown-Free, Red & Gold Theme) -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="portfolio.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
                     Portfolio
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="careers.html">
-                    Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="about.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
                     About Us
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100 hover:text-primary transition-all relative group py-1" href="contact.html">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
+                    Careers
+                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow transition-all duration-300"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
                     Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </nav>
 
             <div class="flex items-center gap-4">
                 <div id="auth-nav" class="flex items-center gap-3"></div>
-                    <!-- Auth buttons or user avatar injected via JS -->
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-primary/5 text-primary hover:bg-primary hover:text-white transition-all" aria-label="Toggle Navigation">
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
                     <span class="material-symbols-outlined text-2xl">menu</span>
                 </button>
             </div>
@@ -130,46 +155,27 @@
 
     <!-- Mobile Drawer Overlay & Menu -->
     <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-        <div class="absolute right-0 top-0 h-full w-[300px] bg-white dark:bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-primary/10 z-10">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-primary/10">
-                    <div class="flex items-center gap-2">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
-                        <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
-                    </div>
-                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
                         <span class="material-symbols-outlined text-xl">close</span>
                     </button>
                 </div>
-
-                <nav class="flex flex-col gap-4 mt-6">
-                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Services
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Portfolio
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Careers
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        About Us
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
-                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 text-sm font-bold text-gray-800 dark:text-gray-200">
-                        Contact
-                        <span class="material-symbols-outlined text-sm text-gray-400">chevron_right</span>
-                    </a>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-accent-yellow">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
                 </nav>
             </div>
-
-            <div class="pt-6 border-t border-primary/10 flex flex-col gap-3">
-                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-primary/20 text-sm font-bold text-primary hover:bg-primary/5 transition-all">Sign In</a>
-                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-[#5a090f] transition-all">Sign Up</a>
+            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
+                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
+                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
             </div>
         </div>
     </div>
@@ -181,40 +187,32 @@
                 <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
                     <div class="flex flex-col gap-8">
                         <div>
-                            <span
-                                class="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">Careers
-                                at Rage Labs</span>
-                            <h1 class="mt-4 text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 md:text-7xl">
-                                Join the <span
-                                    class="text-primary underline decoration-primary/20 underline-offset-8">Future</span>
-                                of Tech
+                            <span class="inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-primary">Careers at Rage Labs</span>
+                            <h1 class="mt-4 text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 md:text-7xl font-display">
+                                Join the <span class="text-primary underline decoration-primary/20 underline-offset-8">Future</span> of Tech
                             </h1>
                         </div>
-                        <p class="max-w-xl text-lg leading-relaxed text-slate-600">
-                            We're building the next generation of scalable infrastructure and AI integration. We are
-                            looking for radicals, engineers, and dreamers to help us disrupt the status quo.
+                        <p class="max-w-xl text-lg leading-relaxed text-slate-600 font-medium">
+                            We're building practical, high-performance software systems. We look for curiosity, ownership, and people who are excited to solve real challenges.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="apply.html"
-                                class="group flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-bold text-white transition-all hover:shadow-lg hover:shadow-primary/20">
-                                Apply Now
-                                <span
-                                    class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-                            </a>
-                            <button onclick="document.getElementById('what-we-think').scrollIntoView({ behavior: 'smooth' })"
-                                class="rounded-lg border-2 border-primary/20 bg-transparent px-8 py-4 text-lg font-bold text-primary transition-all hover:bg-primary/5">
-                                Our Mission
+                            <button onclick="document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })" class="group flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-bold text-white transition-all hover:bg-[#5a090f] shadow-lg shadow-primary/20">
+                                View Our Openings
+                                <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
                             </button>
+                            <a href="apply.html" class="rounded-xl border-2 border-primary/20 bg-transparent px-8 py-4 text-base font-bold text-primary transition-all hover:bg-primary/5 flex items-center justify-center">
+                                Direct Application
+                            </a>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-square overflow-hidden rounded-2xl bg-primary/5 p-4 shadow-2xl">
+                        <div class="absolute -right-16 -bottom-16 w-80 h-80 bg-accent-yellow/25 rounded-full blur-[90px] pointer-events-none -z-10 animate-pulse-slow"></div>
+                        <div class="aspect-square overflow-hidden rounded-2xl bg-primary/5 p-4 shadow-2xl relative z-10">
                             <div class="h-full w-full rounded-xl bg-cover bg-center"
-                                data-alt="Modern tech team collaborating in bright office space"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUp64eiAOUFjyTt0sihWl7O1yHfn2pI4JIR57rhejh8dV2j2Oi62e45Y01UKO_Ng4ceRMRvixqtzdRR6ftrzRayXwUEkDgsmen1jg8ccuFex5_vKaIO_gpHkYt2PQMKc_MazB7ZydJu7PCxooBqTzFL1L7Hpf2_i0I3LsVAQOk3YcvJ3zweyMmGz_SZoir4w9h9-PsZBjCWkxXb8rIEsRWCpQI-0ouFi9cvbksxjwCSXarkdpDTZtzpyVAFpJFUeOZF9Z8xu5VSg')">
+                                data-alt="Indian software engineering team collaborating at Rage Labs"
+                                style="background-image: url('images/indian_tech_team.png')">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -302,8 +300,8 @@
                         <div class="space-y-4">
                             <div class="h-64 overflow-hidden rounded-2xl">
                                 <div class="h-full w-full bg-cover bg-center"
-                                    data-alt="Developers brainstorming around a large table"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdZZ03R1QwuOGKZYW5h__XSDPqRtpgt_Xq6GRyGOTzdkHMJmpaHu8YrBoJZvOvrc1A_yQK7GAIq5Flf05dHfxjYd664l5FuQmZofLAWrDTrSTKQtNGoVt955z4MhhckGerqSdAIF4Z5iSQFWvQGrgDQYJFoz993prLMK0LEaZddsW5KdoDMvFVoDXD3WgvBNIA-9bD7RQeoGSFS80Qp3SQ0iH6Bwq5p775fRQDwPiIbO_r71NMUli_aEPdrE0fTxzEAsCygpABvA')">
+                                    data-alt="Indian software engineering team brainstorming around office table"
+                                    style="background-image: url('images/indian_office_brainstorm.png')">
                                 </div>
                             </div>
                             <div
@@ -320,8 +318,8 @@
                             </div>
                             <div class="h-64 overflow-hidden rounded-2xl">
                                 <div class="h-full w-full bg-cover bg-center"
-                                    data-alt="Team standing and presenting in conference room"
-                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeOmeagF9hJH71iGEh9c8ij258ek-p3wdC3sIXBORBEjXqF0_s8-aOuR0HKEBROfjRmGegLWZ_wGTJOD6MQkLluapnUeNv45wSYSf8qzqU1-u1Gwvkfk2PMVzWIAtnp2ARjOyOQRny-y-3Zo6QmPOtGvEQJ8OzPffaXTHU592hgtIyc1E9PVYZWWKT1hatm-PNaCUJQ-WFsewOia5iu1KtfofS5SvMTRoiv8fdk7k2-ZGyrksgCtFD6gk5_SwsmnztBBMzIWNopw')">
+                                    data-alt="Indian software engineer presenting system dashboard in conference room"
+                                    style="background-image: url('images/indian_office_presentation.png')">
                                 </div>
                             </div>
                         </div>
@@ -337,15 +335,10 @@
                 <div class="rounded-3xl bg-white border border-primary/20 p-8 sm:p-12 shadow-2xl shadow-primary/5 flex flex-col lg:flex-row items-center gap-10 mb-16 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-80 h-80 bg-accent-yellow/10 rounded-full blur-3xl -z-10"></div>
                     
-                    <!-- Big Circular Emblem Column -->
+                    <!-- Big Emblem Column -->
                     <div class="shrink-0 flex flex-col items-center justify-center">
-                        <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-gradient-to-tr from-primary via-[#8b1019] to-primary p-1.5 shadow-2xl shadow-primary/30 flex items-center justify-center">
-                            <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-4 border-2 border-primary/10">
-                                <span class="text-xs font-black text-gray-400 uppercase tracking-widest">PARENT ENTITY</span>
-                                <span class="text-2xl sm:text-3xl font-black text-primary font-display mt-0.5">SSSD</span>
-                                <span class="text-[10px] font-bold text-gray-600 mt-1">Pvt. Ltd.</span>
-                                <span class="text-[9px] font-mono font-bold text-accent-blue bg-accent-blue/10 px-2 py-0.5 rounded-full mt-1.5">ROC Cuttack</span>
-                            </div>
+                        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/30 flex items-center justify-center shadow-lg shadow-primary/10 border border-primary/20 shrink-0">
+                            <span class="material-symbols-outlined text-5xl text-primary opacity-75">domain</span>
                         </div>
                     </div>
 
@@ -355,10 +348,10 @@
                             Active Corporate Organization
                         </div>
                         <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-display mb-3">
-                            SSSD Consumer Products and Services Private Limited
+                            SSSSD Consumer Products and Services Private Limited
                         </h2>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed font-medium mb-6">
-                            Rage Labs operates under the corporate umbrella of <strong>SSSD Consumer Products and Services Private Limited</strong>, an active private company registered under the <strong>Registrar of Companies, ROC Cuttack</strong>, located in <strong>Bhubaneswar, Odisha</strong>.
+                            Rage Labs operates under the corporate umbrella of <strong>SSSSD Consumer Products and Services Private Limited</strong>, an active private company registered under the <strong>Registrar of Companies, ROC Cuttack</strong>, located in <strong>Bhubaneswar, Odisha</strong>.
                         </p>
                         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-bold text-gray-700">
                             <span class="px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 shadow-sm flex items-center gap-2">
@@ -381,28 +374,32 @@
                         <h3 class="text-3xl font-extrabold text-gray-900 mt-2">The Minds Behind The Platform</h3>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                        <!-- S. Mohanty -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Smaranika Mohanty -->
                         <div class="bg-white rounded-3xl p-6 border border-gray-200/90 shadow-md hover:shadow-xl hover:border-primary/20 transition-all flex flex-col justify-between">
                             <div>
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] text-white flex items-center justify-center text-lg font-bold font-display shadow-md mb-4">
-                                    SM
+                                <div class="w-14 h-14 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 shadow-inner mb-4">
+                                    <svg class="w-10 h-10 text-[#9ca3af] dark:text-[#71717a] mt-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
-                                <h4 class="text-lg font-bold text-gray-900">S. Mohanty</h4>
+                                <h4 class="text-base font-bold text-gray-900 leading-snug">Smaranika Mohanty</h4>
                                 <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-1">Co-Founder & Executive Director</p>
                                 <p class="text-xs text-gray-500 mt-3 leading-relaxed font-medium">
-                                    Executive leadership & strategic governance under SSSD Consumer Products & Services Pvt. Ltd.
+                                    Executive leadership & strategic governance under SSSSD Consumer Products & Services Pvt. Ltd.
                                 </p>
                             </div>
                         </div>
 
-                        <!-- D. Mohanty -->
+                        <!-- Sushant Kumar Mohanty -->
                         <div class="bg-white rounded-3xl p-6 border border-gray-200/90 shadow-md hover:shadow-xl hover:border-primary/20 transition-all flex flex-col justify-between">
                             <div>
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] text-white flex items-center justify-center text-lg font-bold font-display shadow-md mb-4">
-                                    DM
+                                <div class="w-14 h-14 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 shadow-inner mb-4">
+                                    <svg class="w-10 h-10 text-[#9ca3af] dark:text-[#71717a] mt-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
-                                <h4 class="text-lg font-bold text-gray-900">D. Mohanty</h4>
+                                <h4 class="text-base font-bold text-gray-900 leading-snug">Sushant Kumar Mohanty</h4>
                                 <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-1">Co-Founder & Director</p>
                                 <p class="text-xs text-gray-500 mt-3 leading-relaxed font-medium">
                                     Co-founder guiding enterprise strategy, organizational growth, and corporate partnerships.
@@ -410,27 +407,15 @@
                             </div>
                         </div>
 
-                        <!-- Yogesh Kumar Akula -->
-                        <div class="bg-white rounded-3xl p-6 border border-gray-200/90 shadow-md hover:shadow-xl hover:border-primary/20 transition-all flex flex-col justify-between">
-                            <div>
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#5a090f] text-white flex items-center justify-center text-lg font-bold font-display shadow-md mb-4">
-                                    YKA
-                                </div>
-                                <h4 class="text-lg font-bold text-gray-900">Yogesh Kumar Akula</h4>
-                                <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-1">Operational Head</p>
-                                <p class="text-xs text-gray-500 mt-3 leading-relaxed font-medium">
-                                    Operational management, workflow optimization, platform logistics, and team execution.
-                                </p>
-                            </div>
-                        </div>
-
                         <!-- Ronit Rout -->
                         <div class="bg-white rounded-3xl p-6 border border-gray-200/90 shadow-md hover:shadow-xl hover:border-primary/20 transition-all flex flex-col justify-between">
                             <div>
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#8b1019] text-white flex items-center justify-center text-lg font-bold font-display shadow-md mb-4">
-                                    RR
+                                <div class="w-14 h-14 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 shadow-inner mb-4">
+                                    <svg class="w-10 h-10 text-[#9ca3af] dark:text-[#71717a] mt-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
-                                <h4 class="text-lg font-bold text-gray-900">Ronit Rout</h4>
+                                <h4 class="text-base font-bold text-gray-900 leading-snug">Ronit Rout</h4>
                                 <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-1">Software Developer & Staff Engineer</p>
                                 <p class="text-xs text-gray-500 mt-3 leading-relaxed font-medium">
                                     UI/UX design, application development, and user experience engineering for Rage Labs products.
@@ -441,10 +426,12 @@
                         <!-- Swarup Kumar Sahoo -->
                         <div class="bg-white rounded-3xl p-6 border border-gray-200/90 shadow-md hover:shadow-xl hover:border-primary/20 transition-all flex flex-col justify-between">
                             <div>
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-[#8b1019] text-white flex items-center justify-center text-lg font-bold font-display shadow-md mb-4">
-                                    SKS
+                                <div class="w-14 h-14 rounded-full bg-[#e5e7eb] dark:bg-[#27272a] border border-[#d1d5db] dark:border-[#3f3f46] flex items-center justify-center overflow-hidden shrink-0 shadow-inner mb-4">
+                                    <svg class="w-10 h-10 text-[#9ca3af] dark:text-[#71717a] mt-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-4.42 0-8 2.24-8 5v3h16v-3c0-2.76-3.58-5-8-5z" />
+                                    </svg>
                                 </div>
-                                <h4 class="text-lg font-bold text-gray-900">Swarup Kumar Sahoo</h4>
+                                <h4 class="text-base font-bold text-gray-900 leading-snug">Swarup Kumar Sahoo</h4>
                                 <p class="text-[11px] font-extrabold uppercase tracking-wider text-primary mt-1">Software Developer & Staff Engineer</p>
                                 <p class="text-xs text-gray-500 mt-3 leading-relaxed font-medium">
                                     Feature ideation, service architecture, brainstorming, and technical platform expansion.
@@ -455,6 +442,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- Community Section -->
         <section class="bg-background-dark py-24 text-white" id="community">
@@ -498,27 +487,99 @@
                 </div>
             </div>
         </section>
-        <!-- CTA Section -->
-        <section class="bg-slate-50 py-24" id="openings">
+        <!-- Openings Section (Requirements 23, 24, 25, 26, 27) -->
+        <section id="openings" class="py-24 bg-slate-50 border-b border-primary/5 scroll-mt-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-10">
-                <div class="mb-16 flex flex-col md:flex-row md:items-end gap-6 md:text-center justify-center">
-                    <div>
-                        <h2 class="text-4xl font-bold tracking-tight text-slate-900">Current Openings</h2>
-                        <p class="mt-4 text-lg text-slate-600">Join us in building the infrastructure of tomorrow.</p>
+                <div class="mb-16 text-center max-w-3xl mx-auto">
+                    <span class="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary border border-primary/20 mb-4">
+                        Current Opportunities
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl font-black text-gray-900 font-display tracking-tight mb-4">
+                        Open Positions at <span class="text-primary">Rage Labs</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 font-medium leading-relaxed">
+                        Explore our current openings. We value curiosity, initiative, and ownership over simple checklist resumes.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Opening 1: Product Management (Requirement 24) -->
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/30 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 text-xs font-black uppercase tracking-wider bg-primary/10 text-primary rounded-full border border-primary/20">
+                                    Min 1 Year Exp
+                                </span>
+                                <span class="material-symbols-outlined text-primary text-2xl">grid_view</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 font-display mb-3">Product Management</h3>
+                            <p class="text-xs font-bold text-primary uppercase tracking-wider mb-4">Experience: Minimum 1 year</p>
+                            <p class="text-sm text-gray-600 leading-relaxed font-medium mb-6">
+                                We're not looking for someone who simply checks every box on a job description. We care about people who are hungry to build, willing to take ownership, curious enough to ask better questions, and comfortable figuring things out when the answer isn't obvious.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-500">Full-Time / Hybrid</span>
+                            <a href="apply.html?role=product-management" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent-yellow transition-colors">
+                                Apply Now <span class="material-symbols-outlined text-base">arrow_forward</span>
+                            </a>
+                        </div>
                     </div>
 
-                </div>
-                <div class="grid gap-6">
-                    <div class="flex flex-col items-center justify-center py-12 text-center">
-                        <p class="mb-8 max-w-2xl text-lg text-slate-600">We are always looking for exceptional talent to
-                            join our mission. Explore all our current opportunities and find your next challenge.</p>
-                        <a href="apply.html"
-                            class="group flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-xl font-bold text-white transition-all hover:shadow-xl hover:shadow-primary/20 active:scale-95">
-                            View All Openings
-                            <span
-                                class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-                        </a>
+                    <!-- Opening 2: Operations Manager (Requirement 25) -->
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/30 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 text-xs font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-700 rounded-full border border-emerald-500/20">
+                                    Fresher / Entry Level
+                                </span>
+                                <span class="material-symbols-outlined text-emerald-700 text-2xl">settings_suggest</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 font-display mb-3">Operations Manager</h3>
+                            <p class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-4">Experience: Fresher / Entry Level</p>
+                            <p class="text-sm text-gray-600 leading-relaxed font-medium mb-6">
+                                Open to motivated freshers with strong organizational skills, proactive communication, and quick problem-solving ability. You will help streamline daily operations, coordinate cross-functional tasks, and ensure workflow execution runs smoothly.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-500">Fresher Welcome</span>
+                            <a href="apply.html?role=operations-manager" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent-yellow transition-colors">
+                                Apply Now <span class="material-symbols-outlined text-base">arrow_forward</span>
+                            </a>
+                        </div>
                     </div>
+
+                    <!-- Opening 3: Sales & Marketing Officer (Requirement 26) -->
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-lg shadow-black/5 hover:border-primary/30 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 text-xs font-black uppercase tracking-wider bg-accent-yellow/20 text-amber-800 rounded-full border border-accent-yellow/30">
+                                    Fresher / Entry Level
+                                </span>
+                                <span class="material-symbols-outlined text-amber-700 text-2xl">campaign</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 font-display mb-3">Sales & Marketing Officer</h3>
+                            <p class="text-xs font-bold text-amber-700 uppercase tracking-wider mb-4">Experience: Fresher / Entry Level</p>
+                            <p class="text-sm text-gray-600 leading-relaxed font-medium mb-6">
+                                Open to freshers driven by curiosity, strong communication, and market awareness. You will support outreach initiatives, identify customer opportunities, assist marketing creative efforts, and help communicate Rage Labs' product value.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+                            <span class="text-xs font-bold text-gray-500">Fresher Welcome</span>
+                            <a href="apply.html?role=sales-marketing" class="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent-yellow transition-colors">
+                                Apply Now <span class="material-symbols-outlined text-base">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 flex flex-col items-center justify-center text-center">
+                    <p class="mb-6 max-w-2xl text-lg text-slate-600">We are always looking for exceptional talent to join our mission. Explore all our current opportunities and find your next challenge.</p>
+                    <a href="apply.html"
+                        class="group flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-xl font-bold text-white transition-all hover:shadow-xl hover:shadow-primary/20 active:scale-95 shadow-lg shadow-primary/20">
+                        View All Openings / Direct Application
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -604,7 +665,7 @@
                     <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
                 </div>
-                <p>© 2026 Rage Labs • Unit of SSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
+                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
                 <div class="flex gap-8">
                     <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
                     <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
@@ -692,7 +753,7 @@
             <div class="flex items-center gap-2 flex-wrap">
                 <span class="text-xs font-black uppercase tracking-widest text-gray-400 mr-1">Trending Topics:</span>
                 <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors" data-query="AI">Generative AI</button>
-                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors" data-query="Autofy">Autofy MVP</button>
+                <button class="search-chip px-3 py-1 text-xs font-bold rounded-lg bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white transition-colors" data-query="AutoFfy">AutoFfy MVP</button>
             </div>
 
             <div id="search-results-list" class="flex flex-col gap-3 overflow-y-auto pr-2 max-h-[50vh]">

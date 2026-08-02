@@ -53,20 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Navbar Active Link Highlighting
+    // 4. Navbar Active Link Highlighting & Dark Crimson Styling
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('header nav a').forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-            link.classList.add('text-primary');
-            link.classList.remove('hover:text-primary');
+            link.classList.add('text-accent-yellow');
+            link.classList.remove('text-white/90');
             if (!link.querySelector('.nav-active-bar')) {
                 const bar = document.createElement('span');
-                bar.className = 'nav-active-bar absolute -bottom-1 left-0 w-full h-[2px] bg-accent-blue transition-all duration-300';
+                bar.className = 'nav-active-bar absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow transition-all duration-300';
                 link.appendChild(bar);
             }
         }
     });
+
+    // 4b. Logo Hover Interaction Init
+    initLogoHoverInteraction();
 
     // 5. Light & Seamless Mega-Menu Dropdown Engine
     initLightNavigationDropdown();
@@ -908,6 +911,7 @@ function initCardQuickView() {
     const descEl = document.getElementById('modal-card-desc');
     const metricsEl = document.getElementById('modal-card-metrics');
     const stackEl = document.getElementById('modal-card-stack');
+    const linkEl = document.getElementById('modal-card-link');
 
     triggers.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -919,11 +923,21 @@ function initCardQuickView() {
             const desc = btn.getAttribute('data-desc') || 'Full-scale digital architecture delivered with high performance, scalability, and security standard.';
             const metrics = btn.getAttribute('data-metrics') || '300% Speed Boost • 99.99% Uptime';
             const stack = btn.getAttribute('data-stack') || 'Spring Boot, Tailwind CSS, Next.js, MySQL';
+            const link = btn.getAttribute('data-link');
 
             if (titleEl) titleEl.textContent = title;
             if (categoryEl) categoryEl.textContent = category;
             if (descEl) descEl.textContent = desc;
             if (metricsEl) metricsEl.textContent = metrics;
+
+            if (linkEl) {
+                if (link) {
+                    linkEl.href = link;
+                    linkEl.classList.remove('hidden');
+                } else {
+                    linkEl.classList.add('hidden');
+                }
+            }
 
             if (stackEl) {
                 stackEl.innerHTML = '';
@@ -1286,4 +1300,23 @@ function initGlobalUiPolish() {
         }
     `;
     document.head.appendChild(style);
+}
+
+/**
+ * 15. Logo Hover Interaction (Requirement 6)
+ * Default state: Display logo icon only.
+ * Hover state: Logo smoothly disappears (-translate-y-full opacity-0), "Rage Labs" slides up from below (+translate-y-0 opacity-100).
+ * Fixed container prevents layout shift.
+ */
+function initLogoHoverInteraction() {
+    const containers = document.querySelectorAll('.rage-logo-hover-container');
+    containers.forEach(container => {
+        const iconState = container.querySelector('.logo-icon-state');
+        const textState = container.querySelector('.logo-text-state');
+        if (!iconState || !textState) return;
+
+        // Ensure fixed dimensions & smooth transition inline fallback
+        container.style.position = 'relative';
+        container.style.overflow = 'hidden';
+    });
 }
