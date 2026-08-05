@@ -7,7 +7,7 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
         <script id="tailwind-config">
@@ -16,16 +16,17 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#720c13",
+                        "primary": "#1a1052",
                         "accent-yellow": "#f6bc18",
                         "accent-blue": "#2563eb",
                         "background-light": "#fcfbfb",
-                        "background-dark": "#0f0506",
+                        "background-dark": "#080612",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "display": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "title": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "sans": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "editorial": ["Graphik", "Inter", "Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -55,8 +56,81 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        /* Accenture Corporate Typography System */
+        :root {
+            --font-accenture: "Graphik", "Inter", "Montserrat", sans-serif;
+        }
+
+        body, html {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display, .font-title, .font-sans {
+            font-family: var(--font-accenture) !important;
+        }
+
+        .hero-heading, .hero-title, h1.hero-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 80px !important;
+            font-weight: 700 !important;
+            letter-spacing: -2px !important;
+            line-height: 0.95 !important;
+            text-transform: uppercase !important;
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 38px !important;
+            }
+        }
+
+        h2, .section-heading, .section-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 48px !important;
+            font-weight: 700 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important;
+        }
+
+        @media (max-width: 640px) {
+            h2, .section-heading, .section-title {
+                font-size: 32px !important;
+            }
+        }
+
+        .hero-subtitle, .section-subtitle, .subheading, h3.subtitle {
+            font-family: var(--font-accenture) !important;
+            font-size: 16.8px !important;
+            font-weight: 700 !important;
+            line-height: 1.6 !important;
+        }
+
+        .dark .hero-subtitle, .dark .section-subtitle, .dark .subheading, [class*="bg-dark"] .subheading {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .light .hero-subtitle, .light .section-subtitle, .light .subheading, .bg-light .subheading {
+            color: #1A1A1A !important;
+        }
+
+        button, .btn, .button, a.btn, input[type="submit"] {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+        }
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
             background-size: 40px 40px;
@@ -94,9 +168,9 @@
         }
         .tab-btn.active {
             color: #ffffff;
-            background: rgba(114, 12, 19, 0.6);
+            background: rgba(26,16,82, 0.6);
             border-color: rgba(246, 188, 24, 0.3);
-            box-shadow: 0 4px 12px rgba(114, 12, 19, 0.3);
+            box-shadow: 0 4px 12px rgba(26,16,82, 0.3);
         }
     </style>
 </head>
@@ -106,12 +180,12 @@
     <div id="auth-screen" class="fixed inset-0 z-[200] flex items-center justify-center p-6" style="background: #1c1011;">
         <div class="dot-grid absolute inset-0"></div>
         <!-- Glow blobs -->
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(114,12,19,0.12) 0%, transparent 70%);"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(26,16,82,0.12) 0%, transparent 70%);"></div>
         <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);"></div>
 
         <div class="relative glass-dark rounded-2xl p-10 max-w-md w-full text-center shadow-2xl slide-up">
-            <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background: rgba(114,12,19,0.15); border: 1px solid rgba(114,12,19,0.3);">
-                <span class="material-symbols-outlined text-4xl" style="color: #ffb3ae;">security</span>
+            <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background: rgba(26,16,82,0.15); border: 1px solid rgba(26,16,82,0.3);">
+                <span class="material-symbols-outlined text-4xl" style="color: #b3aeff;">security</span>
             </div>
             <h2 class="text-3xl font-black font-title uppercase tracking-tighter mb-1" style="color: #f6ddde;">Command Center</h2>
             <p class="text-xs font-bold uppercase tracking-widest mb-8" style="color: #a68a88;">Rage Labs Intelligence Protocol</p>
@@ -135,7 +209,7 @@
                     Initiate Session
                 </button>
             </form>
-            <p id="auth-error" class="text-xs font-bold mt-4 h-4" style="color: #ffb3ae;"></p>
+            <p id="auth-error" class="text-xs font-bold mt-4 h-4" style="color: #b3aeff;"></p>
         </div>
     </div>
 
@@ -148,7 +222,7 @@
                 <!-- Brand + Tabs -->
                 <div class="flex items-center gap-6">
                     <a href="index.html" class="flex items-center gap-2 shrink-0">
-                        <img src="images/logo.png" alt="Rage Labs" class="h-9 w-9 object-contain">
+                        <img src="images/logo-removebg-preview.png" alt="Rage Labs" class="h-9 w-9 object-contain">
                         <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
                     </a>
                     <div class="w-px h-7 hidden md:block" style="background: rgba(255,255,255,0.07);"></div>
@@ -168,9 +242,9 @@
                         <span class="material-symbols-outlined text-sm">download</span> Full Database JSON
                     </button>
                     <div class="w-px h-7" style="background: rgba(255,255,255,0.07);"></div>
-                    <p id="admin-name" class="text-xs font-black uppercase tracking-wider hidden sm:block" style="color: #debfbd;"></p>
-                    <div id="logout-btn" onclick="logout()" class="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110" style="background: rgba(114,12,19,0.3); border: 1px solid rgba(114,12,19,0.4);" title="Sign Out">
-                        <span class="material-symbols-outlined text-[18px]" style="color: #ffb3ae;">logout</span>
+                    <p id="admin-name" class="text-xs font-black uppercase tracking-wider hidden sm:block" style="color: #bdbdde;"></p>
+                    <div id="logout-btn" onclick="logout()" class="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110" style="background: rgba(26,16,82,0.3); border: 1px solid rgba(26,16,82,0.4);" title="Sign Out">
+                        <span class="material-symbols-outlined text-[18px]" style="color: #b3aeff;">logout</span>
                     </div>
                 </div>
             </div>
@@ -183,7 +257,7 @@
             <div class="grid grid-cols-2 lg:grid-4 gap-4">
                 <div class="glass rounded-xl p-6 stat-red">
                     <p class="detail-label mb-2">Total Pitches</p>
-                    <h4 id="stat-pitches" class="text-4xl font-black tracking-tight" style="color: #ffb3ae; letter-spacing: -0.04em;">--</h4>
+                    <h4 id="stat-pitches" class="text-4xl font-black tracking-tight" style="color: #b3aeff; letter-spacing: -0.04em;">--</h4>
                     <p class="text-xs mt-1" style="color: #a68a88;">Venture submissions</p>
                 </div>
                 <div class="glass rounded-xl p-6 stat-blue">
@@ -241,14 +315,14 @@
 
                 <!-- Loading state -->
                 <div id="loading-state" class="py-20 flex flex-col items-center gap-4">
-                    <div class="w-10 h-10 rounded-full spinner" style="border: 3px solid rgba(114,12,19,0.2); border-top-color: #720c13;"></div>
+                    <div class="w-10 h-10 rounded-full spinner" style="border: 3px solid rgba(26,16,82,0.2); border-top-color: #1a1052;"></div>
                     <p class="detail-label">Decrypting API Assets...</p>
                 </div>
 
                 <!-- Empty state -->
                 <div id="empty-state" class="hidden py-20 flex flex-col items-center text-center">
-                    <span class="material-symbols-outlined text-5xl mb-4" style="color: rgba(114,12,19,0.3);">dataset</span>
-                    <h4 class="font-black uppercase tracking-wider" style="color: #debfbd;">No Intel Found</h4>
+                    <span class="material-symbols-outlined text-5xl mb-4" style="color: rgba(26,16,82,0.3);">dataset</span>
+                    <h4 class="font-black uppercase tracking-wider" style="color: #bdbdde;">No Intel Found</h4>
                     <p class="text-sm mt-1" style="color: #a68a88;">Clean slate — no transmissions in this section.</p>
                 </div>
             </div>
@@ -266,7 +340,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span id="modal-status" class="px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-widest"></span>
-                    <button onclick="closeModal()" class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.06); color: #debfbd;">
+                    <button onclick="closeModal()" class="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.06); color: #bdbdde;">
                         <span class="material-symbols-outlined text-lg">close</span>
                     </button>
                 </div>
@@ -281,7 +355,7 @@
                     <button id="modal-approve-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.2);">
                         <span class="material-symbols-outlined text-sm">check</span> Approve
                     </button>
-                    <button id="modal-reject-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(114,12,19,0.15); color: #ffb3ae; border: 1px solid rgba(114,12,19,0.2);">
+                    <button id="modal-reject-btn" onclick="" class="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(26,16,82,0.15); color: #b3aeff; border: 1px solid rgba(26,16,82,0.2);">
                         <span class="material-symbols-outlined text-sm">block</span> Reject
                     </button>
                     <button id="modal-delete-btn" onclick="" class="hidden items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all hover:scale-105" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.3);">
@@ -436,17 +510,17 @@
                             </div>
                         </td>
                         <td class="px-4 py-5">
-                            <p class="text-xs font-medium" style="color: #debfbd;">${escapeHtml(item.email || '—')}</p>
+                            <p class="text-xs font-medium" style="color: #bdbdde;">${escapeHtml(item.email || '—')}</p>
                         </td>
                         <td class="px-4 py-5">
-                            <p class="text-xs font-black uppercase tracking-wider" style="color: #debfbd;">${escapeHtml(item.subject || 'General Inquiry')}</p>
+                            <p class="text-xs font-black uppercase tracking-wider" style="color: #bdbdde;">${escapeHtml(item.subject || 'General Inquiry')}</p>
                         </td>
                         <td class="px-4 py-5 text-center">
                             <span class="text-[10px] font-bold" style="color: #a68a88;">${item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'RECENT'}</span>
                         </td>
                         <td class="px-6 py-5 text-right">
                             <div class="row-actions flex justify-end gap-1.5">
-                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #debfbd;" title="View Details">
+                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #bdbdde;" title="View Details">
                                     <span class="material-symbols-outlined text-[16px]">visibility</span>
                                 </button>
                             </div>
@@ -458,7 +532,7 @@
                     <tr class="data-row transition-all cursor-pointer hover:bg-white/[0.02]" onclick="viewDetails(${item.id})">
                         <td class="px-6 py-5">
                             <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-black uppercase" style="background: rgba(114,12,19,0.2); color: #ffb3ae;">
+                                <div class="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-black uppercase" style="background: rgba(26,16,82,0.2); color: #b3aeff;">
                                     ${(item.founderName || item.fullName || '?').charAt(0)}
                                 </div>
                                 <div>
@@ -468,15 +542,15 @@
                             </div>
                         </td>
                         <td class="px-4 py-5">
-                            <p class="text-xs font-medium" style="color: #debfbd;">${escapeHtml(item.email || '—')}</p>
+                            <p class="text-xs font-medium" style="color: #bdbdde;">${escapeHtml(item.email || '—')}</p>
                             <div class="flex gap-2 mt-1">
                                 ${item.linkedin ? `<a href="${escapeHtml(item.linkedin)}" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #b4c5ff;">LINKEDIN</a>` : ''}
                                 ${item.portfolio ? `<a href="${escapeHtml(item.portfolio)}" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #4ade80;">PORTFOLIO</a>` : ''}
-                                ${item.twitter  ? `<a href="${escapeHtml(item.twitter)}"  target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #ffb3ae;">TWITTER</a>` : ''}
+                                ${item.twitter  ? `<a href="${escapeHtml(item.twitter)}"  target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-black hover:underline" style="color: #b3aeff;">TWITTER</a>` : ''}
                             </div>
                         </td>
                         <td class="px-4 py-5">
-                            <p class="text-xs font-black uppercase tracking-wider" style="color: #debfbd;">${escapeHtml(item.primaryRole || item.preferredRole || 'N/A')}</p>
+                            <p class="text-xs font-black uppercase tracking-wider" style="color: #bdbdde;">${escapeHtml(item.primaryRole || item.preferredRole || 'N/A')}</p>
                             <p class="text-[10px] font-bold" style="color: #a68a88;">${item.weeklyHours ? item.weeklyHours + ' hrs/wk' : (item.experience ? item.experience + ' exp' : '')}</p>
                         </td>
                         <td class="px-4 py-5 text-center">
@@ -489,14 +563,14 @@
                                 <button onclick="event.stopPropagation(); updateStatus(${item.id},'APPROVED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(34,197,94,0.1); color: #4ade80;" title="Approve">
                                     <span class="material-symbols-outlined text-[16px]">check</span>
                                 </button>
-                                <button onclick="event.stopPropagation(); updateStatus(${item.id},'REJECTED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(114,12,19,0.1); color: #ffb3ae;" title="Reject">
+                                <button onclick="event.stopPropagation(); updateStatus(${item.id},'REJECTED')" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(26,16,82,0.1); color: #b3aeff;" title="Reject">
                                     <span class="material-symbols-outlined text-[16px]">block</span>
                                 </button>
-                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #debfbd;" title="View Details">
+                                <button onclick="event.stopPropagation(); viewDetails(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,255,255,0.05); color: #bdbdde;" title="View Details">
                                     <span class="material-symbols-outlined text-[16px]">visibility</span>
                                 </button>
                                 ${(item.status || '').toUpperCase() === 'REJECTED' ? `
-                                <button onclick="event.stopPropagation(); deleteRecord(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(255,0,0,0.1); color: #ff6b6b;" title="Delete">
+                                <button onclick="event.stopPropagation(); deleteRecord(${item.id})" class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110" style="background: rgba(60,40,180,0.1); color: #6b6bff;" title="Delete">
                                     <span class="material-symbols-outlined text-[16px]">delete</span>
                                 </button>` : ''}
                             </div>
@@ -555,7 +629,7 @@
                             ${field('Full Name', item.founderName)}
                             ${field('Email Address', item.email)}
                             ${field('LinkedIn Profile', item.linkedin ? `<a href="${item.linkedin}" target="_blank" class="underline" style="color:#b4c5ff;">${item.linkedin}</a>` : '—', true)}
-                            ${field('Twitter / X', item.twitter ? `<a href="${item.twitter}" target="_blank" class="underline" style="color:#ffb3ae;">${item.twitter}</a>` : '—', true)}
+                            ${field('Twitter / X', item.twitter ? `<a href="${item.twitter}" target="_blank" class="underline" style="color:#b3aeff;">${item.twitter}</a>` : '—', true)}
                             ${field('Primary Skill', item.primaryRole)}
                             ${field('Weekly Commitment', item.weeklyHours ? item.weeklyHours + ' hrs/wk' : '—')}
                             ${item.pastProjects ? `<div class="sm:col-span-2">${field('Past Projects & Experience', item.pastProjects)}</div>` : ''}
@@ -783,9 +857,9 @@
             const toast = document.createElement('div');
             const isSuccess = type === 'success';
             toast.className = 'glass-dark flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl fade-in';
-            toast.style.cssText = `border-left: 3px solid ${isSuccess ? '#4ade80' : '#ffb3ae'}; min-width: 280px;`;
+            toast.style.cssText = `border-left: 3px solid ${isSuccess ? '#4ade80' : '#b3aeff'}; min-width: 280px;`;
             toast.innerHTML = `
-                <span class="material-symbols-outlined text-lg" style="color: ${isSuccess ? '#4ade80' : '#ffb3ae'}">${isSuccess ? 'check_circle' : 'error'}</span>
+                <span class="material-symbols-outlined text-lg" style="color: ${isSuccess ? '#4ade80' : '#b3aeff'}">${isSuccess ? 'check_circle' : 'error'}</span>
                 <span class="text-sm font-bold" style="color: #f6ddde;">${msg}</span>
             `;
             container.appendChild(toast);

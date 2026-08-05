@@ -7,7 +7,7 @@
     <title>Share Your Pitch | Rage Labs – Venture Partnership</title>
     <meta name="description" content="Submit your startup pitch to Rage Labs. We co-found great ideas with equity-based partnerships." />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -15,17 +15,17 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#720c13",
+                        "primary": "#1a1052",
                         "accent-yellow": "#f6bc18",
                         "accent-blue": "#2563eb",
                         "background-light": "#fcfbfb",
-                        "background-dark": "#0f0506",
+                        "background-dark": "#080612",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"],
-                        "editorial": ["Playfair Display", "serif"]
+                        "display": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "title": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "sans": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "editorial": ["Graphik", "Inter", "Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -55,30 +55,100 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
-        
-        /* Custom Professional Typography System */
-        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
-        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
-        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
-        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
-        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
-        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
-        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
-        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
-        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
-        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
-        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
-        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
-        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
-        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
-        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
-        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
-        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
-        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
-        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
-        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
+        /* Accenture Corporate Typography System */
+        :root {
+            --font-accenture: "Graphik", "Inter", "Montserrat", sans-serif;
+        }
+
+        body, html {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display, .font-title, .font-sans {
+            font-family: var(--font-accenture) !important;
+        }
+
+        .hero-heading, .hero-title, h1.hero-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 80px !important;
+            font-weight: 700 !important;
+            letter-spacing: -2px !important;
+            line-height: 0.95 !important;
+            text-transform: uppercase !important;
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 38px !important;
+            }
+        }
+
+        h2, .section-heading, .section-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 48px !important;
+            font-weight: 700 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important;
+        }
+
+        @media (max-width: 640px) {
+            h2, .section-heading, .section-title {
+                font-size: 32px !important;
+            }
+        }
+
+        .hero-subtitle, .section-subtitle, .subheading, h3.subtitle {
+            font-family: var(--font-accenture) !important;
+            font-size: 16.8px !important;
+            font-weight: 700 !important;
+            line-height: 1.6 !important;
+        }
+
+        .dark .hero-subtitle, .dark .section-subtitle, .dark .subheading, [class*="bg-dark"] .subheading {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .light .hero-subtitle, .light .section-subtitle, .light .subheading, .bg-light .subheading {
+            color: #1A1A1A !important;
+        }
+
+        .nav-link { font-family: var(--font-accenture) !important; font-weight: 500; font-size: 14px; opacity: 0.95; }
+        .utility-text { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 12px; opacity: 0.8; }
+        .hero-desc { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 16px; line-height: 1.7; opacity: 0.88; }
+        .uppercase-label { font-family: var(--font-accenture) !important; font-weight: 600; text-transform: uppercase; font-size: 11px; tracking-widest; opacity: 0.95; }
+        .capability-inactive { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 14px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: var(--font-accenture) !important; font-weight: 500; font-size: 12px; opacity: 0.95; }
+        .cta-banner-heading { font-family: var(--font-accenture) !important; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 14px; opacity: 0.85; }
+
+        button, .btn, .button, a.btn, input[type="submit"], .cta-btn-text {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        .giant-statement { font-family: var(--font-accenture) !important; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 12px; opacity: 0.8; }
+        .footer-copyright { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 11px; opacity: 0.65; }
+        .large-footer-graphic { font-family: var(--font-accenture) !important; font-weight: 900; font-size: 70px; opacity: 1; }
 
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
@@ -98,22 +168,119 @@
         .glow-card:hover::before { opacity: 1; }
         .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
         .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
+
+        /* Form Components & Cards Styling */
+        .section-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(115, 12, 19, 0.12);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .dark .section-card {
+            background: rgba(15, 5, 6, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            background: rgba(115, 12, 19, 0.1);
+            color: #1a1052;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(115, 12, 19, 0.2);
+        }
+        .dark .section-badge {
+            background: rgba(246, 188, 24, 0.15);
+            color: #f6bc18;
+            border-color: rgba(246, 188, 24, 0.3);
+        }
+
+        .field-input {
+            width: 100%;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(115, 12, 19, 0.18);
+            background: #ffffff;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #111827;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+        .dark .field-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        .field-input:focus {
+            border-color: #1a1052;
+            box-shadow: 0 0 0 3px rgba(26,16,82, 0.18);
+        }
+        .dark .field-input:focus {
+            border-color: #f6bc18;
+            box-shadow: 0 0 0 3px rgba(246, 188, 24, 0.25);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(115, 12, 19, 0.15);
+            background: #ffffff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .dark .checkbox-label {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        .checkbox-label:hover {
+            border-color: #1a1052;
+            background: rgba(26,16,82, 0.03);
+        }
+        .dark .checkbox-label:hover {
+            border-color: #f6bc18;
+            background: rgba(246, 188, 24, 0.05);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1a1052 0%, #f6bc18 100%);
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white transition-colors duration-300">
+<body class="bg-background-light dark:bg-background-dark text-[#0e0e1b] dark:text-white transition-colors duration-300">
 
     <!-- Toast Notification -->
     <div id="toast" role="alert"></div>
 
     <!-- Top Navigation Bar -->
     <!-- Top Navigation Bar (Dark Crimson Header) -->
-    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
             <!-- Logo Hover Container (Requirement 6) -->
             <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
                 <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
-                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
                 </div>
                 <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
@@ -128,6 +295,10 @@
                 </a>
                 <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
                     What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="services.html">
+                    Services
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
@@ -171,34 +342,18 @@
                 <nav class="flex flex-col gap-3 mt-6">
                     <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
                     <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Services</a>
                     <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
                     <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
                     <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
                     <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
                 </nav>
             </div>
-            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
-                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
-                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
-            </div>
+            
         </div>
     </div>
 
-    <!-- Auth Gate Modal -->
-    <div id="auth-gate" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-background-dark/90 backdrop-blur-xl">
-        <div class="max-w-md w-full glass-card rounded-[2rem] p-10 text-center animate-fade-up">
-            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span class="material-symbols-outlined text-4xl text-primary">lock</span>
-            </div>
-            <h2 class="text-3xl font-black font-display mb-4">Authentication Required</h2>
-            <p class="text-gray-400 mb-10 leading-relaxed">To submit a venture pitch, you need to be part of the Rage Labs collective. Please sign in or create an account to continue.</p>
-            <div class="flex flex-col gap-4">
-                <a href="login.html?redirect=pitch" class="w-full bg-primary text-white font-black py-4 rounded-xl hover:scale-[1.02] active:scale-95 transition-all">Sign In</a>
-                <a href="signup.html?redirect=pitch" class="w-full border-2 border-primary/20 font-black py-4 rounded-xl hover:bg-primary/5 transition-all text-primary">Join the Collective</a>
-            </div>
-            <a href="index.html" class="inline-block mt-8 text-sm font-bold text-gray-500 hover:text-primary transition-colors">Return to Home</a>
-        </div>
-    </div>
+
 
     <main>
         <!-- Hero -->
@@ -262,7 +417,7 @@
                         </div>
                     </div>
                     <div class="space-y-2">
-                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="linkedin">LinkedIn Profile URL</label>
+                        <label class="text-sm font-bold text-gray-700 dark:text-gray-300" for="linkedin">LinkedIn Profile URL (Optional)</label>
                         <input class="field-input" id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/yourname" />
                     </div>
                     <div class="space-y-2">
@@ -433,7 +588,7 @@
                 <!-- Branding -->
                 <div class="lg:col-span-2 flex flex-col gap-6">
                     <div class="flex items-center gap-3">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
+                        <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
                         <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
                     </div>
                     <p class="max-w-sm text-gray-500 font-medium text-sm leading-relaxed">
@@ -486,7 +641,7 @@
             </div>
             <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-primary/5 pt-10 text-sm text-gray-400 md:flex-row">
                 <div class="flex items-center gap-3">
-                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
+                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
                 </div>
                 <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
@@ -505,144 +660,7 @@
             const authNav = document.getElementById('auth-nav');
             const authGate = document.getElementById('auth-gate');
             
-            if (!user) {
-                authGate.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                authNav.innerHTML = `
-                    <a href="login.html?redirect=pitch" class="hidden sm:flex h-10 items-center justify-center rounded-lg px-5 text-sm font-bold border border-primary/20 hover:bg-primary/5 transition-all">Sign In</a>
-                    <a href="signup.html?redirect=pitch" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
-                `;
-            } else {
-                authGate.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-                
-                const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
-                
-                authNav.innerHTML = `
-                    <div class="flex items-center gap-4">
-                        <div class="group relative">
-                            <div class="w-10 h-10 rounded-full bg-primary text-white font-black flex items-center justify-center cursor-pointer shadow-lg shadow-primary/20 transition-transform active:scale-90">
-                                ${initial}
-                            </div>
-                            <!-- Simple Dropdown -->
-                            <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-background-dark rounded-xl shadow-2xl border border-primary/10 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
-                                <div class="px-4 py-2 border-b border-primary/5 mb-1">
-                                    <p class="text-xs font-black text-gray-400 uppercase tracking-tighter">Connected as</p>
-                                    <p class="text-sm font-bold truncate">${user.fullName || user.email}</p>
-                                </div>
-                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-[18px]">logout</span>
-                                    Log Out
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem('currentUser');
-            window.location.reload();
-        }
-
-        window.addEventListener('load', initAuth);
-
-        // ─── Instant Page Transitions ───────────────────────────────────────────
-        (function() {
-            // Add overlay
-            var overlay = document.createElement('div');
-            overlay.id = 'page-transition';
-            overlay.style.cssText = 'position:fixed;inset:0;background:#0f0506;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.12s;';
-            document.body.prepend(overlay);
-            document.addEventListener('click', function(e) {
-                var link = e.target.closest('a');
-                if (!link) return;
-                var href = link.getAttribute('href');
-                if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto') === 0 || href.indexOf('javascript') === 0) return;
-                e.preventDefault();
-                overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
-                requestAnimationFrame(function() { setTimeout(function() { window.location.href = href; }, 80); });
-            });
-            ['index.html','services.html','contact.html','careers.html','about.html','portfolio.html'].forEach(function(p) {
-                var l = document.createElement('link'); l.rel = 'prefetch'; l.href = p; document.head.appendChild(l);
-            });
-        })();
-
-        // ─── Dynamic Progress Bar ───────────────────────────────────────────────
-        const form = document.getElementById('pitch-form');
-        const progressBar = document.getElementById('progress-bar');
-        const progressLabel = document.getElementById('progress-label');
-
-        function updateProgress() {
-            const inputs = form.querySelectorAll('input:not([type=file]):not([type=checkbox]):not([type=submit]), textarea, select');
-            const checkboxes = form.querySelectorAll('input[type=checkbox]');
-
-            let filled = 0;
-            let total = inputs.length + 1; // +1 for checkbox group
-
-            inputs.forEach(el => {
-                if (el.value && el.value.trim() !== '') filled++;
-            });
-
-            // count platform checkbox group as one item
-            const anyChecked = Array.from(checkboxes).some(c => c.checked);
-            if (anyChecked) filled++;
-
-            const pct = Math.round((filled / total) * 100);
-            progressBar.style.width = pct + '%';
-            progressLabel.textContent = pct + '%';
-        }
-
-        form.addEventListener('input', updateProgress);
-        form.addEventListener('change', updateProgress);
-
-        // ─── Toast ──────────────────────────────────────────────────────────────
-        function showToast(msg, type = 'success') {
-            const toast = document.getElementById('toast');
-            toast.textContent = (type === 'success' ? '✅ ' : '❌ ') + msg;
-            toast.className = 'show ' + type;
-            setTimeout(() => { toast.className = ''; }, 5000);
-        }
-
-        // ─── Platform Checkbox Collection ───────────────────────────────────────
-        function getSelectedPlatforms() {
-            const checked = form.querySelectorAll('input[name="platform"]:checked');
-            return Array.from(checked).map(c => c.value).join(', ') || 'Not specified';
-        }
-
-        // ─── Form Submit ────────────────────────────────────────────────────────
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const btn = document.getElementById('submit-btn');
-            const btnText = document.getElementById('submit-text');
-            btn.disabled = true;
-            btnText.textContent = 'Submitting...';
-
-            const pitchData = {
-                founderName: document.getElementById('founderName').value,
-                email: document.getElementById('email').value,
-                linkedin: document.getElementById('linkedin').value,
-                twitter: document.getElementById('twitter').value,
-                pastProjects: document.getElementById('pastProjects').value,
-                primaryRole: document.getElementById('primaryRole').value,
-                weeklyHours: document.getElementById('weeklyHours').value,
-                projectName: document.getElementById('projectName').value,
-                problem: document.getElementById('problem').value,
-                solution: document.getElementById('solution').value,
-                targetAudience: document.getElementById('targetAudience').value,
-                mvpFeature1: document.getElementById('mvpFeature1').value,
-                mvpFeature2: document.getElementById('mvpFeature2').value,
-                mvpFeature3: document.getElementById('mvpFeature3').value,
-                platform: getSelectedPlatforms(),
-                integrations: document.getElementById('integrations').value,
-                userValidation: document.getElementById('userValidation').value,
-                acquisitionStrategy: document.getElementById('acquisitionStrategy').value,
-                competitor1: document.getElementById('competitor1').value,
-                competitor2: document.getElementById('competitor2').value,
-                competitor3: document.getElementById('competitor3').value
-            };
+            if (!user) { authNav.innerHTML = ""; }
 
             try {
                 const response = await fetch('http://localhost:8080/api/pitch', {

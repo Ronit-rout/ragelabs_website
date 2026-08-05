@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Rage Labs | Transforming Ideas into Software</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
@@ -15,17 +15,17 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#720c13",
+                        "primary": "#1a1052",
                         "accent-yellow": "#f6bc18",
                         "accent-blue": "#2563eb",
                         "background-light": "#fcfbfb",
-                        "background-dark": "#0f0506",
+                        "background-dark": "#080612",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"],
-                        "editorial": ["Playfair Display", "serif"]
+                        "display": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "title": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "sans": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "editorial": ["Graphik", "Inter", "Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -55,37 +55,101 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
-        
-        /* Custom Professional Typography System */
-        .nav-link { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 13px; opacity: 0.95; }
-        .utility-text { font-family: 'Space Grotesk', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
-        .hero-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.1; opacity: 1; }
-        .hero-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 15px; opacity: 0.88; }
-        .uppercase-label { font-family: 'Inter', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 10.5px; tracking-widest; opacity: 0.95; }
-        .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; opacity: 1; }
-        .capability-inactive { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 19px; opacity: 0.4; }
-        .capability-active { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 19px; opacity: 1; }
-        .right-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; opacity: 1; }
-        .right-body { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.8; line-height: 1.6; }
-        .small-cta { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 11px; opacity: 0.95; }
-        .cta-banner-heading { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; opacity: 1; }
-        .cta-banner-desc { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 13px; opacity: 0.85; }
-        .cta-btn-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; opacity: 1; }
-        .giant-statement { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
-        .editorial-serif-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
-        .footer-heading { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; opacity: 1; }
-        .footer-link { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; opacity: 0.8; }
-        .footer-copyright { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 9.5px; opacity: 0.65; }
-        .large-footer-graphic { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 70px; opacity: 1; }
-
-        h1,
-        h2,
-        h3,
-        .font-display {
-            font-family: 'Space Grotesk', sans-serif;
+        /* Accenture Corporate Typography System */
+        :root {
+            --font-accenture: "Graphik", "Inter", "Montserrat", sans-serif;
         }
+
+        body, html {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display, .font-title, .font-sans {
+            font-family: var(--font-accenture) !important;
+            font-weight: 800;
+        }
+
+        .hero-heading, .hero-title, h1.hero-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 80px !important;
+            font-weight: 800 !important;
+            letter-spacing: -2px !important;
+            line-height: 0.95 !important;
+            text-transform: uppercase !important;
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 38px !important;
+            }
+        }
+
+        h2, .section-heading, .section-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 48px !important;
+            font-weight: 800 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important;
+        }
+
+        @media (max-width: 640px) {
+            h2, .section-heading, .section-title {
+                font-size: 32px !important;
+            }
+        }
+
+        .hero-subtitle, .section-subtitle, .subheading, h3.subtitle {
+            font-family: var(--font-accenture) !important;
+            font-size: 16.8px !important;
+            font-weight: 700 !important;
+            line-height: 1.6 !important;
+        }
+
+        .dark .hero-subtitle, .dark .section-subtitle, .dark .subheading, [class*="bg-dark"] .subheading {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .light .hero-subtitle, .light .section-subtitle, .light .subheading, .bg-light .subheading {
+            color: #1A1A1A !important;
+        }
+
+        .nav-link { font-family: var(--font-accenture) !important; font-weight: 500; font-size: 14px; opacity: 0.95; }
+        .utility-text { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 12px; opacity: 0.8; }
+        .hero-desc { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 16px; line-height: 1.7; opacity: 0.88; }
+        .uppercase-label { font-family: var(--font-accenture) !important; font-weight: 600; text-transform: uppercase; font-size: 11px; tracking-widest; opacity: 0.95; }
+        .capability-inactive { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 19px; opacity: 0.4; }
+        .capability-active { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 19px; opacity: 1; }
+        .right-heading { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 17px; opacity: 1; }
+        .right-body { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 14px; opacity: 0.8; line-height: 1.6; }
+        .small-cta { font-family: var(--font-accenture) !important; font-weight: 500; font-size: 12px; opacity: 0.95; }
+        .cta-banner-heading { font-family: var(--font-accenture) !important; font-weight: 700; font-size: 24px; opacity: 1; }
+        .cta-banner-desc { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 14px; opacity: 0.85; }
+
+        button, .btn, .button, a.btn, input[type="submit"], .cta-btn-text {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        .giant-statement { font-family: var(--font-accenture) !important; font-weight: 700; font-size: 64px; line-height: 1.1; opacity: 1; }
+        .editorial-serif-text { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 16px; opacity: 0.98; line-height: 1.6; }
+        .footer-heading { font-family: var(--font-accenture) !important; font-weight: 600; font-size: 15px; opacity: 1; }
+        .footer-link { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 12px; opacity: 0.8; }
+        .footer-copyright { font-family: var(--font-accenture) !important; font-weight: 400; font-size: 11px; opacity: 0.65; }
+        .large-footer-graphic { font-family: var(--font-accenture) !important; font-weight: 900; font-size: 70px; opacity: 1; }
 
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
@@ -146,17 +210,27 @@
             background: rgba(15, 5, 6, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
+        /* Active Carousel Slide Visual Focus */
+        .carousel-slide {
+            opacity: 1;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            flex: 0 0 100%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-[#1b0e0f] dark:text-white transition-colors duration-300">
+<body class="bg-background-light dark:bg-background-dark text-[#0e0e1b] dark:text-white transition-colors duration-300">
     <!-- Top Navigation Bar (Dark Crimson Header) -->
-    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#4a070c] via-[#720c13] to-[#4a070c] text-white shadow-2xl backdrop-blur-md">
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white shadow-2xl backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
             <!-- Logo Hover Container (Requirement 6) -->
             <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
                 <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
-                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
                 </div>
                 <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
@@ -171,6 +245,10 @@
                 </a>
                 <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
                     What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="services.html">
+                    Services
                     <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
@@ -216,6 +294,7 @@
                 <nav class="flex flex-col gap-3 mt-6">
                     <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
                     <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Services</a>
                     <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
                     <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
                     <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
@@ -223,10 +302,7 @@
                 </nav>
             </div>
 
-            <div class="pt-6 border-t border-white/10 flex flex-col gap-3">
-                <a href="login.html" class="flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-bold text-white hover:bg-white/10 transition-all">Sign In</a>
-                <a href="signup.html" class="flex h-11 items-center justify-center rounded-xl bg-accent-yellow text-sm font-bold text-primary shadow-lg hover:bg-white transition-all">Sign Up</a>
-            </div>
+            
         </div>
     </div>
 
@@ -269,10 +345,10 @@
                     <div class="flex flex-col justify-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/15 backdrop-blur-sm shadow-xl animate-fade-up" style="animation-delay: 0.2s">
                         <span class="text-xs font-black uppercase tracking-[0.25em] text-primary mb-3">Our Core Statement</span>
                         <h2 class="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white font-display leading-tight mb-4">
-                            Turning tomorrow into something more beautiful.
+                            Turning tomorrow into something more beautiful
                         </h2>
                         <p class="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-medium mb-8">
-                            We turn ambitious ideas into thoughtful digital products—combining technology, design, and execution to build experiences made for what comes next.
+                            We turn ambitious ideas into thoughtful digital products, combining technology, design, and execution to build experiences made for what comes next.
                         </p>
                         <div>
                             <a href="see-what-we-do.html" class="inline-flex items-center gap-2 text-base font-bold text-primary dark:text-accent-yellow hover:underline group">
@@ -301,7 +377,7 @@
                     <div
                         class="group glow-card glass-card relative flex flex-col gap-8 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_80px_-15px_rgba(115,12,19,0.15)] reveal-fade-up">
                         <div
-                            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[#a1111b] text-white shadow-lg shadow-primary/20 transition-transform group-hover:rotate-6 group-hover:scale-110">
+                            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[#2d1f7e] text-white shadow-lg shadow-primary/20 transition-transform group-hover:rotate-6 group-hover:scale-110">
                             <span class="material-symbols-outlined text-3xl">target</span>
                         </div>
                         <div class="flex flex-col gap-4">
@@ -310,14 +386,6 @@
                                 We focus on hitting client goals with surgical precision. Our scalable architectures are
                                 built to grow as fast as your ambition does.
                             </p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <a class="group/link inline-flex items-center gap-3 text-sm font-black text-primary uppercase tracking-wider"
-                                href="contact.html">
-                                Learn More
-                                <span
-                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-                            </a>
                         </div>
                         <div
                             class="absolute top-4 right-4 h-2 w-2 rounded-full bg-accent-blue opacity-0 group-hover:opacity-100 transition-opacity">
@@ -338,14 +406,6 @@
                                 don't just follow trends; we set them.
                             </p>
                         </div>
-                        <div class="mt-auto pt-4">
-                            <a class="group/link inline-flex items-center gap-3 text-sm font-black text-accent-blue uppercase tracking-wider"
-                                href="contact.html">
-                                Learn More
-                                <span
-                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-                            </a>
-                        </div>
                         <div
                             class="absolute top-4 right-4 h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
@@ -354,7 +414,7 @@
                     <div class="group glow-card glass-card relative flex flex-col gap-8 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_80px_-15px_rgba(115,12,19,0.15)] reveal-fade-up"
                         style="transition-delay: 0.2s">
                         <div
-                            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[#a1111b] text-white shadow-lg shadow-primary/20 transition-transform group-hover:rotate-6 group-hover:scale-110">
+                            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-[#2d1f7e] text-white shadow-lg shadow-primary/20 transition-transform group-hover:rotate-6 group-hover:scale-110">
                             <span class="material-symbols-outlined text-3xl">verified_user</span>
                         </div>
                         <div class="flex flex-col gap-4">
@@ -363,14 +423,6 @@
                                 Demonstrating industry standards and reliability through a track record of high-stakes
                                 successful launches and satisfied partners.
                             </p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <a class="group/link inline-flex items-center gap-3 text-sm font-black text-primary uppercase tracking-wider"
-                                href="portfolio.html">
-                                Learn More
-                                <span
-                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-                            </a>
                         </div>
                         <div
                             class="absolute top-4 right-4 h-2 w-2 rounded-full bg-accent-blue opacity-0 group-hover:opacity-100 transition-opacity">
@@ -429,42 +481,9 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Project 1: AutoFfy -->
+                    <!-- Project 1: LaundryRage App -->
                     <div class="filterable-card group glow-card glass-card relative overflow-hidden rounded-3xl border border-primary/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between reveal-fade-up"
-                        data-category="ai enterprise">
-                        <div>
-                            <div
-                                class="aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 to-amber-500/30 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
-                                <span
-                                    class="material-symbols-outlined text-6xl text-amber-500 opacity-75">directions_car</span>
-                                <span
-                                    class="absolute top-3 right-3 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 px-3 py-1 text-xs font-bold uppercase tracking-wider">Automotive
-                                    AI</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">AutoFfy</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium mb-6">
-                                Next-generation vehicle automation, dealership workflow engine, and fleet intelligence
-                                platform engineered for modern automotive operations.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-primary/5 flex items-center justify-between">
-                            <span class="text-xs font-bold text-accent-yellow flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">bolt</span> 3x Workflow Efficiency
-                            </span>
-                            <button
-                                class="card-quickview-btn inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-accent-yellow transition-colors"
-                                data-title="AutoFfy — Automotive AI Platform" data-category="Automotive & AI Engineering"
-                                data-desc="Built for dealership chains and fleet managers, AutoFfy leverages automated diagnostic pipelines, real-time inventory tracking, and predictive maintenance algorithms."
-                                data-metrics="3x Workflow Speedup • 99.9% Uptime SLA • 45k+ Daily Scans"
-                                data-stack="Spring Boot, Tailwind CSS, Python AI Services, MySQL">
-                                Quick View <span class="material-symbols-outlined text-sm">open_in_new</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: LaundryRage App -->
-                    <div class="filterable-card group glow-card glass-card relative overflow-hidden rounded-3xl border border-primary/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between reveal-fade-up"
-                        style="transition-delay: 0.1s" data-category="enterprise">
+                        data-category="enterprise logistics">
                         <div>
                             <div
                                 class="aspect-video w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-800 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
@@ -473,8 +492,7 @@
                                     class="absolute top-3 right-3 rounded-full bg-primary/20 text-primary dark:text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">Live
                                     Product</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">LaundryRage
-                                App</h3>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">LaundryRage App</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium mb-6">
                                 A full-fledged laundry service app taking orders from households and hostels with
                                 automated tracking, dispatch, and instant notifications.
@@ -486,7 +504,7 @@
                             </span>
                             <button
                                 class="card-quickview-btn inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-accent-yellow transition-colors"
-                                data-title="LaundryRage — Commercial & Hostel Logistics"
+                                data-title="LaundryRage: Commercial & Hostel Logistics"
                                 data-category="On-Demand Logistics & Retail"
                                 data-desc="End-to-end service engine handling multi-user hostel orders, dynamic route dispatch, automated billing, and live order status notifications."
                                 data-metrics="10,000+ Active Orders • < 2s Dispatch Latency"
@@ -496,35 +514,63 @@
                         </div>
                     </div>
 
-                    <!-- Project 3: Logistics App -->
+                    <!-- Project 2: Book ixo -->
                     <div class="filterable-card group glow-card glass-card relative overflow-hidden rounded-3xl border border-primary/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between reveal-fade-up"
-                        style="transition-delay: 0.2s" data-category="logistics enterprise">
+                        style="transition-delay: 0.1s" data-category="logistics enterprise">
                         <div>
                             <div
-                                class="aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-accent-blue/10 to-accent-blue/30 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
+                                class="aspect-video w-full overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 flex items-center justify-center p-6 mb-6 relative group-hover:scale-[1.02] transition-transform border border-gray-100 dark:border-zinc-800">
+                                <img src="images/bookixo%20logo.jpg" alt="Book ixo Logo" class="max-h-full max-w-full object-contain drop-shadow-sm" />
                                 <span
-                                    class="material-symbols-outlined text-6xl text-accent-blue opacity-75">local_shipping</span>
-                                <span
-                                    class="absolute top-3 right-3 rounded-full bg-accent-blue/20 text-accent-blue px-3 py-1 text-xs font-bold uppercase tracking-wider">Enterprise</span>
+                                    class="absolute top-3 right-3 rounded-full bg-accent-yellow/20 text-amber-750 dark:text-accent-yellow px-3 py-1 text-xs font-bold uppercase tracking-wider">Scheduling</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">Logistics App
-                            </h3>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">Book ixo</h3>
                             <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium mb-6">
-                                End-to-end logistics management solution for real-time fleet tracking, route
-                                optimization, and automated delivery management.
+                                Book ixo is a premium, flexible booking and reservation platform supporting multi-resource calendar sync, instant confirmation notifications, and automated payments.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-primary/5 flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-500 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">event_available</span> Real-time Sync
+                            </span>
+                            <button
+                                class="card-quickview-btn inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-accent-yellow transition-colors"
+                                data-title="Book ixo: Premium Booking Platform"
+                                data-category="Booking & Reservation Platform"
+                                data-desc="High-concurrency booking and scheduling system featuring timezone management, dynamic slot allocation, SMS reminders, and automated payment processing."
+                                data-metrics="99.99% Double-Booking Prevention • Instant Confirmation"
+                                data-stack="React, Node.js, Redis, Stripe, MySQL">
+                                Quick View <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: RageOps -->
+                    <div class="filterable-card group glow-card glass-card relative overflow-hidden rounded-3xl border border-primary/10 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between reveal-fade-up"
+                        style="transition-delay: 0.2s" data-category="enterprise">
+                        <div>
+                            <div
+                                class="aspect-video w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-800 flex items-center justify-center mb-6 relative group-hover:scale-[1.02] transition-transform">
+                                <img src="images/rageops.png" alt="RageOps Logo" class="w-full h-full object-cover" />
+                                <span
+                                    class="absolute top-3 right-3 rounded-full bg-accent-blue/20 text-accent-blue px-3 py-1 text-xs font-bold uppercase tracking-wider">Web Ops</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display mb-3">RageOps</h3>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium mb-6">
+                                An end-to-end web operation control dashboard that unifies infrastructure monitoring, automated content deployment, and system health audits.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-primary/5 flex items-center justify-between">
                             <span class="text-xs font-bold text-accent-blue flex items-center gap-1">
-                                <span class="material-symbols-outlined text-sm">alt_route</span> Route Intelligence
+                                <span class="material-symbols-outlined text-sm">monitor_heart</span> Unified Monitoring
                             </span>
                             <button
                                 class="card-quickview-btn inline-flex items-center gap-1.5 text-xs font-bold text-accent-blue hover:text-primary transition-colors"
-                                data-title="Logistics App — Route & Fleet Optimization"
-                                data-category="Enterprise Logistics"
-                                data-desc="Real-time geo-tracking dashboard, driver assignment matrix, automated ETA calculations, and multi-depot management."
-                                data-metrics="28% Fuel Cost Reduction • Real-time GPS Tracking"
-                                data-stack="Spring Boot, WebSocket API, Leaflet Maps, MySQL">
+                                data-title="RageOps: Web Operation Platform"
+                                data-category="Web Operations & System Management"
+                                data-desc="Operational dashboard providing live server diagnostics, automated deployment triggers, role-based admin permissions, and log aggregation."
+                                data-metrics="Zero Downtime Deployments • Real-time Log Stream"
+                                data-stack="Spring Boot, Vue.js, Docker, Prometheus, Grafana">
                                 Quick View <span class="material-symbols-outlined text-sm">open_in_new</span>
                             </button>
                         </div>
@@ -583,100 +629,85 @@
                     <!-- Carousel Track Container -->
                     <div class="overflow-hidden w-full">
                         <div class="carousel-track flex transition-transform duration-500 ease-out">
-                            <!-- Slide 1 -->
+                            <!-- Slide 1: Motivation -->
                             <div class="carousel-slide min-w-full flex-none grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
                                 aria-hidden="false">
                                 <div class="flex flex-col gap-6">
-                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-accent-yellow">Client
-                                        Impact Story</div>
+                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-accent-yellow">Our Core Motivation</div>
                                     <h3
                                         class="text-3xl font-black sm:text-4xl font-display text-gray-900 dark:text-white leading-tight">
-                                        "RageLabs transformed our legacy workflow into a high-speed digital engine
-                                        within 4 weeks."
+                                        Driven by Passion for Robust Engineering and User-First Design
                                     </h3>
                                     <p class="text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
-                                        Through targeted architectural modernization and clean automated pipelines,
-                                        RageLabs helped launch our flagship platform with 99.99% uptime compliance.
+                                        We are motivated by a relentless pursuit of coding mastery. We build clean software that is secure, scalable, and built to stand the test of time, helping teams run faster.
                                     </p>
                                     <div class="flex items-center gap-4 pt-2">
                                         <div
                                             class="h-12 w-12 rounded-xl bg-primary text-white font-black flex items-center justify-center font-title text-xl">
                                             RL</div>
                                         <div>
-                                            <div class="text-sm font-bold text-gray-900 dark:text-white">Venture Partner
-                                            </div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">Enterprise Operations
-                                            </div>
+                                            <div class="text-sm font-bold text-gray-900 dark:text-white">Our Engineering Core</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Rage Labs Collective</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div
-                                    class="rounded-2xl overflow-hidden bg-primary/10 border border-primary/20 p-8 flex flex-col justify-center gap-6">
-                                    <div class="text-5xl font-black font-display text-primary">+300%</div>
-                                    <div class="text-sm font-bold text-gray-800 dark:text-gray-200">Processing Speed
-                                        Increase across daily transactions</div>
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Validated benchmark across
-                                        100,000+ API executions</div>
+                                    class="rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-primary/20 p-8 flex flex-col justify-center gap-6 shadow-xl relative z-10">
+                                    <div class="text-5xl font-black font-display text-primary">100%</div>
+                                    <div class="text-sm font-bold text-gray-900 dark:text-white">Committed to Clean Code and Structural Excellence</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Zero tech debt, built for modern enterprise standards</div>
                                 </div>
                             </div>
 
-                            <!-- Slide 2 -->
+                            <!-- Slide 2: Tech Adoption -->
                             <div class="carousel-slide min-w-full flex-none grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
                                 aria-hidden="true">
                                 <div class="flex flex-col gap-6">
-                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-accent-blue">
-                                        Engineering Perspective</div>
+                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-accent-blue">Modern Tech Adoption</div>
                                     <h3
                                         class="text-3xl font-black sm:text-4xl font-display text-gray-900 dark:text-white leading-tight">
-                                        Build Fast, Scale Smart: The Modern MVP Playbook
+                                        How Leading Industries Leverage Cutting-Edge Stacks
                                     </h3>
                                     <p class="text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
-                                        Discover how modular microservice architecture and streamlined UI design systems
-                                        reduce time-to-market by over 60%.
-                                    </p>
-                                    <a href="pitch.html"
-                                        class="w-fit inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent-yellow transition-colors">
-                                        Submit Pitch to Acceleration Team <span
-                                            class="material-symbols-outlined text-base">arrow_forward</span>
-                                    </a>
-                                </div>
-                                <div
-                                    class="rounded-2xl overflow-hidden bg-accent-blue/10 border border-accent-blue/20 p-8 flex flex-col justify-center gap-6">
-                                    <div class="text-5xl font-black font-display text-accent-blue">60%</div>
-                                    <div class="text-sm font-bold text-gray-800 dark:text-gray-200">Faster
-                                        Time-to-Market for early stage ventures</div>
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Zero-compromise engineering
-                                        quality</div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div class="carousel-slide min-w-full flex-none grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
-                                aria-hidden="true">
-                                <div class="flex flex-col gap-6">
-                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-primary">Generative
-                                        AI Mastery</div>
-                                    <h3
-                                        class="text-3xl font-black sm:text-4xl font-display text-gray-900 dark:text-white leading-tight">
-                                        Enterprise Intelligence Built Directly Into Your Core Product
-                                    </h3>
-                                    <p class="text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
-                                        From custom RAG pipelines to real-time analytics engines, we integrate
-                                        generative intelligence directly into operational workflows.
+                                        From Generative AI integration to high-concurrency Spring Boot microservices, we help enterprise platforms adopt the latest technologies to stay ahead.
                                     </p>
                                     <a href="services.html"
-                                        class="w-fit inline-flex items-center gap-2 text-sm font-bold text-accent-blue hover:text-primary transition-colors">
-                                        Explore AI Services <span
+                                        class="w-fit inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-accent-yellow transition-colors">
+                                        Explore Solutions and Technology Stacks <span
                                             class="material-symbols-outlined text-base">arrow_forward</span>
                                     </a>
                                 </div>
                                 <div
-                                    class="rounded-2xl overflow-hidden bg-amber-500/10 border border-amber-500/20 p-8 flex flex-col justify-center gap-6">
+                                    class="rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-accent-blue/30 p-8 flex flex-col justify-center gap-6 shadow-xl relative z-10">
+                                    <div class="text-5xl font-black font-display text-accent-blue">10x</div>
+                                    <div class="text-sm font-bold text-gray-900 dark:text-white">Faster Deployment and Architecture Scalability</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Leveraging Docker, AWS, and Redis pipelines</div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Digital Transition -->
+                            <div class="carousel-slide min-w-full flex-none grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                                aria-hidden="true">
+                                <div class="flex flex-col gap-6">
+                                    <div class="text-xs font-black uppercase tracking-[0.2em] text-primary">Digital Transition</div>
+                                    <h3
+                                        class="text-3xl font-black sm:text-4xl font-display text-gray-900 dark:text-white leading-tight">
+                                        Empowering Ventures to Scale with Seamless Systems
+                                    </h3>
+                                    <p class="text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                                        We believe in creating high-performance systems with sub-50ms latency, enabling businesses to digitize operations and achieve higher customer satisfaction.
+                                    </p>
+                                    <a href="pitch.html"
+                                        class="w-fit inline-flex items-center gap-2 text-sm font-bold text-accent-blue hover:text-primary transition-colors">
+                                        Submit Pitch for Scale Acceleration <span
+                                            class="material-symbols-outlined text-base">arrow_forward</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 border border-amber-500/30 p-8 flex flex-col justify-center gap-6 shadow-xl relative z-10">
                                     <div class="text-5xl font-black font-display text-amber-500">99.9%</div>
-                                    <div class="text-sm font-bold text-gray-800 dark:text-gray-200">Accuracy &
-                                        Availability for Custom Intelligent Services</div>
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Enterprise security & data
-                                        isolation</div>
+                                    <div class="text-sm font-bold text-gray-900 dark:text-white">Operational Uptime and Live System Health Auditing</div>
+                                    <div class="text-xs text-gray-500 dark:text-gray-400">Zero-downtime integration and deployment workflows</div>
                                 </div>
                             </div>
                         </div>
@@ -717,7 +748,7 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-gray-50 border border-gray-200/60 p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-gray-50 border border-gray-200/60 p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors">
                                 <svg class="w-full h-full text-primary" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="40" cy="50" r="15" stroke="currentColor" stroke-width="2" />
                                     <circle cx="160" cy="50" r="15" stroke="currentColor" stroke-width="2" />
@@ -725,11 +756,6 @@
                                     <rect x="85" y="35" width="30" height="30" rx="6" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2" />
                                     <path d="M100 20 V35 M100 65 V80" stroke="currentColor" stroke-width="2" />
                                 </svg>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -747,17 +773,12 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-white/5 border border-white/10 p-4 flex items-center justify-center relative overflow-hidden mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-white/5 border border-white/10 p-4 flex items-center justify-center relative overflow-hidden">
                                 <svg class="w-full h-full text-accent-yellow" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 60 Q 50 20, 100 60 T 200 60" stroke="#ffd700" stroke-width="3" fill="none" />
                                     <path d="M0 40 Q 50 80, 100 40 T 200 40" stroke="#7000ff" stroke-width="2" fill="none" opacity="0.7" />
                                     <path d="M0 50 Q 50 30, 100 50 T 200 50" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 3" />
                                 </svg>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-accent-yellow transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -774,17 +795,12 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-gray-50 border border-gray-200/60 p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-gray-50 border border-gray-200/60 p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors">
                                 <svg class="w-full h-full text-gray-800" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <ellipse cx="100" cy="50" rx="60" ry="25" stroke="currentColor" stroke-width="1.5" />
                                     <ellipse cx="100" cy="50" rx="25" ry="60" stroke="currentColor" stroke-width="1.5" />
                                     <circle cx="100" cy="50" r="10" fill="#6b0c16" />
                                 </svg>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -801,15 +817,10 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-accent-blue/5 border border-accent-blue/20 p-4 flex items-center justify-center relative overflow-hidden mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-accent-blue/5 border border-accent-blue/20 p-4 flex items-center justify-center relative overflow-hidden">
                                 <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-accent-blue/20 to-primary/20 backdrop-blur-sm border border-white flex items-center justify-center shadow-md">
                                     <span class="material-symbols-outlined text-accent-blue text-3xl">smart_toy</span>
                                 </div>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-accent-blue transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -826,16 +837,11 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-amber-500/5 border border-amber-500/20 p-4 flex items-center justify-center relative overflow-hidden mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-amber-500/5 border border-amber-500/20 p-4 flex items-center justify-center relative overflow-hidden">
                                 <div class="flex items-center gap-3">
                                     <span class="material-symbols-outlined text-amber-500 text-4xl animate-bounce">rocket_launch</span>
                                     <span class="text-2xl font-black font-display text-gray-900">v2.0</span>
                                 </div>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -852,13 +858,8 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 p-4 flex items-center justify-center relative overflow-hidden mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 p-4 flex items-center justify-center relative overflow-hidden">
                                 <span class="material-symbols-outlined text-emerald-600 text-4xl">account_tree</span>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-emerald-600 transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -875,14 +876,9 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 border border-primary/20 flex items-center justify-center relative overflow-hidden mb-4 group-hover:scale-[1.02] transition-transform">
+                            <div class="w-full h-36 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/30 border border-primary/20 flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-transform">
                                 <span class="material-symbols-outlined text-5xl text-primary opacity-75">domain</span>
                                 <span class="absolute top-3 right-3 rounded-full bg-primary/25 text-primary px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider">SSSSD Group</span>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-primary transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -899,13 +895,8 @@
                             </p>
                         </div>
                         <div>
-                            <div class="w-full h-36 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 p-4 flex items-center justify-center relative overflow-hidden mb-4">
+                            <div class="w-full h-36 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 p-4 flex items-center justify-center relative overflow-hidden">
                                 <span class="material-symbols-outlined text-indigo-600 text-4xl">speed</span>
-                            </div>
-                            <div class="flex items-center justify-end">
-                                <span class="text-xs font-bold text-gray-900 group-hover:text-indigo-600 transition-colors flex items-center gap-1">
-                                    Expand <span class="text-sm">›</span>
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -926,15 +917,15 @@
                             The People Behind <span class="text-primary">Rage Labs</span>
                         </h2>
                         <p class="text-gray-600 leading-relaxed font-medium mb-6">
-                            <strong>Ronit Rout</strong> (UI/UX & Application Design) and <strong>Swarup Kumar Sahoo</strong> (Feature Development & Product Thinking) are the Software Developers and Staff Engineers behind Rage Labs — combining computer science expertise with real-world product engineering.
+                            Rage Labs is led by our creators and lead engineers, <a href="about.html#ronit-rout" class="text-primary hover:text-accent-yellow underline transition-colors">Ronit Rout</a> and <a href="about.html#swarup-kumar-sahoo" class="text-primary hover:text-accent-yellow underline transition-colors">Swarup Kumar Sahoo</a>. Together, they combine deep computer science expertise with practical software architecture to shape the digital platforms, custom tools, and automated pipelines built in our lab.
                         </p>
                         <div class="flex flex-wrap gap-4 text-xs font-bold text-gray-700">
-                            <span class="px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-primary"></span> Ronit Rout — UI/UX & Apps
-                            </span>
-                            <span class="px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-accent-blue"></span> Swarup Kumar Sahoo — Product & Features
-                            </span>
+                            <a href="about.html#ronit-rout" class="px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm hover:border-primary hover:text-primary transition-all flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-primary"></span> Ronit Rout
+                            </a>
+                            <a href="about.html#swarup-kumar-sahoo" class="px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm hover:border-primary hover:text-primary transition-all flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-accent-blue"></span> Swarup Kumar Sahoo
+                            </a>
                         </div>
                     </div>
                     <div class="shrink-0">
@@ -951,7 +942,7 @@
         <section class="relative py-20 lg:py-32 bg-background-light dark:bg-background-dark">
             <div class="mx-auto max-w-7xl px-6 lg:px-10">
                 <div
-                    class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-[#4b080c] to-[#1e3a8a] px-8 py-20 text-center text-white lg:px-16 lg:py-28 shadow-[0_48px_80px_-20px_rgba(114,12,19,0.5)] reveal-scale">
+                    class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary via-[#150d42] to-[#1e3a8a] px-8 py-20 text-center text-white lg:px-16 lg:py-28 shadow-[0_48px_80px_-20px_rgba(26,16,82,0.5)] reveal-scale">
                     <div class="tech-grid absolute inset-0 opacity-10"></div>
                     <div class="relative z-10 mx-auto max-w-3xl flex flex-col gap-8 items-center">
                         <h2 class="text-4xl font-black tracking-tighter sm:text-5xl lg:text-6xl font-display">
@@ -978,7 +969,7 @@
                 <!-- Branding -->
                 <div class="lg:col-span-2 flex flex-col gap-6">
                     <div class="flex items-center gap-3">
-                        <img src="images/logo.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
+                        <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
                         <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
                     </div>
                     <p class="max-w-sm text-gray-500 font-medium text-sm leading-relaxed">
@@ -1048,7 +1039,7 @@
             <div
                 class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-primary/5 pt-10 text-sm text-gray-400 md:flex-row">
                 <div class="flex items-center gap-3">
-                    <img src="images/logo.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
+                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
                     <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
                 </div>
                 <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
@@ -1132,7 +1123,7 @@
                     data-keywords="autoffy automotive ai fleet automation software">
                     <div>
                         <div class="text-xs font-black uppercase tracking-wider text-primary mb-1">Featured MVP</div>
-                        <div class="text-base font-bold text-gray-900 dark:text-white">AutoFfy — Vehicle Automation
+                        <div class="text-base font-bold text-gray-900 dark:text-white">AutoFfy: Vehicle Automation
                             Platform</div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">Next-generation dealership & fleet
                             intelligence suite</div>
@@ -1226,12 +1217,7 @@
             const user = JSON.parse(localStorage.getItem('currentUser'));
             const authNav = document.getElementById('auth-nav');
 
-            if (!user) {
-                authNav.innerHTML = `
-                    <a href="login.html?redirect=index" class="hidden sm:flex h-10 items-center justify-center rounded-lg px-5 text-sm font-bold border border-primary/20 hover:bg-primary/5 transition-all">Sign In</a>
-                    <a href="signup.html?redirect=index" class="flex h-10 items-center justify-center rounded-lg bg-primary px-5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Sign Up</a>
-                `;
-            } else {
+            if (!user) { authNav.innerHTML = ""; } else {
                 const initial = user.fullName ? user.fullName.charAt(0).toUpperCase() : (user.email ? user.email.charAt(0).toUpperCase() : 'U');
 
                 authNav.innerHTML = `
@@ -1246,7 +1232,7 @@
                                     <p class="text-xs font-black text-gray-400 uppercase tracking-tighter text-left">Connected as</p>
                                     <p class="text-sm font-bold truncate text-left">${user.fullName || user.email}</p>
                                 </div>
-                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 flex items-center gap-2">
+                                <button onclick="logout()" class="w-full text-left px-4 py-2 text-sm font-bold text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/10 flex items-center gap-2">
                                     <span class="material-symbols-outlined text-[18px]">logout</span>
                                     Log Out
                                 </button>

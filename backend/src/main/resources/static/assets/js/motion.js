@@ -184,7 +184,7 @@ function initInteractiveCanvasBackground() {
             this.vx = (Math.random() - 0.5) * 0.3;
             this.wobble = Math.random() * Math.PI * 2;
             this.wobbleSpeed = Math.random() * 0.02 + 0.008;
-            this.color = Math.random() > 0.4 ? 'rgba(246, 188, 24, ' : 'rgba(114, 12, 19, ';
+            this.color = Math.random() > 0.4 ? 'rgba(246, 188, 24, ' : 'rgba(26, 16, 82, ';
             this.alpha = Math.random() * 0.3 + 0.15;
         }
 
@@ -237,7 +237,7 @@ function initInteractiveCanvasBackground() {
             this.radius = Math.random() * 2 + 1;
             this.vx = (Math.random() - 0.5) * 0.6;
             this.vy = (Math.random() - 0.5) * 0.6;
-            this.color = Math.random() > 0.45 ? 'rgba(246, 188, 24, ' : (Math.random() > 0.5 ? 'rgba(114, 12, 19, ' : 'rgba(37, 99, 235, ');
+            this.color = Math.random() > 0.45 ? 'rgba(246, 188, 24, ' : (Math.random() > 0.5 ? 'rgba(26, 16, 82, ' : 'rgba(37, 99, 235, ');
         }
 
         update() {
@@ -348,7 +348,7 @@ function initHomeConstellationAnimation() {
             radius: Math.random() * 2.2 + 1,
             vx: (Math.random() - 0.5) * 0.8,
             vy: (Math.random() - 0.5) * 0.8,
-            color: Math.random() > 0.4 ? 'rgba(246, 188, 24, ' : (Math.random() > 0.5 ? 'rgba(114, 12, 19, ' : 'rgba(37, 99, 235, ')
+            color: Math.random() > 0.4 ? 'rgba(246, 188, 24, ' : (Math.random() > 0.5 ? 'rgba(26, 16, 82, ' : 'rgba(37, 99, 235, ')
         });
     }
 
@@ -543,7 +543,7 @@ function initAboutAuroraWaveAnimation() {
             const y = Math.cos(x * 0.004 - tick * 1.2) * 60 + Math.sin(x * 0.0015 + tick) * 40 + height * 0.6;
             ctx.lineTo(x, y);
         }
-        ctx.strokeStyle = 'rgba(114, 12, 19, 0.2)';
+        ctx.strokeStyle = 'rgba(26, 16, 82, 0.2)';
         ctx.lineWidth = 3;
         ctx.stroke();
 
@@ -1274,14 +1274,14 @@ function initGlobalUiPolish() {
             transform: scale(0.98) !important;
         }
         input:focus, select:focus, textarea:focus {
-            box-shadow: 0 0 0 3px rgba(114, 12, 19, 0.12) !important;
-            border-color: #720c13 !important;
+            box-shadow: 0 0 0 3px rgba(26, 16, 82, 0.12) !important;
+            border-color: #1a1052 !important;
         }
         footer a {
             transition: color 0.2s ease;
         }
         footer a:hover {
-            color: #720c13 !important;
+            color: #1a1052 !important;
         }
         /* 360px Mobile Viewport Optimizations */
         @media (max-width: 380px) {

@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Track Your Progress | Rage Labs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
         <script id="tailwind-config">
@@ -14,16 +14,17 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#720c13",
+                        "primary": "#1a1052",
                         "accent-yellow": "#f6bc18",
                         "accent-blue": "#2563eb",
                         "background-light": "#fcfbfb",
-                        "background-dark": "#0f0506",
+                        "background-dark": "#080612",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "title": ["Big Shoulders Display", "sans-serif"],
-                        "sans": ["Inter", "system-ui", "sans-serif"]
+                        "display": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "title": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "sans": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "editorial": ["Graphik", "Inter", "Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -53,8 +54,81 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        /* Accenture Corporate Typography System */
+        :root {
+            --font-accenture: "Graphik", "Inter", "Montserrat", sans-serif;
+        }
+
+        body, html {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display, .font-title, .font-sans {
+            font-family: var(--font-accenture) !important;
+        }
+
+        .hero-heading, .hero-title, h1.hero-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 80px !important;
+            font-weight: 700 !important;
+            letter-spacing: -2px !important;
+            line-height: 0.95 !important;
+            text-transform: uppercase !important;
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 38px !important;
+            }
+        }
+
+        h2, .section-heading, .section-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 48px !important;
+            font-weight: 700 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important;
+        }
+
+        @media (max-width: 640px) {
+            h2, .section-heading, .section-title {
+                font-size: 32px !important;
+            }
+        }
+
+        .hero-subtitle, .section-subtitle, .subheading, h3.subtitle {
+            font-family: var(--font-accenture) !important;
+            font-size: 16.8px !important;
+            font-weight: 700 !important;
+            line-height: 1.6 !important;
+        }
+
+        .dark .hero-subtitle, .dark .section-subtitle, .dark .subheading, [class*="bg-dark"] .subheading {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .light .hero-subtitle, .light .section-subtitle, .light .subheading, .bg-light .subheading {
+            color: #1A1A1A !important;
+        }
+
+        button, .btn, .button, a.btn, input[type="submit"] {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+        }
         .tech-grid {
             background-image: radial-gradient(circle, #730c13 0.5px, transparent 0.5px);
             background-size: 40px 40px;
@@ -87,7 +161,7 @@
     <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
             <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
+                <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
                 <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain">
             </a>
             <nav class="hidden md:flex items-center gap-8">
@@ -222,7 +296,7 @@
                 finalLabel.textContent = 'Accepted';
             } else if (status === 'REJECTED') {
                 title.textContent = 'Mission Aborted';
-                title.className = 'text-4xl font-black font-title uppercase tracking-tighter text-red-500';
+                title.className = 'text-4xl font-black font-title uppercase tracking-tighter text-indigo-500';
                 message.textContent = 'We regret to inform you that your transmission does not align with our current lab protocols. We appreciate the intel.';
                 step2.className = 'flex-1 flex flex-col items-center gap-3 status-done';
                 step3.className = 'flex-1 flex flex-col items-center gap-3 status-done';
