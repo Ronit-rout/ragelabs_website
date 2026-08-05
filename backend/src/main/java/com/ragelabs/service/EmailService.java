@@ -191,6 +191,49 @@ public class EmailService {
         sendSingleEmail(app.getEmail(), subject, body);
     }
 
+    public void sendProjectSubmissionEmail(com.ragelabs.model.ProjectSubmission project, MultipartFile documentFile) {
+        String subject = "🛠️ New Project Intake Request — " + project.getProjectName() + " by " + project.getClientName();
+        String body = "<div style='font-family:Arial,sans-serif;max-width:700px;padding:32px;background:#fafafa;border-radius:12px;border:1px solid #e0e0e0'>"
+            + "<div style='background:#1a1052;padding:20px 28px;border-radius:8px 8px 0 0;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;'>Rage Labs — Build My Project Request</h1>"
+            + "</div>"
+            + "<div style='padding:28px;background:#fff;border-radius:0 0 8px 8px;'>"
+            + section("👤 Client Details")
+            + row("Client Name", safe(project.getClientName()))
+            + row("Email", safe(project.getEmail()))
+            + row("Phone / WhatsApp", safe(project.getPhone()))
+            + row("LinkedIn Profile", safe(project.getLinkedin()))
+            + row("GitHub / Portfolio", safe(project.getGithub()))
+            + section("🚀 Project Scope & Vision")
+            + row("Project Title", safe(project.getProjectName()))
+            + row("Project Description", safe(project.getProjectDescription()))
+            + row("Target Audience & Features", safe(project.getTargetAudience()))
+            + row("Business Model", safe(project.getBusinessModel()))
+            + row("Budget & Timeline", safe(project.getBudgetTimeline()))
+            + row("Attached Specification Document", safe(project.getDocumentFileName()))
+            + row("Submitted At", project.getSubmittedAt() != null ? project.getSubmittedAt().toString() : "N/A")
+            + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@ragelabs.in</p>"
+            + "</div></div>";
+        sendEmailWithAttachment(subject, body, documentFile);
+    }
+
+    public void sendAutoReplyToProjectClient(com.ragelabs.model.ProjectSubmission project) {
+        String subject = "Rage Labs — We received your project request for " + safe(project.getProjectName());
+        String body = "<div style='font-family:Arial,sans-serif;max-width:650px;margin:0 auto;padding:32px;background:#ffffff;border-radius:16px;border:1px solid #e0e0e0;'>"
+            + "<div style='background:#1a1052;padding:24px 32px;border-radius:12px;margin-bottom:24px;'>"
+            + "<h1 style='color:#f6bc18;margin:0;font-size:24px;font-weight:900;'>Rage Labs Engineering</h1>"
+            + "<p style='color:#ffffff;margin:4px 0 0 0;font-size:13px;opacity:0.9;'>Build My Project Track</p>"
+            + "</div>"
+            + "<h2 style='color:#111;font-size:20px;margin-top:0;'>Thank you, " + safe(project.getClientName()) + "!</h2>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>We have received your project details for <strong>" + safe(project.getProjectName()) + "</strong>.</p>"
+            + "<p style='color:#444;font-size:15px;line-height:1.6;'>Our engineering leads are evaluating your project scope, requirements, and tech stack options. Expect a detailed response and roadmap proposal from our team within 1-2 business days.</p>"
+            + "<br/><p style='color:#666;font-size:14px;'>Best regards,<br/><strong style='color:#1a1052;'>The Rage Labs Engineering Team</strong></p>"
+            + "<hr style='border:none;border-top:1px solid #eee;margin:24px 0;'/>"
+            + "<p style='color:#999;font-size:12px;text-align:center;'>Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd.<br/>support@ragelabs.in</p>"
+            + "</div>";
+        sendSingleEmail(project.getEmail(), subject, body);
+    }
+
     public void sendAutoReplyToPitcher(com.ragelabs.model.Pitch pitch) {
         String subject = "Rage Labs — Pitch Received for " + safe(pitch.getProjectName());
         String body = "<div style='font-family:Arial,sans-serif;max-width:650px;margin:0 auto;padding:32px;background:#ffffff;border-radius:16px;border:1px solid #e0e0e0;'>"

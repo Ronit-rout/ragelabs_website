@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tell Us About Your Project | Rage Labs - Build My Project</title>
+    <meta name="description" content="Submit your software project details to Rage Labs. Web applications, mobile apps, SaaS platforms, and enterprise engineering." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a1052",
+                        "accent-yellow": "#f6bc18",
+                        "accent-blue": "#2563eb",
+                        "background-light": "#fcfbfb",
+                        "background-dark": "#080612",
+                    },
+                    fontFamily: {
+                        "display": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "title": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "sans": ["Graphik", "Inter", "Montserrat", "sans-serif"],
+                        "editorial": ["Graphik", "Inter", "Montserrat", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                        'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --font-accenture: "Graphik", "Inter", "Montserrat", sans-serif;
+        }
+
+        body, html {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-display, .font-title, .font-sans {
+            font-family: var(--font-accenture) !important;
+            font-weight: 800;
+        }
+
+        .hero-heading, .hero-title, h1.hero-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 80px !important;
+            font-weight: 800 !important;
+            letter-spacing: -2px !important;
+            line-height: 0.95 !important;
+            text-transform: uppercase !important;
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-heading, .hero-title, h1.hero-title {
+                font-size: 38px !important;
+            }
+        }
+
+        h2, .section-heading, .section-title {
+            font-family: var(--font-accenture) !important;
+            font-size: 48px !important;
+            font-weight: 800 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.1 !important;
+        }
+
+        @media (max-width: 640px) {
+            h2, .section-heading, .section-title {
+                font-size: 32px !important;
+            }
+        }
+
+        button, .btn, .button, a.btn, input[type="submit"], .cta-btn-text {
+            font-family: var(--font-accenture) !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        .tech-grid {
+            background-image: radial-gradient(circle, #1a1052 0.5px, transparent 0.5px);
+            background-size: 40px 40px;
+            opacity: 0.08;
+        }
+
+        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(14px); border: 1px solid rgba(26, 16, 82, 0.08); }
+        .dark .glass-card { background: rgba(15, 5, 6, 0.85); border: 1px solid rgba(255, 255, 255, 0.08); }
+
+        #toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+            flex-col;
+            gap: 0.75rem;
+        }
+
+        .toast {
+            min-width: 300px;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .toast-success { background: #1a1052; border-left: 4px solid #f6bc18; }
+        .toast-error { background: #991b1b; border-left: 4px solid #f87171; }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#0e0e1b] dark:text-white transition-colors duration-300">
+    <div id="toast-container"></div>
+    <div class="page-transition" id="page-transition"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white shadow-2xl backdrop-blur-md">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
+                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
+                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
+                </div>
+                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-7">
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
+                    See What We Do
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
+                    What We Think
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1 text-accent-yellow" href="services.html">
+                    Services
+                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
+                    Portfolio
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
+                    About Us
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
+                    Careers
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
+                    Contact
+                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
+                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-3 mt-6">
+                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200 text-accent-yellow">Services</a>
+                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
+                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <main class="py-12 lg:py-20 relative">
+        <div class="tech-grid absolute inset-0 -z-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <!-- Header Banner -->
+            <div class="text-center mb-12 animate-fade-up">
+                <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-primary border border-primary/20 mb-6">
+                    <span class="material-symbols-outlined text-sm">rocket_launch</span>
+                    Build My Project Track
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-gray-900 dark:text-white mb-4">
+                    Tell Us About <span class="text-primary italic">Your Project</span>
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400 font-medium max-w-2xl mx-auto">
+                    Share your requirements, ideas, or specifications below. Our senior engineering squad will review your scope and respond with a clear roadmap.
+                </p>
+            </div>
+
+            <!-- Form Card -->
+            <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 shadow-2xl border border-primary/10 relative overflow-hidden">
+                <!-- Progress Bar -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Project Form Completion</span>
+                        <span id="progress-label" class="text-xs font-bold text-primary">0% Complete</span>
+                    </div>
+                    <div class="w-full bg-gray-200 dark:bg-white/10 h-2 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-primary h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <form id="project-form" class="space-y-10">
+                    <!-- SECTION 1: Client Information -->
+                    <div>
+                        <h3 class="text-xl font-bold font-display text-primary dark:text-accent-yellow border-b border-primary/10 pb-3 mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined">person</span>
+                            Client &amp; Contact Details
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="clientName" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Full Name / Company Name *</label>
+                                <input type="text" id="clientName" name="clientName" required placeholder="e.g. Alex Morgan" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="alex@company.com" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Phone / WhatsApp (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label for="linkedin" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">LinkedIn Profile (Optional)</label>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="github" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">GitHub / Existing Website / Portfolio (Optional)</label>
+                                <input type="url" id="github" name="github" placeholder="https://github.com/username or existing website URL" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: Project Details & Scope -->
+                    <div>
+                        <h3 class="text-xl font-bold font-display text-primary dark:text-accent-yellow border-b border-primary/10 pb-3 mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined">code</span>
+                            Project Scope &amp; Vision
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="projectName" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Project Title / Name *</label>
+                                <input type="text" id="projectName" name="projectName" required placeholder="e.g. NextGen SaaS Analytics Platform" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label for="projectDescription" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Tell Us About Your Project (Requirements &amp; Goals) *</label>
+                                <textarea id="projectDescription" name="projectDescription" required rows="5" placeholder="Describe what you need built, core objectives, target platforms (Web, iOS, Android, Cloud), key functionalities..." class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"></textarea>
+                            </div>
+
+                            <div>
+                                <label for="targetAudience" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Target Audience &amp; Key Features (Optional)</label>
+                                <textarea id="targetAudience" name="targetAudience" rows="3" placeholder="Who are your users? List 2-3 key features or integrations (e.g. Stripe payments, AI features)..." class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="businessModel" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Business Model / Monetization (Optional)</label>
+                                    <input type="text" id="businessModel" name="businessModel" placeholder="e.g. Subscription B2B SaaS, One-time license, Marketplace commission" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label for="budgetTimeline" class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Timeline &amp; Budget Range (Optional)</label>
+                                    <select id="budgetTimeline" name="budgetTimeline" class="w-full rounded-xl border border-gray-300 dark:border-white/10 bg-white/50 dark:bg-white/5 p-4 text-sm font-medium focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                                        <option value="">Select preferred timeline / budget...</option>
+                                        <option value="Urgent (1-2 weeks MVP)">Urgent (1-2 weeks MVP)</option>
+                                        <option value="Standard (1-2 months)">Standard (1-2 months)</option>
+                                        <option value="Enterprise / Dedicated Team">Enterprise / Dedicated Team</option>
+                                        <option value="Flexible Schedule">Flexible Schedule</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: Document Upload -->
+                    <div>
+                        <h3 class="text-xl font-bold font-display text-primary dark:text-accent-yellow border-b border-primary/10 pb-3 mb-6 flex items-center gap-2">
+                            <span class="material-symbols-outlined">attach_file</span>
+                            Supporting Specifications &amp; Documents (Optional)
+                        </h3>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">Attach Wireframe, PRD, Deck, or Specs (PDF, DOC, DOCX, JPG, PNG)</label>
+                        <div id="doc-dropzone" class="border-2 border-dashed border-gray-300 dark:border-white/20 rounded-2xl p-8 text-center bg-gray-50/50 dark:bg-white/5 hover:border-primary hover:bg-primary/5 transition-all cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-primary mb-2">cloud_upload</span>
+                            <p id="doc-text" class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Drag and drop your file here or <span class="text-primary font-bold underline">browse</span>
+                            </p>
+                            <p id="doc-file-info" class="text-xs text-primary font-bold mt-2 hidden"></p>
+                            <input id="doc-input" name="document" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" class="hidden">
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div>
+                        <button type="submit" class="w-full h-16 rounded-2xl bg-primary text-white font-black text-lg shadow-2xl shadow-primary/30 hover:bg-[#5a090f] hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3">
+                            <span class="material-symbols-outlined">send</span>
+                            Submit Project Request
+                        </button>
+                        <p class="text-center text-xs text-gray-500 uppercase tracking-widest font-medium mt-4">
+                            By submitting, you agree to our 100% confidential proposal evaluation.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <img src="images/logo-removebg-preview.png" alt="Rage Labs" class="h-8 w-8 object-contain">
+                <span class="font-black text-sm tracking-wider">RAGE LABS COLLECTIVE</span>
+            </div>
+            <p class="text-xs text-gray-400 font-medium">
+                &copy; 2026 Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            const icon = type === 'success' ? 'check_circle' : 'error';
+            toast.innerHTML = `<span class="material-symbols-outlined">${icon}</span><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        const form = document.getElementById('project-form');
+        const progressBar = document.getElementById('progress-bar');
+        const progressLabel = document.getElementById('progress-label');
+        const docDropzone = document.getElementById('doc-dropzone');
+        const docInput = document.getElementById('doc-input');
+        const docText = document.getElementById('doc-text');
+        const docFileInfo = document.getElementById('doc-file-info');
+
+        if (docDropzone && docInput) {
+            docDropzone.addEventListener('click', () => docInput.click());
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                docDropzone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    docDropzone.classList.add('border-primary', 'bg-primary/10');
+                });
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                docDropzone.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    docDropzone.classList.remove('border-primary', 'bg-primary/10');
+                });
+            });
+
+            docDropzone.addEventListener('drop', (e) => {
+                const files = e.dataTransfer.files;
+                if (files && files.length > 0) {
+                    docInput.files = files;
+                    handleFileSelection(files[0]);
+                }
+            });
+
+            docInput.addEventListener('change', () => {
+                if (docInput.files && docInput.files.length > 0) {
+                    handleFileSelection(docInput.files[0]);
+                }
+            });
+        }
+
+        function handleFileSelection(file) {
+            if (file) {
+                docText.innerHTML = `Selected File: <strong class="text-primary">${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                docFileInfo.textContent = "Click or drag another file to replace";
+                docFileInfo.classList.remove('hidden');
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            const inputs = form.querySelectorAll('input:not([type=file]):not([type=checkbox]), textarea, select');
+            let filled = 0;
+            inputs.forEach(el => {
+                if (el.value && el.value.trim() !== '') filled++;
+            });
+            if (docInput && docInput.files && docInput.files.length > 0) {
+                filled += 1;
+            }
+            const totalFields = inputs.length + 1;
+            const pct = Math.round((filled / totalFields) * 100);
+            progressBar.style.width = pct + '%';
+            progressLabel.textContent = pct + '% Complete';
+        }
+
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+        updateProgress();
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            let documentFileName = "";
+            if (docInput && docInput.files && docInput.files.length > 0) {
+                documentFileName = docInput.files[0].name;
+            }
+
+            const projectData = {
+                clientName: document.getElementById('clientName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                linkedin: document.getElementById('linkedin') ? document.getElementById('linkedin').value : '',
+                github: document.getElementById('github') ? document.getElementById('github').value : '',
+                projectName: document.getElementById('projectName').value,
+                projectDescription: document.getElementById('projectDescription').value,
+                targetAudience: document.getElementById('targetAudience').value,
+                businessModel: document.getElementById('businessModel').value,
+                budgetTimeline: document.getElementById('budgetTimeline').value,
+                documentFileName: documentFileName
+            };
+
+            const formData = new FormData();
+            formData.append('data', JSON.stringify(projectData));
+            if (docInput && docInput.files && docInput.files.length > 0) {
+                formData.append('document', docInput.files[0]);
+            }
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalHTML = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<span>Transmitting Scope...</span>';
+
+            try {
+                const response = await fetch('http://localhost:8080/api/project', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showToast('Project details logged! Our engineering squad will review and reach out.', 'success');
+                    form.reset();
+                    if (docText) docText.innerHTML = 'Drag and drop your file here or <span class="text-primary underline font-bold">browse</span>';
+                    if (docFileInfo) docFileInfo.classList.add('hidden');
+                    updateProgress();
+                    setTimeout(() => { window.location.href = 'thankyou.html?type=project'; }, 2000);
+                } else {
+                    const error = await response.text();
+                    showToast('Failed to submit project request: ' + error, 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = originalHTML;
+                }
+            } catch (err) {
+                console.error('Error:', err);
+                showToast('An error occurred. Connection lost with command center.', 'error');
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+            }
+        });
+    </script>
+    <script src="assets/js/motion.js" defer></script>
+</body>
+
+</html>
