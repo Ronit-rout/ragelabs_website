@@ -672,6 +672,12 @@
                 resumeFileName: resumeFileName
             };
 
+            const formData = new FormData();
+            formData.append('data', JSON.stringify(applicationData));
+            if (resumeInput && resumeInput.files && resumeInput.files.length > 0) {
+                formData.append('resume', resumeInput.files[0]);
+            }
+
             const btn = e.target.querySelector('button[type="submit"]');
             const originalHTML = btn.innerHTML;
             btn.disabled = true;
@@ -680,10 +686,7 @@
             try {
                 const response = await fetch('http://localhost:8080/api/apply', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(applicationData)
+                    body: formData
                 });
 
                 if (response.ok) {

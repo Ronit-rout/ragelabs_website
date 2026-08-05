@@ -3,9 +3,11 @@ package com.ragelabs.service;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class EmailService {
@@ -51,7 +53,7 @@ public class EmailService {
         sendEmail(subject, body);
     }
 
-    public void sendJobApplicationEmail(com.ragelabs.model.JobApplication app) {
+    public void sendJobApplicationEmail(com.ragelabs.model.JobApplication app, MultipartFile resumeFile) {
         String subject = "🚀 New Job Application — " + app.getFullName();
         String body = "<div style='font-family:Arial,sans-serif;max-width:700px;padding:32px;background:#fafafa;border-radius:12px;border:1px solid #e0e0e0'>"
             + "<div style='background:#720c13;padding:20px 28px;border-radius:8px 8px 0 0;'>"
@@ -77,7 +79,28 @@ public class EmailService {
             + row("Applied At", app.getAppliedAt() != null ? app.getAppliedAt().toString() : "N/A")
             + "<br/><p style='color:#888;font-size:12px;text-align:center;'>Rage Labs Engineering Collective · support@ragelabs.in</p>"
             + "</div></div>";
-        sendEmail(subject, body);
+        sendEmailWithAttachment(subject, body, resumeFile);
+    }
+
+    public void sendEmailWithAttachment(String subject, String htmlBody, MultipartFile attachment) {
+        try {
+            String[] recipients = { "ronitrishi05@gmail.com", "support@ragelabs.in", "sahooswarup60@gmail.com" };
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+            helper.setTo(recipients);
+            helper.setFrom("ronitrishi05@gmail.com", "Rage Labs");
+            helper.setReplyTo("support@ragelabs.in");
+            helper.setSubject(subject);
+            helper.setText(htmlBody, true);
+            if (attachment != null && !attachment.isEmpty()) {
+                String filename = attachment.getOriginalFilename() != null ? attachment.getOriginalFilename() : "resume";
+                helper.addAttachment(filename, new ByteArrayResource(attachment.getBytes()));
+            }
+            mailSender.send(message);
+        } catch (Exception e) {
+            System.err.println("Failed to send email with attachment: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     public void sendPitchEmail(com.ragelabs.model.Pitch pitch) {

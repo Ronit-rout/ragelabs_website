@@ -3,9 +3,11 @@ package com.ragelabs.controller;
 import com.ragelabs.model.JobApplication;
 import com.ragelabs.repository.CareerRepository;
 import com.ragelabs.service.EmailService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -20,12 +22,26 @@ public class CareerController {
     @Autowired
     private EmailService emailService;
 
-    @PostMapping
-    public ResponseEntity<JobApplication> submitApplication(@RequestBody JobApplication application) {
-        JobApplication savedApplication = careerRepository.save(application);
-        emailService.sendJobApplicationEmail(savedApplication);
-        emailService.sendAutoReplyToApplicant(savedApplication);
-        return ResponseEntity.ok(savedApplication);
+    @PostMapping(consumes = "multipart/form-data")
+    public ResponseEntity<JobApplication> submitApplication(
+            @RequestPart("data") String applicationJson,
+            @RequestPart(value = "resume", required = false) MultipartFile resumeFile) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JobApplication application = mapper.readValue(applicationJson, JobApplication.class);
+
+            if (resumeFile != null && !resumeFile.isEmpty()) {
+                application.setResumeFileName(resumeFile.getOriginalFilename());
+            }
+
+            JobApplication savedApplication = careerRepository.save(application);
+            emailService.sendJobApplicationEmail(savedApplication, resumeFile);
+            emailService.sendAutoReplyToApplicant(savedApplication);
+            return ResponseEntity.ok(savedApplication);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping
