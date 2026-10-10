@@ -22,6 +22,9 @@ public class CareerController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private com.ragelabs.service.GoogleSheetsService googleSheetsService;
+
     @PostMapping(consumes = "multipart/form-data")
     public ResponseEntity<JobApplication> submitApplication(
             @RequestPart("data") String applicationJson,
@@ -37,6 +40,21 @@ public class CareerController {
             JobApplication savedApplication = careerRepository.save(application);
             emailService.sendJobApplicationEmail(savedApplication, resumeFile);
             emailService.sendAutoReplyToApplicant(savedApplication);
+            googleSheetsService.sendApplicationToSheets(savedApplication);
+            return ResponseEntity.ok(savedApplication);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PostMapping(consumes = "application/json")
+    public ResponseEntity<JobApplication> submitApplicationJson(@RequestBody JobApplication application) {
+        try {
+            JobApplication savedApplication = careerRepository.save(application);
+            emailService.sendJobApplicationEmail(savedApplication, null);
+            emailService.sendAutoReplyToApplicant(savedApplication);
+            googleSheetsService.sendApplicationToSheets(savedApplication);
             return ResponseEntity.ok(savedApplication);
         } catch (Exception e) {
             e.printStackTrace();

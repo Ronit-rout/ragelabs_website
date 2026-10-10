@@ -20,11 +20,15 @@ public class PitchController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private com.ragelabs.service.GoogleSheetsService googleSheetsService;
+
     @PostMapping
     public ResponseEntity<Pitch> submitPitch(@RequestBody Pitch pitch) {
         Pitch savedPitch = pitchRepository.save(pitch);
         emailService.sendPitchEmail(savedPitch);
         emailService.sendAutoReplyToPitcher(savedPitch);
+        googleSheetsService.sendPitchToSheets(savedPitch);
         return ResponseEntity.ok(savedPitch);
     }
 

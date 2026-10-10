@@ -19,11 +19,15 @@ public class ContactController {
     @Autowired
     private com.ragelabs.service.EmailService emailService;
 
+    @Autowired
+    private com.ragelabs.service.GoogleSheetsService googleSheetsService;
+
     @PostMapping
     public ResponseEntity<ContactMessage> submitContactForm(@RequestBody ContactMessage message) {
         ContactMessage savedMessage = contactRepository.save(message);
         emailService.sendContactEmail(savedMessage);
         emailService.sendAutoReplyToContact(savedMessage);
+        googleSheetsService.sendContactToSheets(savedMessage);
         return ResponseEntity.ok(savedMessage);
     }
 

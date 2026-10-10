@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
 <head>
+    <link rel="icon" type="image/png" href="/images/fav.png">
+
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Track Your Progress | Rage Labs</title>
@@ -155,23 +157,11 @@
     .glow-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(246, 188, 24, 0.12), transparent 45%); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 1; }
     .glow-card:hover::before { opacity: 1; }
 </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body class="bg-[#fcfcfc] dark:bg-background-dark text-slate-900 dark:text-gray-100 min-h-screen flex flex-col">
 
-    <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-10 w-10 object-contain">
-                <img src="images/logo_name.png" alt="Rage Labs" class="h-8 object-contain">
-            </a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a class="text-sm font-bold hover:text-primary transition-colors" href="index.html">Home</a>
-                <a class="text-sm font-bold hover:text-primary transition-colors" href="services.html">Services</a>
-                <a class="text-sm font-bold hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
-                <a class="text-sm font-bold hover:text-primary transition-colors" href="careers.html">Careers</a>
-            </nav>
-        </div>
-    </header>
+    <rage-navbar></rage-navbar>
 
     <main class="flex-1 flex flex-col items-center justify-center p-6 relative">
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(at 0% 0%, #0047AB 0, transparent 50%), radial-gradient(at 100% 100%, #730c13 0, transparent 50%);"></div>
@@ -246,11 +236,7 @@
         </div>
     </main>
 
-    <footer class="py-12 border-t border-primary/10 mt-auto">
-        <div class="mx-auto max-w-7xl px-6 text-center">
-            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">© 2024 Rage Labs Software Engineering Collective</p>
-        </div>
-    </footer>
+    <rage-footer></rage-footer>
 
     <script>
         document.getElementById('track-form').addEventListener('submit', async (e) => {
@@ -270,7 +256,7 @@
                 btn.disabled = false;
 
                 // Simple logic for simulation
-                // In production: fetch(`http://localhost:8080/api/status/${id}?email=${email}`)
+                // In production: fetch(`/api/status/${id}?email=${email}`)
                 const mockStatus = id.includes('ACC') ? 'ACCEPTED' : (id.includes('REJ') ? 'REJECTED' : 'PENDING');
                 updateTimeline(mockStatus);
                 
@@ -313,6 +299,13 @@
             }
         }
     </script>
-    <script src="assets/js/motion.js" defer></script>
+
+    <rage-modals></rage-modals>
+
+    <script src="/assets/js/core/components.js" defer></script>
+    <script src="/assets/js/core/auth.js" defer></script>
+    <script src="/assets/js/core/toast.js" defer></script>
+    <script src="/assets/js/core/transitions.js" defer></script>
+    <script src="/assets/js/motion.js" defer></script>
 </body>
 </html>

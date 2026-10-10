@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/images/fav.png">
+
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Application Form | Rage Labs</title>
@@ -169,82 +171,11 @@
         .glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(14px); border: 1px solid rgba(115, 12, 19, 0.08); }
         .dark .glass-card { background: rgba(15, 5, 6, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
     </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-[#0e0e1b] transition-colors duration-300">
-    <!-- Top Navigation Bar -->
-    <!-- Top Navigation Bar (Dark Crimson Header) -->
-    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white shadow-2xl backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <!-- Logo Hover Container (Requirement 6) -->
-            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
-                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
-                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
-                </div>
-                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
-                </div>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-7">
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
-                    See What We Do
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
-                    What We Think
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
-                    Portfolio
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
-                    About Us
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
-                    Careers
-                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow transition-all duration-300"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
-                    Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <div id="auth-nav" class="flex items-center gap-3"></div>
-                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
-                    <span class="material-symbols-outlined text-2xl">menu</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Drawer Overlay & Menu -->
-    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-        <div class="absolute right-0 top-0 h-full w-[300px] bg-background-dark p-6 shadow-2xl flex flex-col justify-between border-l border-white/10 z-10 text-white">
-            <div>
-                <div class="flex items-center justify-between pb-6 border-b border-white/10">
-                    <span class="text-lg font-black font-display text-accent-yellow">RAGE LABS</span>
-                    <button id="mobile-menu-close" class="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined text-xl">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-3 mt-6">
-                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
-                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
-                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
-                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
-                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-accent-yellow">Careers</a>
-                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
-                </nav>
-            </div>
-            
-        </div>
+    <rage-navbar></rage-navbar>
     </div>
 
     <!-- Toast Notifications -->
@@ -338,11 +269,14 @@
                         <select id="preferred-role"
                             class="w-full px-4 py-3 bg-transparent border-2 border-primary/10 rounded-lg focus:ring-0 focus:border-primary outline-none appearance-none cursor-pointer transition-colors">
                             <option value="">Select position</option>
+                            <option value="product-management">Product Management</option>
+                            <option value="operations-manager">Operations Manager</option>
+                            <option value="sales-marketing">Sales &amp; Marketing Officer</option>
                             <option value="frontend">Frontend Engineer</option>
                             <option value="backend">Backend Engineer</option>
                             <option value="fullstack">Fullstack Developer</option>
                             <option value="devops">DevOps &amp; Infrastructure</option>
-                            <option value="product">Product Manager</option>
+                            <option value="other">Other / General Application</option>
                         </select>
                     </div>
                     <div class="md:col-span-2 space-y-2">
@@ -425,78 +359,7 @@
             </div>
         </form>
     </main>
-    <!-- Footer -->
-        <!-- Footer (Enterprise Standard) -->
-    <footer class="border-t border-primary/10 bg-white dark:bg-background-dark py-12 lg:py-20">
-        <div class="mx-auto max-w-7xl px-6 lg:px-10">
-            <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
-                <!-- Branding -->
-                <div class="lg:col-span-2 flex flex-col gap-6">
-                    <div class="flex items-center gap-3">
-                        <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-8 w-8 object-contain">
-                        <img src="images/logo_name.png" alt="Rage Labs" class="h-7 object-contain">
-                    </div>
-                    <p class="max-w-sm text-gray-500 font-medium text-sm leading-relaxed">
-                        A modern engineering collective dedicated to crafting digital products that push the boundaries of software mastery and enterprise solution architecture.
-                    </p>
-                    <div class="flex gap-4">
-                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
-                            href="https://www.instagram.com/rage_labs?igsh=MWZjMnY0dzlvMG8xYg==" target="_blank" aria-label="Instagram">
-                            <svg class="h-5 w-5 fill-current" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
-                            </svg>
-                        </a>
-                        <a class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 hover:bg-primary hover:text-white transition-all text-gray-600 dark:text-gray-400"
-                            href="https://www.linkedin.com/company/ragelabs-company" target="_blank" aria-label="LinkedIn">
-                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Quick Navigation -->
-                <div class="flex flex-col gap-6">
-                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Navigation</h3>
-                    <ul class="flex flex-col gap-3">
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="services.html">Services</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="portfolio.html">Portfolio</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="careers.html">Careers</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="about.html">About Us</a></li>
-                        <li><a class="text-sm font-semibold hover:text-primary transition-colors text-gray-700 dark:text-gray-300" href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <!-- Contact Info -->
-                <div class="flex flex-col gap-6">
-                    <h3 class="font-bold uppercase tracking-widest text-xs text-gray-400">Contact Us</h3>
-                    <ul class="flex flex-col gap-3 text-gray-700 dark:text-gray-300">
-                        <li class="flex items-center gap-3 text-sm font-semibold">
-                            <span class="material-symbols-outlined text-primary text-lg">phone</span>
-                            +91 99370 32631
-                        </li>
-                        <li class="flex items-center gap-3 text-sm font-semibold">
-                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
-                            support@ragelabs.in
-                        </li>
-                        <li class="flex items-center gap-3 text-sm font-semibold">
-                            <span class="material-symbols-outlined text-primary text-lg">person</span>
-                            @rage_labs
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-primary/5 pt-10 text-sm text-gray-400 md:flex-row">
-                <div class="flex items-center gap-3">
-                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-6 w-6 object-contain">
-                    <img src="images/logo_name.png" alt="Rage Labs" class="h-5 object-contain">
-                </div>
-                <p>© 2026 Rage Labs • Unit of SSSSD Consumer Products and Services Private Limited (ROC Cuttack, Odisha). All rights reserved.</p>
-                <div class="flex gap-8">
-                    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-                    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <rage-footer></rage-footer>
     <script>
         // ─── AUTH & AVATAR ──────────────────────────────────────────────────────
         function initAuth() {
@@ -569,7 +432,7 @@
                 overlay.style.opacity = '1'; overlay.style.pointerEvents = 'all';
                 requestAnimationFrame(function() { setTimeout(function() { window.location.href = href; }, 80); });
             });
-            ['index.html','services.html','careers.html','contact.html','about.html'].forEach(function(p) {
+            ['/','/services','/careers','/contact','/about'].forEach(function(p) {
                 var l = document.createElement('link'); l.rel = 'prefetch'; l.href = p; document.head.appendChild(l);
             });
         })();
@@ -644,6 +507,27 @@
 
         form.addEventListener('input', updateProgress);
         form.addEventListener('change', updateProgress);
+        // Pre-select role if specified in URL (e.g., /apply?role=product-management)
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const roleParam = urlParams.get('role');
+            if (roleParam) {
+                const roleSelect = document.getElementById('preferred-role');
+                if (roleSelect) {
+                    const normParam = roleParam.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    for (let i = 0; i < roleSelect.options.length; i++) {
+                        const optVal = roleSelect.options[i].value.toLowerCase().replace(/[^a-z0-9]/g, '');
+                        if (optVal && (optVal === normParam || optVal.includes(normParam) || normParam.includes(optVal))) {
+                            roleSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (err) {
+            console.warn('Could not parse role query param:', err);
+        }
+
         updateProgress(); // Initial check
 
         form.addEventListener('submit', async (e) => {
@@ -684,7 +568,7 @@
             btn.innerHTML = '<span>Processing Data...</span>';
 
             try {
-                const response = await fetch('http://localhost:8080/api/apply', {
+                const response = await fetch('/api/apply', {
                     method: 'POST',
                     body: formData
                 });
@@ -695,7 +579,7 @@
                     if (resumeText) resumeText.innerHTML = 'Drag and drop your file here or <span class="text-primary underline font-bold">browse</span>';
                     if (resumeFileInfo) resumeFileInfo.classList.add('hidden');
                     updateProgress();
-                    setTimeout(() => { window.location.href = 'thankyou.html?type=career'; }, 2000);
+                    setTimeout(() => { window.location.href = '/thankyou?type=career'; }, 2000);
                 } else {
                     const error = await response.text();
                     showToast('Failed to submit application: ' + error, 'error');
@@ -710,7 +594,14 @@
             }
         });
     </script>
-    <script src="assets/js/motion.js" defer></script>
+
+    <rage-modals></rage-modals>
+
+    <script src="/assets/js/core/components.js" defer></script>
+    <script src="/assets/js/core/auth.js" defer></script>
+    <script src="/assets/js/core/toast.js" defer></script>
+    <script src="/assets/js/core/transitions.js" defer></script>
+    <script src="/assets/js/motion.js" defer></script>
 </body>
 
 </html>

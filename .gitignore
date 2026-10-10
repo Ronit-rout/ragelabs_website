@@ -33,3 +33,7 @@ mysql-data/
 # OS files
 Thumbs.db
 desktop.ini
+
+# Auto-generated frontend files copied by run.bat
+backend/src/main/resources/static/*
+!backend/src/main/resources/static/.gitkeep

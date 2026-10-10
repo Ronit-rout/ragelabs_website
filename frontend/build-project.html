@@ -2,6 +2,8 @@
 <html class="light" lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/images/fav.png">
+
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Tell Us About Your Project | Rage Labs - Build My Project</title>
@@ -156,6 +158,7 @@
             to { transform: translateX(0); opacity: 1; }
         }
     </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-[#0e0e1b] dark:text-white transition-colors duration-300">
@@ -163,56 +166,7 @@
     <div class="page-transition" id="page-transition"></div>
 
     <!-- Top Navigation Bar -->
-    <header class="sticky top-0 z-50 w-full border-b border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white shadow-2xl backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-            <a href="index.html" class="rage-logo-hover-container relative inline-flex items-center justify-center h-10 w-28 overflow-hidden transition-all duration-300 group" aria-label="Rage Labs Home">
-                <div class="logo-icon-state absolute inset-0 flex items-center justify-center transition-all duration-300 ease-out group-hover:-translate-y-full group-hover:opacity-0">
-                    <img src="images/logo-removebg-preview.png" alt="Rage Labs Logo" class="h-9 w-9 object-contain drop-shadow-[0_0_8px_rgba(246,188,24,0.4)]">
-                </div>
-                <div class="logo-text-state absolute inset-0 flex items-center justify-center translate-y-full opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                    <img src="images/logo_name.png" alt="Rage Labs" class="h-6 object-contain">
-                </div>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-7">
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="see-what-we-do.html">
-                    See What We Do
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="what-we-think.html">
-                    What We Think
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1 text-accent-yellow" href="services.html">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-full h-[2.5px] bg-accent-yellow"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="portfolio.html">
-                    Portfolio
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="about.html">
-                    About Us
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="careers.html">
-                    Careers
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a class="text-xs font-black uppercase tracking-[0.15em] text-white/90 hover:text-accent-yellow transition-all relative group py-1" href="contact.html">
-                    Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2.5px] bg-accent-yellow transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white hover:bg-white hover:text-primary transition-all" aria-label="Toggle Navigation">
-                    <span class="material-symbols-outlined text-2xl">menu</span>
-                </button>
-            </div>
-        </div>
-    </header>
+    <rage-navbar></rage-navbar>
 
     <!-- Mobile Drawer Overlay -->
     <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out md:hidden">
@@ -226,13 +180,13 @@
                     </button>
                 </div>
                 <nav class="flex flex-col gap-3 mt-6">
-                    <a href="see-what-we-do.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
-                    <a href="what-we-think.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
-                    <a href="services.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200 text-accent-yellow">Services</a>
-                    <a href="portfolio.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
-                    <a href="about.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
-                    <a href="careers.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
-                    <a href="contact.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
+                    <a href="/work" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">See What We Do</a>
+                    <a href="/insights" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">What We Think</a>
+                    <a href="/services" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200 text-accent-yellow">Services</a>
+                    <a href="/portfolio" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Portfolio</a>
+                    <a href="/about" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">About Us</a>
+                    <a href="/careers" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Careers</a>
+                    <a href="/contact" class="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 text-sm font-bold text-gray-200">Contact</a>
                 </nav>
             </div>
         </div>
@@ -373,18 +327,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/10 bg-gradient-to-r from-[#100a38] via-[#1a1052] to-[#100a38] text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <img src="images/logo-removebg-preview.png" alt="Rage Labs" class="h-8 w-8 object-contain">
-                <span class="font-black text-sm tracking-wider">RAGE LABS COLLECTIVE</span>
-            </div>
-            <p class="text-xs text-gray-400 font-medium">
-                &copy; 2026 Rage Labs Collective · Unit of SSSD Consumer Products and Services Pvt. Ltd. All rights reserved.
-            </p>
-        </div>
-    </footer>
+    <rage-footer></rage-footer>
 
     <script>
         function showToast(message, type = 'success') {
@@ -504,7 +447,7 @@
             btn.innerHTML = '<span>Transmitting Scope...</span>';
 
             try {
-                const response = await fetch('http://localhost:8080/api/project', {
+                const response = await fetch('/api/project', {
                     method: 'POST',
                     body: formData
                 });
@@ -515,7 +458,7 @@
                     if (docText) docText.innerHTML = 'Drag and drop your file here or <span class="text-primary underline font-bold">browse</span>';
                     if (docFileInfo) docFileInfo.classList.add('hidden');
                     updateProgress();
-                    setTimeout(() => { window.location.href = 'thankyou.html?type=project'; }, 2000);
+                    setTimeout(() => { window.location.href = '/thankyou?type=project'; }, 2000);
                 } else {
                     const error = await response.text();
                     showToast('Failed to submit project request: ' + error, 'error');
@@ -530,7 +473,14 @@
             }
         });
     </script>
-    <script src="assets/js/motion.js" defer></script>
+
+    <rage-modals></rage-modals>
+
+    <script src="/assets/js/core/components.js" defer></script>
+    <script src="/assets/js/core/auth.js" defer></script>
+    <script src="/assets/js/core/toast.js" defer></script>
+    <script src="/assets/js/core/transitions.js" defer></script>
+    <script src="/assets/js/motion.js" defer></script>
 </body>
 
 </html>

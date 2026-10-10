@@ -13,6 +13,8 @@ public class ContactMessage {
     private Long id;
     private String name;
     private String email;
+    private String institution;
+    private String profileType;
     private String subject;
     private String message;
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -42,6 +44,22 @@ public class ContactMessage {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getInstitution() {
+        return institution;
+    }
+
+    public void setInstitution(String institution) {
+        this.institution = institution;
+    }
+
+    public String getProfileType() {
+        return profileType;
+    }
+
+    public void setProfileType(String profileType) {
+        this.profileType = profileType;
     }
 
     public String getSubject() {

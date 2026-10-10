@@ -54,10 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Navbar Active Link Highlighting & Dark Crimson Styling
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const rawPath = window.location.pathname.replace(/\/$/, '') || '/';
+    const cleanSegment = rawPath.split('/').pop().replace(/\.html$/, '');
+    
     document.querySelectorAll('header nav a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+        const href = (link.getAttribute('href') || '').replace(/\/$/, '');
+        const hrefSegment = href.split('/').pop().replace(/\.html$/, '');
+        
+        const isMatch = (href === rawPath) || 
+                        (cleanSegment !== '' && hrefSegment === cleanSegment) || 
+                        ((rawPath === '/' || cleanSegment === '') && (href === '/' || hrefSegment === 'index'));
+
+        if (isMatch) {
             link.classList.add('text-accent-yellow');
             link.classList.remove('text-white/90');
             if (!link.querySelector('.nav-active-bar')) {
@@ -899,77 +907,105 @@ function initAccessibleCarousel() {
  * Card Quick-View & Detail Reveal Modal Engine
  */
 function initCardQuickView() {
-    const modal = document.getElementById('card-detail-modal');
-    const closeBtn = document.getElementById('card-detail-close');
-    const overlay = document.getElementById('card-detail-overlay');
-    const triggers = document.querySelectorAll('.card-quickview-btn');
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.card-quickview-btn');
+        if (!btn) return;
 
-    if (!modal) return;
+        e.preventDefault();
+        e.stopPropagation();
 
-    const titleEl = document.getElementById('modal-card-title');
-    const categoryEl = document.getElementById('modal-card-category');
-    const descEl = document.getElementById('modal-card-desc');
-    const metricsEl = document.getElementById('modal-card-metrics');
-    const stackEl = document.getElementById('modal-card-stack');
-    const linkEl = document.getElementById('modal-card-link');
+        const modal = document.getElementById('card-detail-modal');
+        if (!modal) return;
 
-    triggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+        const titleEl = document.getElementById('modal-card-title');
+        const categoryEl = document.getElementById('modal-card-category');
+        const descEl = document.getElementById('modal-card-desc');
+        const metricsEl = document.getElementById('modal-card-metrics');
+        const stackEl = document.getElementById('modal-card-stack');
+        const linkEl = document.getElementById('modal-card-link');
+        const imageContainer = document.getElementById('modal-card-image-container');
+        const imageEl = document.getElementById('modal-card-image');
 
-            const title = btn.getAttribute('data-title') || 'Project Case Study';
-            const category = btn.getAttribute('data-category') || 'Enterprise Solution';
-            const desc = btn.getAttribute('data-desc') || 'Full-scale digital architecture delivered with high performance, scalability, and security standard.';
-            const metrics = btn.getAttribute('data-metrics') || '300% Speed Boost • 99.99% Uptime';
-            const stack = btn.getAttribute('data-stack') || 'Spring Boot, Tailwind CSS, Next.js, MySQL';
-            const link = btn.getAttribute('data-link');
+        const title = btn.getAttribute('data-title') || 'Project Case Study';
+        const category = btn.getAttribute('data-category') || 'Enterprise Solution';
+        const desc = btn.getAttribute('data-desc') || 'Full-scale digital architecture delivered with high performance, scalability, and security standard.';
+        const metrics = btn.getAttribute('data-metrics') || '300% Speed Boost • 99.99% Uptime';
+        const stack = btn.getAttribute('data-stack') || 'Spring Boot, Tailwind CSS, Next.js, MySQL';
+        const link = btn.getAttribute('data-link');
 
-            if (titleEl) titleEl.textContent = title;
-            if (categoryEl) categoryEl.textContent = category;
-            if (descEl) descEl.textContent = desc;
-            if (metricsEl) metricsEl.textContent = metrics;
-
-            if (linkEl) {
-                if (link) {
-                    linkEl.href = link;
-                    linkEl.classList.remove('hidden');
-                } else {
-                    linkEl.classList.add('hidden');
+        // Extract project preview image
+        let imageSrc = btn.getAttribute('data-image');
+        if (!imageSrc) {
+            const card = btn.closest('.filterable-card, .group, div');
+            if (card) {
+                const img = card.querySelector('img');
+                if (img) {
+                    imageSrc = img.getAttribute('src') || img.src;
                 }
             }
+        }
 
-            if (stackEl) {
-                stackEl.innerHTML = '';
-                stack.split(',').forEach(tech => {
-                    const span = document.createElement('span');
-                    span.className = 'px-3 py-1 text-xs font-bold rounded-lg bg-primary/10 text-primary border border-primary/20';
-                    span.textContent = tech.trim();
-                    stackEl.appendChild(span);
-                });
+        if (titleEl) titleEl.textContent = title;
+        if (categoryEl) categoryEl.textContent = category;
+        if (descEl) descEl.textContent = desc;
+        if (metricsEl) metricsEl.textContent = metrics;
+
+        if (imageContainer && imageEl) {
+            if (imageSrc) {
+                imageEl.src = imageSrc;
+                imageEl.alt = title;
+                imageContainer.classList.remove('hidden');
+            } else {
+                imageContainer.classList.add('hidden');
             }
+        }
 
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.classList.add('overflow-hidden');
-        });
+        if (linkEl) {
+            if (link) {
+                linkEl.href = link;
+                linkEl.classList.remove('hidden');
+            } else {
+                linkEl.classList.add('hidden');
+            }
+        }
+
+        if (stackEl) {
+            stackEl.innerHTML = '';
+            stack.split(',').forEach(tech => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 text-xs font-bold rounded-lg bg-primary/10 text-primary border border-primary/20';
+                span.textContent = tech.trim();
+                stackEl.appendChild(span);
+            });
+        }
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
     });
 
     function closeModal() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.classList.remove('overflow-hidden');
+        const modal = document.getElementById('card-detail-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
     }
 
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (overlay) overlay.addEventListener('click', closeModal);
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#card-detail-close') || e.target.id === 'card-detail-overlay') {
+            closeModal();
+        }
+    });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
             closeModal();
         }
     });
 }
+
 
 /**
  * Light & Integrated Navigation Mega-Menu Dropdown Engine
